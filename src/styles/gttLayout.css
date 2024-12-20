@@ -1,0 +1,11 @@
+body{
+    background-color: #040610;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+}
+#GttLayout-container{
+    flex-grow: 1;
+}

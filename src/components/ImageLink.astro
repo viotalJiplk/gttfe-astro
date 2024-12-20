@@ -1,0 +1,13 @@
+---
+import { Image } from "astro:assets";
+import "../styles/imageLink.css";
+interface Props {
+    image: ImageMetadata;
+    link: string;
+    alt?: string;
+    className?: string; 
+}
+const {image, link, alt = "", className} = Astro.props;
+---
+
+<div class={className}><a class="ImageLink-a" href={link}><Image src={image} alt={alt}></Image><slot/></a></div>
