@@ -1,6 +1,28 @@
 ---
-import GttLayout from "../layouts/GttLayout.astro"
+import ContentHolder from "../components/ContentHolder.astro";
+import GttLayout from "../layouts/GttLayout.astro";
+import PriceImage from "../assets/prices.jpeg";
+import { Image } from "astro:assets";
+import "../styles/prices.css";
 ---
 
 <GttLayout pageTitle = "Ceny">
+    <ContentHolder>
+        <main id="prices">
+            <h1>Ceny</h1>
+            <h2>2023</h2>
+            <h3>Counter-Strike 2</h3>
+            <Image src={PriceImage} alt="Obrázek ceny"></Image>
+            <h3>League of Legends</h3>
+            <Image src={PriceImage} alt="Obrázek ceny"></Image>
+            <h3>Valorant</h3>
+            <Image src={PriceImage} alt="Obrázek ceny"></Image>
+            <h3>Rainbow six: Siege</h3>
+            <Image src={PriceImage} alt="Obrázek ceny"></Image>
+            <h3>Rocket League</h3>
+            <Image src={PriceImage} alt="Obrázek ceny"></Image>
+            <h3>Minecraft</h3>
+            <Image src={PriceImage} alt="Obrázek ceny"></Image>
+        </main>
+    </ContentHolder>
 </GttLayout>
