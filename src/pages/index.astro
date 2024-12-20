@@ -1,6 +1,94 @@
 ---
-import GttLayout from "../layouts/GttLayout.astro"
+import { Image } from "astro:assets";
+import GttLayout from "../layouts/GttLayout.astro";
+import GttLogo from "../../public/favicon.svg";
+import "../styles/index.css";
+import Carousel from "../components/Carousel.astro";
+import HorizontalCenter from "../components/HorizontalCenter.astro";
 ---
 
 <GttLayout pageTitle = "Hlavní stránka">
+    <section id="home">
+        <div id="index-header">
+            <h1>Turnaj v<br/>
+            počítačových hrách<br/>
+            <span class="index-yellow">Gymnázia Tišnov</span></h1>
+        </div>
+        <Image id="index-logo" src={GttLogo} alt="GttLogo"></Image>
+    </section>
+    <section id="sponsors">
+        <h2>Sponzoři</h2>
+        <Carousel>
+            <div class="index-sponsor">1</div>
+            <div class="index-sponsor">2</div>
+            <div class="index-sponsor">3</div>
+            <div class="index-sponsor">4</div>
+            <div class="index-sponsor">5</div>
+            <div class="index-sponsor">6</div>
+            <div class="index-sponsor">7</div>
+            <div class="index-sponsor">8</div>
+            <div class="index-sponsor">9</div>
+            <div class="index-sponsor">10</div>
+            <div class="index-sponsor">11</div>
+            <div class="index-sponsor">12</div>
+            <div class="index-sponsor">13</div>
+        </Carousel>
+    </section>
+    <section id="games">
+        <h2>Co hrajeme?</h2>
+        <div id="index-gamesHolder">
+            <div class="index-games">1</div>
+            <div class="index-games">2</div>
+            <div class="index-games">3</div>
+            <div class="index-games">4</div>
+            <div class="index-games">5</div>
+            <div class="index-games">6</div>
+            <div class="index-games">7</div>
+            <div class="index-games">8</div>
+            <div class="index-games">9</div>
+            <div class="index-games">10</div>
+        </div>
+    </section>
+    <section id="stats">
+        <HorizontalCenter>
+            <div id="index-statsHolder">
+                <div>
+                    <div class="index-stats-up">5let</div>
+                    <div>na bojišti</div>
+                </div>
+                <div>
+                    <div class="index-stats-up">850+</div>
+                    <div>účastníků</div>
+                </div>
+                <div>
+                    <div class="index-stats-up">200+</div>
+                    <div>účastnících se škol</div>
+                </div>
+            </div>
+        </HorizontalCenter>
+    </section>
+    <section id="how_to_participate">
+        <div class="index-flexbox">
+            <div id="index-participation-right" class="index-spacer"></div>
+            <div>
+                <h2>Jak se zůčastnit?</h2>
+                <div id="index-participationHolder">  
+                    <div id="index-register">
+                        <h3>Nejdříve si založte účet</h3>
+                        <p>Nejdříve si musíte vytvořit účet.(Nezapomeň vyplnit důležité informace, které o tobě potřebujeme vědět.)</p>
+                        <a href="/account">ZALOŽIT ÚČET</a>
+                    </div>
+                    <div id="index-createTeam">
+                        <h3>Máte už účet založený?</h3>
+                        <p>Pak už stačí jenom přečíst pravidla (jsou důležitá), najít spoluhráče, kliknout na tlačítko níže, vytvořit nový tým a pozvat do něj své spoluhráče!</p>
+                        <div class="index-flexbox">
+                            <div class="index-spacer"></div>
+                            <span>→</span><a href="/myTeams">ZALOŽIT TÝM</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="index-participation-left" class="index-spacer"></div>
+        </div>
+    </section>
 </GttLayout>
