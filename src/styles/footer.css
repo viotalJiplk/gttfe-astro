@@ -12,6 +12,7 @@ footer{
 }
 #Footer-linkHolder{
     height: 8vh;
+    z-index: 2;
 }
 #Footer-linkHolder-flexbox{
     height: 100%;
