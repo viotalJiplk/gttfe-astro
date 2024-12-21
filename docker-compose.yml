@@ -1,0 +1,13 @@
+
+services:
+  gtt-frontend:
+    image: ghcr.io/viotaljiplk/gttfe-astro:$build
+    restart: $restart
+    networks:
+      - gtt-internal
+    ports:
+      - "$Port:80"
+
+networks:
+  gtt-internal:
+    driver: bridge
