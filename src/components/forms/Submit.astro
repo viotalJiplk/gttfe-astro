@@ -1,0 +1,41 @@
+---
+const Props ={
+    elementId: String,
+    value: String,
+}
+const {elementId, value} = Astro.props;
+---
+<style>
+.Submit-input{
+    border: none;
+    outline: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 0.2rem 0.3rem #ffffff34;
+    font-size: 1.5rem;
+    padding-left: 1%;
+    padding-right: 1%;
+    background-color: #FF9E00;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.Submit-input:hover{
+    box-shadow: 0 0 0 0 #ffffff34;
+}
+
+.Submit-input:focus{
+    border: none;
+    outline: none;
+}
+
+.Submit-label{
+    font-size: larger;
+    margin-left: 1rem;
+    font-weight: bold;
+}
+</style>
+<input id={elementId} class="Submit-input" type="submit" value={value}/>

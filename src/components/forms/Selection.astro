@@ -1,0 +1,86 @@
+---
+const Props ={
+    elementId: String,
+    divClass: String,
+    selectionId: String,
+}
+const {elementId, divClass, selectionId} = Astro.props;
+---
+<style>
+.Selection-input{
+    border: none;
+    outline: none;
+    width: 97%;
+    height: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 0.2rem 0.3rem #ffffff34;
+    font-size: 1.5rem;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.Selection-input:hover{
+    box-shadow: 0 0 0 0 #ffffff34;
+}
+
+.Selection-input:focus{
+    border: none;
+    outline: none;
+    box-shadow: 0 0 0 0 #ffffff34;
+}
+
+.Selection-label{
+    font-size: larger;
+    margin-left: 1rem;
+    font-weight: bold;
+}
+.Selection-anchor{
+    position: relative;
+    display:none;
+}
+.Selection-selection{
+    position: absolute;
+    max-height: 20vw;
+    overflow-y: scroll;
+    background-color: rgba(0, 0, 0, 0.831);
+}
+
+.Selection-input:focus + .Selection-anchor, .Selection-anchor:focus + .Selection-anchor{
+    display: block;
+}
+</style>
+<style is:global>
+    .Selection-selection > div:hover{
+        color: black;
+        background-color: #FF9E00;
+    }
+</style>
+<div class={divClass}>
+    <label for={elementId} class="Selection-label"><slot/></label>
+    <input id={elementId} class="Selection-input" type="text"/>
+    <div class="Selection-anchor">
+        <div id={selectionId} class="Selection-selection"></div>
+    </div>
+</div>
+<script>
+    function filter(event: Event){
+        if(event.target != null && "value" in event.target){
+            const target = event.target as HTMLInputElement;
+            let inputText = target.value.toUpperCase();
+            if(target.nextElementSibling !== null){
+                for(let holder of target.nextElementSibling.children[0].children){
+                    let typedHolder = holder as HTMLElement;
+                    if(typedHolder.innerHTML.toUpperCase().includes(inputText)){
+                        typedHolder.style.display = "block";
+                    }else{
+                        typedHolder.style.display = "none";
+                    }
+                }
+            }
+        }
+    }
+    Array.from(document.getElementsByClassName("Selection-input")).forEach(element => {
+        element.addEventListener("keyup", filter);
+        element.addEventListener("click", filter);
+    });
+</script>

@@ -1,18 +1,37 @@
 ---
 import VerticalCenter from "./VerticalCenter.astro";
+const Props ={
+    elementId: String,
+    loadingText: String
+}
+const {elementId = "Loading", loadingText = "Načítání"} = Astro.props;
 ---
-<div class="Loading">
-    <div class="Loading-spinner">
+<div id={elementId} class="Loading">
+    <div class="Loading-wait">
+        <div class="Loading-spinner">
+        </div>
+        <div class="Loading-textHolder">
+            <VerticalCenter>
+                <h1 class="Loading-text">{loadingText}</h1>
+            </VerticalCenter>
+        </div>
     </div>
-    <div class="Loading-textHolder">
-        <VerticalCenter>
-            <h1 class="Loading-text">Načítání</h1>
-        </VerticalCenter>
+    <div class="Loading-error" style="display:none">
+        <div class="Loading-x">
+            X
+        </div>
+        <div class="Loading-textHolder">
+            <VerticalCenter>
+                <h1 class="Loading-error-text">Nastala chyba</h1>
+            </VerticalCenter>
+        </div>
     </div>
 </div>
 <style>
     .Loading{
         height: 100%;
+    }
+    .Loading-wait, .Loading-error{
         display: flex;
     }
     @keyframes spinner {
@@ -24,16 +43,23 @@ import VerticalCenter from "./VerticalCenter.astro";
         }
     }
     .Loading-spinner {
-        width: 10rem;
-        height: 10rem;
         border: 2rem solid #f3f3f3; /* Light grey */
         border-top: 2rem solid #383636; /* Black */
         border-radius: 50%;
         animation: spinner 1.5s linear infinite;
-        display: inline-block;
         margin-right: 3rem;
     }
     .Loading-textHolder {
         display: inline-block;
+    }
+    .Loading-x, .Loading-spinner{
+        width: 10rem;
+        height: 10rem;
+        display: inline-block;
+    }
+    .Loading-x {
+        font-size: 10rem;
+        font-weight: bold;
+        color: red;
     }
 </style>

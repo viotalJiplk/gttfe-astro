@@ -1,21 +1,11 @@
 #schoolList-input{
-    border: none;
-    outline: none;
     min-width: 40vw;
-    height: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 0.2rem 0.3rem #ffffff34;
-    font-size: 1.5rem;
-    padding-left: 0.8rem;
-    padding-right: 0.8rem;
 }
-
-#schoolList-input:hover{
-    box-shadow: 0 0 0 0 #ffffff34;
+.schoolList-input-div{
+    display: flex;
 }
-
-#schoolList-input:focus{
-    border: none;
-    outline: none;
-    box-shadow: 0 0 0 0 #ffffff34;
+.schoolList-input-div label{
+    white-space: nowrap;
+    padding: 0rem;
+    margin-right: 1rem;
 }

@@ -17,6 +17,38 @@ const {pageTitle} = Astro.props;
     <div id="GttLayout-container">
       <slot />
     </div>
+    <div id="GttLayout-toast" style="display:none"></div>
+    <style>
+      #GttLayout-toast{
+        position: fixed;
+        z-index: 10000;
+        bottom: 1em;
+        left: 1em;
+        right: 1em;
+        border-radius: 1em;
+        font-size: 3rem;
+        padding: 0.5rem;
+        text-align: center;
+      }
+      .GttLayout-toast-error{
+        color: red;
+        background-color: rgb(254, 143, 143);
+      }
+      .GttLayout-toast-ok{
+        color: green;
+        background-color: rgb(143, 254, 143);
+      }
+    </style>
+    <script>
+      const toast = document.getElementById("GttLayout-toast")
+      if(toast === null){
+        console.error("Toast not found");
+      }else{
+        toast.addEventListener("click", event=>{
+          toast.style.display = "none";
+        });
+      }
+    </script>
     <Footer id="GttLayout-footer" />
   </body>
 </html>

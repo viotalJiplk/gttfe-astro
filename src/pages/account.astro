@@ -1,6 +1,31 @@
 ---
-import GttLayout from "../layouts/GttLayout.astro"
+import GttLayout from "../layouts/GttLayout.astro";
+import GttLogo from "../assets/logo.svg";
+import { Image } from "astro:assets";
+import "../styles/account.css";
+import Input from "../components/forms/Input.astro";
+import Submit from "../components/forms/Submit.astro";
+import Selection from "../components/forms/Selection.astro";
+import Checkbox from "../components/forms/Checkbox.astro";
+import Loading from "../components/Loading.astro";
 ---
 
 <GttLayout pageTitle = "Účet">
+    <div id="account">
+        <Loading elementId="account-loading"></Loading>
+        <main id="account-main" style="display: none">
+            <h1>Vaše údaje</h1>
+            <div class="account-underline"></div>
+            <form id="account-form">
+                <Input elementId="account-name" divClass="account-div-half">Jméno</Input><Input elementId="account-surname" divClass="account-div-half">Příjmění</Input>
+                <Selection elementId="account-school" divClass="account-div" selectionId="account-selection">Škola</Selection>
+                <Checkbox elementId="account-adult" divClass="account-div">Budete dospělý v době turnaje?</Checkbox>
+                <Checkbox elementId="account-tos" divClass="account-div">Znám pravidla a souhlasím s nimi?</Checkbox>
+                <Checkbox elementId="account-camera" divClass="account-div">Mám kameru a jsem ochoten vystoupit na streamu. (volitelné)</Checkbox>
+                <Submit elementId="saveButton" value="Uložit údaje" />
+            </form>
+        </main>
+        <Image src={GttLogo} alt="gtt logo"></Image>
+    </div>
+    <script src="../scripts/account.ts"></script>
 </GttLayout>
