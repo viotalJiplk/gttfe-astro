@@ -1,22 +1,19 @@
 ---
 import { Image } from "astro:assets";
-import ContentHolder from "../components/ContentHolder.astro";
-import GttLayout from "../layouts/GttLayout.astro";
 import TeamPhoto from "../assets/teamphoto.jpeg";
 import "../styles/aboutUs.css";
+import GttLayoutContent from "../layouts/GttLayoutContent.astro";
 ---
 
-<GttLayout pageTitle = "O nás">
-    <ContentHolder>
-        <main id="about">
-            <h1>O NÁS</h1>
-            <h2>GT Tournament</h2>
-            <p>vznikl díky iniciativě žáků Gymnázia Tišnov, kteří jej od začátku až do konce celý připravují sami dobrovolně ve svém volném čase. Jedná se o jedinečnou akci pro žáky a učitele středních škol, která jim dává možnost vyzkoušet si kompetitivní hraní počítačových her bez nutnosti platit jakékoliv startovné. Turnaj nyní tvoří pět hlavních her, kterými jsou: CS:GO, Minecraft, League of Legends, Rocket League a Valorant. Tento rok poprvé přidáváme k těmto hrám i Rainbow Six: Siege.</p>
-            <Image src={TeamPhoto} alt="Foto týmu"></Image>
-            <p>Organizační tým dnes čítá již 25 členů z různých středních i vysokých škol po celé ČR, na organizaci se může podílet kdokoliv, kdo má čas a chuť si práci na takovémto projektu vyzkoušet. V rámci tohoto týmu se snažíme novým organizátorům předat co nejvíce zkušeností a znalostí.</p>
-            <h2>Chceš se k nám přidat?</h2>
-            <h3>Vyplň tento dotazník!</h3>
-            <p>V případě jakýchkoliv dotazů prosím kontaktuj @xvojta.</p>
-        </main>
-    </ContentHolder>
-</GttLayout>
+<GttLayoutContent pageTitle = "O nás">
+    <main id="about">
+        <h1>O NÁS</h1>
+        <h2>GT Tournament</h2>
+        <p>vznikl díky iniciativě žáků Gymnázia Tišnov, kteří jej od začátku až do konce celý připravují sami dobrovolně ve svém volném čase. Jedná se o jedinečnou akci pro žáky a učitele středních škol, která jim dává možnost vyzkoušet si kompetitivní hraní počítačových her bez nutnosti platit jakékoliv startovné. Turnaj nyní tvoří pět hlavních her, kterými jsou: CS:GO, Minecraft, League of Legends, Rocket League a Valorant. Tento rok poprvé přidáváme k těmto hrám i Rainbow Six: Siege.</p>
+        <Image src={TeamPhoto} alt="Foto týmu"></Image>
+        <p>Organizační tým dnes čítá již 25 členů z různých středních i vysokých škol po celé ČR, na organizaci se může podílet kdokoliv, kdo má čas a chuť si práci na takovémto projektu vyzkoušet. V rámci tohoto týmu se snažíme novým organizátorům předat co nejvíce zkušeností a znalostí.</p>
+        <h2>Chceš se k nám přidat?</h2>
+        <h3>Vyplň tento dotazník!</h3>
+        <p>V případě jakýchkoliv dotazů prosím kontaktuj @xvojta.</p>
+    </main>
+</GttLayoutContent>

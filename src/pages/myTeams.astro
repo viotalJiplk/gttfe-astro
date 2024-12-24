@@ -1,6 +1,64 @@
 ---
-import GttLayout from "../layouts/GttLayout.astro"
+import GttLayoutSplit from "../layouts/GttLayoutSplit.astro"
 ---
 
-<GttLayout pageTitle = "Moje týmy">
-</GttLayout>
+<GttLayoutSplit pageTitle = "Moje týmy">
+    <main id="myTeams">
+        <div class="myTeams-header">
+            <h1>Moje týmy</h1><div class="spacer"></div><a>Nový tým</a>
+        </div>
+    </main>
+</GttLayoutSplit>
+<style>
+    #myTeams, #myTeams #myTeams-loading{
+        flex-grow: 1;
+        margin-right: 4rem;
+    }
+
+    #myTeams a{
+        font-size: 1.5rem;
+        padding: 0.5rem;
+        font-weight: bold;
+        display: inline;
+        color: black;
+        background-color: white;
+        border-radius: 1rem;
+        box-shadow: 0 0 0.5rem 0.1rem #ffffff78;
+        cursor: pointer;
+    }
+
+    #myTeams a:hover{
+        box-shadow: 0 0 0rem 0rem #ffffff34;
+    }
+
+    #myTeams h1{
+        width: fit-content;
+        background-image: linear-gradient(45deg, #FFD60A, #FF9E00);
+        background-clip: text;
+        -webkit-background-clip: text; /* For WebKit browsers */
+        color: transparent;
+        font-size: 2.5rem;
+        display: inline;
+        margin: 0rem;
+    }
+
+    #myTeams h2{
+        width: fit-content;
+        background-image: linear-gradient(45deg, #FFD60A, #FF9E00);
+        background-clip: text;
+        -webkit-background-clip: text; /* For WebKit browsers */
+        color: transparent;
+        font-size: 2rem;
+        margin-bottom: 0rem;
+    }
+
+    .myTeams-header{
+        display: flex;
+        width: 100%;
+        padding-bottom: 1rem;
+        border-bottom: 0.3rem solid white;
+    }
+    .spacer{
+        flex-grow: 1;
+    }
+</style>

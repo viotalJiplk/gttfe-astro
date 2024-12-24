@@ -1,23 +1,20 @@
 ---
-import ContentHolder from "../components/ContentHolder.astro";
 import HorizontalCenter from "../components/HorizontalCenter.astro";
 import Input from "../components/forms/Input.astro";
 import Loading from "../components/Loading.astro";
-import GttLayout from "../layouts/GttLayout.astro";
 import "../styles/schoolList.css";
+import GttLayoutContent from "../layouts/GttLayoutContent.astro";
 ---
 
-<GttLayout pageTitle = "Seznam škol">
-    <ContentHolder>
-        <div id="schoolList-loading">
-            <Loading></Loading>
-        </div>
-        <main id="schools" style="display: none">
-            <h1>Pozvané školy</h1>
-            <HorizontalCenter><Input divClass="schoolList-input-div" elementId="schoolList-input">Název školy:</Input></HorizontalCenter>
-            <ul id="schoolList-list">
-            </ul>
-        </main>
-    </ContentHolder>
-</GttLayout>
+<GttLayoutContent pageTitle = "Seznam škol">
+    <div id="schoolList-loading">
+        <Loading></Loading>
+    </div>
+    <main id="schools" style="display: none">
+        <h1>Pozvané školy</h1>
+        <HorizontalCenter><Input divClass="schoolList-input-div" elementId="schoolList-input">Název školy:</Input></HorizontalCenter>
+        <ul id="schoolList-list">
+        </ul>
+    </main>
+</GttLayoutContent>
 <script src="../scripts/schoolList.ts"></script>
