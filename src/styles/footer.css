@@ -7,22 +7,18 @@ footer{
 #Footer-gttLogo{
     height: 6vh;
     width: auto;
-    padding: 1vh;
+    padding: 2vh;
+    margin-right: 2vh; 
     border-right: 0.1rem solid white;
 }
 #Footer-linkHolder{
-    height: 8vh;
-    z-index: 2;
-}
-#Footer-linkHolder-flexbox{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
 .Footer-link{
-    height: 20%;
+    height: 2vh;
     padding: 0.5vh;
+    text-wrap: nowrap;
 }
 .Footer-link img{
     margin-right: 0.2rem;
