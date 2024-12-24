@@ -1,5 +1,8 @@
 ---
+import HorizontalCenter from "../components/HorizontalCenter.astro"
 import Loading from "../components/Loading.astro"
+import Overlay from "../components/Overlay.astro"
+import VerticalCenter from "../components/VerticalCenter.astro"
 import GttLayoutSplit from "../layouts/GttLayoutSplit.astro"
 ---
 
@@ -12,6 +15,20 @@ import GttLayoutSplit from "../layouts/GttLayoutSplit.astro"
         <div id="myTeams-teamHolder"></div>
     </main>
 </GttLayoutSplit>
+<div id="myTeams-join-overlay-holder" style="display: none">
+    <Overlay elementId="myTeams-join-overlay">
+        <div id="myTeams-join-closeHolder"><div class="myTeams-spacer"></div><div id="myTeams-join-spacer">X</div></div>
+        <VerticalCenter>
+            <HorizontalCenter>
+                Pošlete spoluráči následující link:<br/>
+                <span id="myTeams-join-joinString"></span>
+            </HorizontalCenter>
+            <HorizontalCenter>
+                <button id="myTeams-join-regen">Přegenerovat</button>
+            </HorizontalCenter>
+        </VerticalCenter>
+    </Overlay>
+</div>
 <style>
     #myTeams, #myTeams #myTeams-loading{
         flex-grow: 1;
@@ -54,6 +71,46 @@ import GttLayoutSplit from "../layouts/GttLayoutSplit.astro"
     .spacer{
         flex-grow: 1;
     }
+    #myTeams-join-closeHolder{
+        padding: 1rem;
+        display: flex;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .myTeams-spacer{
+        flex-grow: 1;
+    }
+    #myTeams-join-spacer{
+        cursor: pointer;
+        color: red;
+    }
+    #myTeams-join-joinString{
+        color: blue;
+        word-break: break-word;
+    }
+    #myTeams-join-overlay-holder{
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    #myTeams-join-regen{
+        font-size: 1rem;
+        padding: 0.5rem;
+        font-weight: bold;
+        display: block;
+        width: fit-content;
+        color: black;
+        background-color: white;
+        border-radius: 1rem;
+        box-shadow: 0 0 1rem 0rem #FFAF0A;
+        background-color: #FF9E00;
+        cursor: pointer;
+        border: 0px;
+    }
+    #myTeams-join-regen:hover{
+        box-shadow: 0 0 0rem 0rem #FFAF0A;
+    }
 </style>
 <style is:global>
     #myTeams h2{
@@ -83,9 +140,14 @@ import GttLayoutSplit from "../layouts/GttLayoutSplit.astro"
         color: black;
         background-color: white;
         border-radius: 1rem;
-        box-shadow: 0 0 0rem 0rem #FFAF0A;
+        box-shadow: 0 0 1rem 0rem #FFAF0A;
         background-color: #FF9E00;
         cursor: pointer;
+        border: 0px;
+    }
+
+    .myTeams-team a:hover, .myTeams-team button:hover{
+        box-shadow: 0 0 0rem 0rem #FFAF0A;
     }
 
     .myTeams-team .myTeams-player a, .myTeams-team .myTeams-player button{
@@ -117,4 +179,17 @@ import GttLayoutSplit from "../layouts/GttLayoutSplit.astro"
         flex-grow: 1;
     }
 </style>
+<script>
+    const joinHolderOverlay = document.getElementById("myTeams-join-overlay-holder");
+    const joinSpacer = document.getElementById("myTeams-join-spacer");
+    if(joinSpacer === null){
+        console.error("joinSpacer not found");
+    } else if(joinHolderOverlay === null){
+        console.error("joinHolderOverlay not found");
+    }else {
+        joinSpacer.addEventListener("click", event =>{
+            window.location.reload();
+        });
+    }
+</script>
 <script src="../scripts/myTeams.ts"></script>

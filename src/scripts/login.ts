@@ -25,38 +25,36 @@ async function getToken(code: string, state: string) {
             "Content-Type": "application/json"
         },
         "body": JSON.stringify(data)
-    }).catch(function (error) {
-        if(error.response.status === 401){
-            showToastError("Pravdravděpodobně došlo k restartu serveru. Zkuste akci opakovat.");
-            loadingError(loading);
-        }else if(error.response.status !== 200){
-            showToastError("Neznámá chyba.");
-            loadingError(loading);
-        }else{
-            return error.response;
-        }
     });
-    response = await response.json();
-    if (response) {
-        if ("jws" in response) {
-            storage.jwt = response.jws;
-        }
-        if ("userObject" in response) {
-            // @ts-expect-error
-            storage.userObject = UserObject.fromObject(response.userObject);
-        }
-        if(localStorage.getItem("afterlogin") !== null){
-            const url = localStorage.getItem("afterlogin");
-            localStorage.removeItem("afterlogin");
-            //we force reload, so the new jwt would load before we start the code on page
-            if(url === "exit"){
-                window.close();
-            }else{
-                // @ts-expect-error
-                window.location.href = url;
+    if (response.status === 401) {
+        showToastError("Pravdravděpodobně došlo k restartu serveru. Zkuste akci opakovat.");
+        loadingError(loading);
+    } else if (response.status !== 200) {
+        showToastError("Neznámá chyba.");
+        loadingError(loading);
+    } else {
+        response = await response.json();
+        if (response) {
+            if ("jws" in response) {
+                storage.jwt = String(response.jws);
             }
-        }else{
-            window.location.href = "/account";
+            if ("userObject" in response) {
+                // @ts-expect-error
+                storage.userObject = UserObject.fromObject(response.userObject);
+            }
+            if (localStorage.getItem("afterlogin") !== null) {
+                const url = localStorage.getItem("afterlogin");
+                localStorage.removeItem("afterlogin");
+                //we force reload, so the new jwt would load before we start the code on page
+                if (url === "exit") {
+                    window.close();
+                } else {
+                    // @ts-expect-error
+                    window.location.href = url;
+                }
+            } else {
+                window.location.href = "/account";
+            }
         }
     }
 }

@@ -91,7 +91,26 @@ export function getPlayerFromId(userId: string, team: Team) {
 }
 
 export async function kickUser(teamId: number, userId: string) {
-    await authFetch(`/backend/team/id/${String(teamId)}/kick/${userId}/`, {
+    let res = await authFetch(`/backend/team/id/${String(teamId)}/kick/${userId}/`, {
         method: 'DELETE'
     });
+    if (res.status !== 200) {
+        throw new ShowError("Chyba serveru, kontaktujte prosím podporu.");
+    }
+}
+
+export async function newJoinString(teamId: number) {
+    const res = await authFetch(`/backend/team/id/${teamId}/joinString/`);
+    if (res.status !== 200) {
+        console.error(res);
+        throw new ShowError("Chyba serveru, kontaktujte prosím podporu.");
+    } else {
+        const response = await res.json();
+        if (!("joinString" in response)) {
+            console.error("Response is missing joinString.");
+            throw new ShowError("Chyba serveru, kontaktujte prosím podporu.");
+        } else {
+            return String(response.joinString);
+        }
+    }
 }

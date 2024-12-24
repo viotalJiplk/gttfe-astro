@@ -1,6 +1,6 @@
 import { listGeneratedRolePermissions, type GeneratedRolePermission } from "./api/generatedRolePermissions";
 import { generatedRoleNameFromId, listGeneratedRoles, type GeneratedRole } from "./api/generatedRoles";
-import { getPlayerFromId, getPlayers, getUsersTeam, kickUser, Team } from "./api/teams";
+import { getPlayerFromId, getPlayers, getUsersTeam, kickUser, newJoinString, Team } from "./api/teams";
 import { ShowError } from "./api/utils";
 import { loadingError } from "./loading";
 import { showToastError } from "./toast";
@@ -9,6 +9,9 @@ import { storage, UserObject } from "./utils";
 const main = document.getElementById("myTeams") as HTMLDivElement | null;
 const loading = document.getElementById("myTeams-loading") as HTMLDivElement | null;
 const teamsHolder = document.getElementById("myTeams-teamHolder") as HTMLDivElement | null;
+const joinOverlayHolder = document.getElementById("myTeams-join-overlay-holder") as HTMLDivElement | null;
+const joinStringHolder = document.getElementById("myTeams-join-joinString") as HTMLSpanElement | null;
+const joinStringRegen = document.getElementById("myTeams-join-regen") as HTMLSpanElement | null;
 
 async function loadTeams() {
     
@@ -122,14 +125,17 @@ function render(teams: Team[], generatedRoles: GeneratedRole[], generatedRolePer
             }
 
             if (team.joinString !== undefined) {
-                const a = document.createElement("a");
-                a.innerText = "Přidat člena";
-                teamHolder.appendChild(a);
+                const button = document.createElement("button");
+                button.innerText = "Přidat člena";
+                button.setAttribute("data-teamId", String(team.teamId));
+                button.setAttribute("data-gameId", String(team.gameId));
+                button.setAttribute("data-joinString", team.joinString);
+                button.addEventListener("click", loadJoin);
+                teamHolder.appendChild(button);
             }
 
             teamsHolder.appendChild(teamHolder);
         }
-        console.log(teams);
     } else {
         console.error("loading or teamsHolder or main not found");
     }
@@ -171,6 +177,85 @@ async function kickUserHandler(event: Event) {
     } else {
         console.error("loading or main not found");
     }
+}
+
+async function loadJoin(event: Event) {
+    if (!(event.target instanceof HTMLElement)) {
+        console.error("Event.target is not HTMLElement");
+    } else {
+        const teamId = Number(event.target.getAttribute("data-teamId"));
+        const joinString = event.target.getAttribute("data-joinString");
+        const gameId = Number(event.target.getAttribute("data-gameId"));
+        if (Number.isNaN(teamId)) {
+            console.error("TeamId is Nan");
+        } else if (Number.isNaN(gameId)) {
+            console.error("GameId is Nan");
+        } else if (joinString === null) {
+            console.error("joinString is null");
+        } else if (joinStringRegen === null) {
+            console.error("joinStringRegen is null");
+        } else {
+            if (joinStringHolder === null || joinOverlayHolder === null ) {
+                console.error("joinStringHolder or joinOverlayHolder is null");
+            } else {
+                joinStringRegen.setAttribute("data-teamId", String(teamId));
+                joinStringRegen.setAttribute("data-gameId", String(gameId));
+                joinStringHolder.innerText = createJoinStringUrl(teamId, joinString, gameId);
+                joinOverlayHolder.style.display = "block";
+            }
+        }
+    }
+}
+
+async function regenJoinString(event: Event) {
+    if (!(event.target instanceof HTMLElement)) {
+        console.error("Event.target is not HTMLElement");
+    } else {
+        const teamId = Number(event.target.getAttribute("data-teamId"));
+        const gameId = Number(event.target.getAttribute("data-gameId"));
+        if (Number.isNaN(teamId)) {
+            console.error("TeamId is Nan");
+        } else if (Number.isNaN(gameId)) {
+            console.error("GameId is Nan");
+        } else {
+            try {
+                let joinString = await newJoinString(teamId);
+                if (joinStringHolder === null || joinOverlayHolder === null ) {
+                    console.error("joinStringHolder or joinOverlayHolder is null");
+                } else if (joinString === null) {
+                    console.error("joinString is null");
+                    loadingError(loading);
+                    showToastError("Neznámá chyba, kontaktujte prosím podporu.");
+                } else {
+                    joinStringHolder.innerText = createJoinStringUrl(teamId, joinString, gameId);
+                    joinOverlayHolder.style.display = "block";
+                }
+            } catch (e) {
+                if (e instanceof ShowError) {
+                    loadingError(loading);
+                    showToastError(e.message);
+                } else {
+                    loadingError(loading);
+                    showToastError("Neznámá chyba, kontaktujte prosím podporu.");
+                    throw e;
+                }
+            }
+        }
+    }
+}
+
+function createJoinStringUrl(teamId: number, joinString: string, gameId: number) {
+    const url = new URL(window.location.origin + "/join");
+    url.searchParams.append("teamId", String(teamId));
+    url.searchParams.append("gameId", String(gameId));
+    url.searchParams.append("joinString", joinString);
+    return url.toString();
+}
+
+if (joinStringRegen !== null) {
+    joinStringRegen.addEventListener("click", regenJoinString);
+} else {
+    console.error("joinStringRegen not found");
 }
 
 loadTeams();
