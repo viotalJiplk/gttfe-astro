@@ -1,6 +1,13 @@
-import { authFetch, ShowError } from "./utils";
+import { ApiObject, authFetch, ShowError } from "./utils";
 
-export class User{
+export class User extends ApiObject{
+    static types = {
+        "schoolId": Number,
+        "name": String,
+        "surname": String,
+        "adult": Boolean,
+        "camera": Boolean,
+    };
     schoolId = -1;
     name = "";
     surname = "";
@@ -8,34 +15,12 @@ export class User{
     camera = false;
 
     constructor(schoolId = -1, name = "", surname = "", adult = false, camera = false) {
+        super();
         this.schoolId = schoolId;
         this.name = name;
         this.surname = surname;
         this.adult = adult;
         this.camera = camera
-    }
-
-    static fromObject(obj: Object) {
-        if (typeof obj !== 'object' || obj === null) {
-            console.error("Object wrong type.");
-            throw new ShowError("Chyba serveru, kontaktujte prosím podporu.");
-        } else if (!("schoolId" in obj)) {
-            console.error("Object does not have schoolId.");
-            throw new ShowError("Chyba serveru, kontaktujte prosím podporu.");
-        } else if (!("name" in obj)) {
-            console.error("Object does not have name.");
-            throw new ShowError("Chyba serveru, kontaktujte prosím podporu.");
-        } else if (!("surname" in obj)) {
-            console.error("Object does not have surname.");
-            throw new ShowError("Chyba serveru, kontaktujte prosím podporu.");
-        } else if (!("adult" in obj)) {
-            console.error("Object does not have adult.");
-            throw new ShowError("Chyba serveru, kontaktujte prosím podporu.");
-        } else if (!("camera" in obj)) {
-            console.error("Object does not have camera.");
-            throw new ShowError("Chyba serveru, kontaktujte prosím podporu.");
-        }
-        return new User(Number(obj.schoolId), String(obj.name), String(obj.surname), Boolean(obj.adult), Boolean(obj.camera));
     }
 }
 

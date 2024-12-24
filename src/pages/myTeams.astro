@@ -1,12 +1,15 @@
 ---
+import Loading from "../components/Loading.astro"
 import GttLayoutSplit from "../layouts/GttLayoutSplit.astro"
 ---
 
 <GttLayoutSplit pageTitle = "Moje týmy">
-    <main id="myTeams">
+    <Loading elementId="myTeams-loading"></Loading>
+    <main id="myTeams" style="display: none">
         <div class="myTeams-header">
             <h1>Moje týmy</h1><div class="spacer"></div><a>Nový tým</a>
         </div>
+        <div id="myTeams-teamHolder"></div>
     </main>
 </GttLayoutSplit>
 <style>
@@ -42,16 +45,6 @@ import GttLayoutSplit from "../layouts/GttLayoutSplit.astro"
         margin: 0rem;
     }
 
-    #myTeams h2{
-        width: fit-content;
-        background-image: linear-gradient(45deg, #FFD60A, #FF9E00);
-        background-clip: text;
-        -webkit-background-clip: text; /* For WebKit browsers */
-        color: transparent;
-        font-size: 2rem;
-        margin-bottom: 0rem;
-    }
-
     .myTeams-header{
         display: flex;
         width: 100%;
@@ -62,3 +55,66 @@ import GttLayoutSplit from "../layouts/GttLayoutSplit.astro"
         flex-grow: 1;
     }
 </style>
+<style is:global>
+    #myTeams h2{
+        width: fit-content;
+        background-image: linear-gradient(45deg, #FFD60A, #FF9E00);
+        background-clip: text;
+        -webkit-background-clip: text; /* For WebKit browsers */
+        color: transparent;
+        font-size: 2rem;
+        margin-bottom: 0rem;
+    }
+
+    .myTeams-team{
+        background: linear-gradient(90deg, #080E1F 0%, #040610 100%);
+        padding: 1rem;
+        margin-top: 1rem;
+        border-radius: 1rem;
+        box-shadow: 0 0 10rem 0.5rem #ffffff13;
+    }
+
+    .myTeams-team a, .myTeams-team button{
+        font-size: 1rem;
+        padding: 0.5rem;
+        font-weight: bold;
+        display: block;
+        width: fit-content;
+        color: black;
+        background-color: white;
+        border-radius: 1rem;
+        box-shadow: 0 0 0rem 0rem #FFAF0A;
+        background-color: #FF9E00;
+        cursor: pointer;
+    }
+
+    .myTeams-team .myTeams-player a, .myTeams-team .myTeams-player button{
+        color: white;
+    }
+
+    .myTeams-nick, .myTeams-roleName{
+        text-align: center;
+        display: flex;
+        align-items: center;
+    }
+
+    .myTeams-player{
+        padding: 1rem;
+        margin: 0.5rem;
+        border-radius: 1rem;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .myTeams-kickHolder{
+        display: flex;
+    }
+
+    .myTeams-spacer{
+        flex-grow: 1;
+    }
+</style>
+<script src="../scripts/myTeams.ts"></script>

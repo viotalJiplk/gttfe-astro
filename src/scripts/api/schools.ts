@@ -1,19 +1,16 @@
 import { isIterable } from "../utils";
-import { authFetch, ShowError } from "./utils";
-export class School{
+import { ApiObject, authFetch, ShowError } from "./utils";
+export class School extends ApiObject{
+    static types = {
+        "schoolId": Number,
+        "name": String
+    };
     schoolId = -1;
     name = "";
     constructor(schoolId = -1, name = "") {
+        super();
         this.schoolId = schoolId;
         this.name = name;
-    }
-
-    static fromObject(obj: Object) {
-        if (typeof obj !== 'object' || obj === null || !(("schoolId" in obj) && ("name" in obj))) {
-            console.error("Missing schoolId or schoolName in object.");
-            throw new ShowError("Chyba serveru, kontaktujte prosím podporu.");
-        }
-        return new School(Number(obj.schoolId), String(obj.name));
     }
 }
 
@@ -25,7 +22,8 @@ export async function listSchools(){
         console.error("/backend/school/listAll/ responded with non iterable.");
         throw new ShowError("Chyba serveru, kontaktujte prosím podporu.");
     }
-    for (let schoolObj of schoolsObj){
+    for (let schoolObj of schoolsObj) {
+        //@ts-expect-error
         schools.push(School.fromObject(schoolObj));
     }
     return schools;

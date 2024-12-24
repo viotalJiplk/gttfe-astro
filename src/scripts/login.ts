@@ -1,5 +1,6 @@
 import { loadingError } from "./loading";
 import { showToastError } from "./toast";
+import { storage, UserObject } from "./utils";
 
 const loading = document.getElementById("login-loading") as HTMLDivElement;
 
@@ -36,9 +37,14 @@ async function getToken(code: string, state: string) {
         }
     });
     response = await response.json();
-    if(response){
-        localStorage.setItem("jwt", response.jws);
-        localStorage.setItem("userObject", JSON.stringify(response.userObject));
+    if (response) {
+        if ("jws" in response) {
+            storage.jwt = response.jws;
+        }
+        if ("userObject" in response) {
+            // @ts-expect-error
+            storage.userObject = UserObject.fromObject(response.userObject);
+        }
         if(localStorage.getItem("afterlogin") !== null){
             const url = localStorage.getItem("afterlogin");
             localStorage.removeItem("afterlogin");
