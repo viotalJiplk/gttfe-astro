@@ -23,7 +23,7 @@ export class Team extends ApiObject {
         "name": String,
         "teamId": Number,
         "gameId": Number,
-        "joinString": [Number, undefined],
+        "joinString": [String, undefined],
         "players": [Array, undefined]
     };
     name = "";
