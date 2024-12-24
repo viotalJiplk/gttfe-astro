@@ -29,7 +29,6 @@ async function load() {
             formInputs.school.value = getSchoolNameFromId(user.schoolId, schools)||"";
             formInputs.adult.checked = user.adult;
             formInputs.camera.checked = user.camera;
-            console.log(user);
             main.style.display = "block";
             loading.style.display = "none";   
         } catch (e) {
