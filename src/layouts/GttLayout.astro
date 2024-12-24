@@ -2,6 +2,8 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import '../styles/gttLayout.css';
+import LoginOverlay from "../components/LoginOverlay.astro";
+
 const {pageTitle} = Astro.props;
 ---
 <html lang="en">
@@ -50,5 +52,7 @@ const {pageTitle} = Astro.props;
       }
     </script>
     <Footer id="GttLayout-footer" />
+    <LoginOverlay elementId="account-overlay">
+    </LoginOverlay>
   </body>
 </html>

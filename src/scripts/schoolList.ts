@@ -36,7 +36,7 @@ function render(schools: School[]){
         main.style.display = "block";
         loading.style.display = "none";
     }else{
-        console.error("loading or list not found");
+        console.error("loading or list or main not found");
     }
 }
 

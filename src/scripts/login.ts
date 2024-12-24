@@ -1,3 +1,8 @@
+import { loadingError } from "./loading";
+import { showToastError } from "./toast";
+
+const loading = document.getElementById("login-loading") as HTMLDivElement;
+
 const url = new URL(window.location.href);
 const code = url.searchParams.get("code");
 const state = url.searchParams.get("state");
@@ -8,7 +13,6 @@ if ((url !== null) && (code !== null) && (state !== null)) {
 }
 
 async function getToken(code: string, state: string) {
-    console.log("rerender")
     let data = {
         "code": code,
         "state": state,
@@ -22,9 +26,11 @@ async function getToken(code: string, state: string) {
         "body": JSON.stringify(data)
     }).catch(function (error) {
         if(error.response.status === 401){
-            console.error("Pravdravděpodobně došlo k restartu serveru. Zkuste akci opakovat.");
+            showToastError("Pravdravděpodobně došlo k restartu serveru. Zkuste akci opakovat.");
+            loadingError(loading);
         }else if(error.response.status !== 200){
-            console.error("Neznámá chyba.");
+            showToastError("Neznámá chyba.");
+            loadingError(loading);
         }else{
             return error.response;
         }
@@ -52,7 +58,8 @@ async function getToken(code: string, state: string) {
 async function startLoginChain() {
     let res = await (fetch("/backend/discord/auth").catch(function (error) {
         if(error.response.status !== 200){
-            console.error("Služba pravděpodobně není dostupná. Zkuste akci opakovat za chvíli.");
+            showToastError("Služba pravděpodobně není dostupná. Zkuste akci opakovat za chvíli.");
+            loadingError(loading);
         }else{
             return error.response;
         }
