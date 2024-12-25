@@ -5,7 +5,7 @@ const {pageTitle} = Astro.props;
 <GttLayout pageTitle={pageTitle}>
     <div class="ContentHolder"><slot/></div>
 </GttLayout>
-<style>
+<style is:global>
     .ContentHolder{
         background: rgb(8,14,31);
         background: linear-gradient(90deg, rgba(8,14,31,1) 0%, rgba(4,6,16,1) 100%);

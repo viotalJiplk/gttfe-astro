@@ -1,9 +1,0 @@
-#account-main .account-div-half{
-    width: 48%;
-    display: inline-block;
-    margin-right: 2%;
-}
-
-#account-main .account-div-half, #account-main .account-div, #account-main #saveButton{
-    margin-top: 1rem;
-}

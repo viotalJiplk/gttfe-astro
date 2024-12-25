@@ -1,5 +1,4 @@
 ---
-import "../styles/carousel.css";
 ---
 <div>
   <div class="Carousel">
@@ -13,6 +12,72 @@ import "../styles/carousel.css";
     </div>
 </div>
 <script>
-  import "../scripts/carousel.ts";
+  Array.from(document.getElementsByClassName("Carousel-left")).forEach(element => {
+    element.addEventListener("click", event => {
+        //@ts-expect-error
+        let container = event.target.parentElement.parentElement.getElementsByClassName('Carousel')[0];
+        //@ts-expect-error
+        let leftButton = event.target.parentElement.getElementsByClassName('Carousel-left')[0];
+        //@ts-expect-error
+        let rightButton = event.target.parentElement.getElementsByClassName('Carousel-right')[0];
+        container.scrollBy(-200, 0);
+        rightButton.classList.remove("Carousel-disabled");
+        if (container.scrollLeft == 0) {
+            leftButton.classList.add("Carousel-disabled");
+        }
+    });
+});
+Array.from(document.getElementsByClassName("Carousel-right")).forEach(element => {
+    element.addEventListener("click", event => {
+        //@ts-expect-error
+        let container = event.target.parentElement.parentElement.getElementsByClassName('Carousel')[0];
+        //@ts-expect-error
+        let leftButton = event.target.parentElement.getElementsByClassName('Carousel-left')[0];
+        //@ts-expect-error
+        let rightButton = event.target.parentElement.getElementsByClassName('Carousel-right')[0];
+        container.scrollBy(200, 0);
+        leftButton.classList.remove("Carousel-disabled");
+        if ((container.scrollLeft + container.clientWidth) > (container.scrollWidth - 1)) {
+            rightButton.classList.add("Carousel-disabled");
+        }
+    });
+});
 </script>
-  
+<style>
+.Carousel{
+  overflow: scroll;
+  grid-auto-flow: column;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+
+.Carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.Carousel-button{
+  width: 2rem;
+  height: 2rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  background-color: #FFAF0A;
+  transform: translateY(-4.5rem);
+  border: 0rem;
+  cursor: pointer;
+}
+
+.Carousel-controls{
+  padding-left: 2rem;
+  padding-right: 2rem;
+  display: flex;
+}
+
+.Carousel-spacer{
+  flex-grow: 1;
+}
+
+.Carousel-disabled{
+  background-color: #ffad0a95;
+  cursor: not-allowed;
+}
+</style>

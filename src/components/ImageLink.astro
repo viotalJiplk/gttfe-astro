@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import "../styles/imageLink.css";
 interface Props {
     image: ImageMetadata;
     link: string;
@@ -11,3 +10,15 @@ const {image, link, alt = "", className} = Astro.props;
 ---
 
 <div class={className}><a class="ImageLink-a" href={link}><Image src={image} alt={alt}></Image><slot/></a></div>
+<style>
+    .ImageLink-a{
+        text-decoration: none;
+        color: white;
+    }
+</style>
+<style is:global>
+    .ImageLink-a img{
+        height: 100%;
+        width: auto;
+    }
+</style>

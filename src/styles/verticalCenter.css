@@ -1,8 +1,0 @@
-.VerticalCenter-spacer{
-    flex-grow: 1;
-}
-.VerticalCenter-flexbox{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}

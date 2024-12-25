@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import TeamPhoto from "../assets/teamphoto.jpeg";
-import "../styles/aboutUs.css";
 import GttLayoutContent from "../layouts/GttLayoutContent.astro";
 ---
 
@@ -17,3 +16,16 @@ import GttLayoutContent from "../layouts/GttLayoutContent.astro";
         <p>V případě jakýchkoliv dotazů prosím kontaktuj @xvojta.</p>
     </main>
 </GttLayoutContent>
+<style>
+#about h2{
+    margin-bottom: 0rem;
+}
+
+#about h3{
+    margin-top: 0rem;
+}
+#about img{
+    max-width: 90%;
+    height: auto;
+}
+</style>
