@@ -80,7 +80,7 @@ async function startLoginChain() {
     res = await res.json();
 
     const redirectUrl = new URL(res.redirectUrl )
-    let newUrl = window.location.origin + "/login";
+    let newUrl = window.location.origin + "/login/";
     if (newUrl.includes("localhost")) {
         newUrl = newUrl.replace("localhost", "127.0.0.1");
     }
