@@ -16,6 +16,10 @@ const { elementId } = Astro.props;
 import { onCarouselChange } from "../scripts/carousel";
 
 Array.from(document.getElementsByClassName("Carousel")).forEach(element => {
+    window.onresize = function(){
+      //@ts-expect-error
+      onCarouselChange(element);
+    }
     //@ts-expect-error
     onCarouselChange(element);
 });
