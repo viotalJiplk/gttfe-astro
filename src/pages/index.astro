@@ -96,7 +96,7 @@ import { carouselAppendChild } from "../scripts/carousel";
         for(const game of games){
             const a = document.createElement("a");
             a.classList.add("index-game");
-            a.setAttribute("href", `/games/rules/${game.name}`);
+            a.setAttribute("href", `/games/rules/${game.name}/`);
 
             const img = document.createElement("img");
             img.setAttribute("src", game.icon);
