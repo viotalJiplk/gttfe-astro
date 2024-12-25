@@ -1,47 +1,25 @@
 ---
+const { elementId } = Astro.props;
 ---
 <div>
-  <div class="Carousel">
-    <slot/>
-  </div>
-  <div class="Carousel-controls">
-    <button class="Carousel-scroll Carousel-button Carousel-left Carousel-disabled">&lt;</button>
-          
-    <div class="Carousel-spacer"></div>
-    <button class="Carousel-scroll Carousel-button Carousel-right">&gt;</button>
+    <div id={elementId} class="Carousel">
+      <slot/>
     </div>
-</div>
+    <div class="Carousel-controls">
+      <button class="Carousel-scroll Carousel-button Carousel-left Carousel-disabled">&lt;</button>
+            
+      <div class="Carousel-spacer"></div>
+      <button class="Carousel-scroll Carousel-button Carousel-right">&gt;</button>
+      </div>
+    </div>
 <script>
-  Array.from(document.getElementsByClassName("Carousel-left")).forEach(element => {
-    element.addEventListener("click", event => {
-        //@ts-expect-error
-        let container = event.target.parentElement.parentElement.getElementsByClassName('Carousel')[0];
-        //@ts-expect-error
-        let leftButton = event.target.parentElement.getElementsByClassName('Carousel-left')[0];
-        //@ts-expect-error
-        let rightButton = event.target.parentElement.getElementsByClassName('Carousel-right')[0];
-        container.scrollBy(-200, 0);
-        rightButton.classList.remove("Carousel-disabled");
-        if (container.scrollLeft == 0) {
-            leftButton.classList.add("Carousel-disabled");
-        }
-    });
+import { onCarouselChange } from "../scripts/carousel";
+
+Array.from(document.getElementsByClassName("Carousel")).forEach(element => {
+    //@ts-expect-error
+    onCarouselChange(element);
 });
-Array.from(document.getElementsByClassName("Carousel-right")).forEach(element => {
-    element.addEventListener("click", event => {
-        //@ts-expect-error
-        let container = event.target.parentElement.parentElement.getElementsByClassName('Carousel')[0];
-        //@ts-expect-error
-        let leftButton = event.target.parentElement.getElementsByClassName('Carousel-left')[0];
-        //@ts-expect-error
-        let rightButton = event.target.parentElement.getElementsByClassName('Carousel-right')[0];
-        container.scrollBy(200, 0);
-        leftButton.classList.remove("Carousel-disabled");
-        if ((container.scrollLeft + container.clientWidth) > (container.scrollWidth - 1)) {
-            rightButton.classList.add("Carousel-disabled");
-        }
-    });
-});
+
 </script>
 <style>
 .Carousel{
@@ -49,6 +27,11 @@ Array.from(document.getElementsByClassName("Carousel-right")).forEach(element =>
   grid-auto-flow: column;
   white-space: nowrap;
   scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.Carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .Carousel::-webkit-scrollbar {
@@ -69,7 +52,7 @@ Array.from(document.getElementsByClassName("Carousel-right")).forEach(element =>
 .Carousel-controls{
   padding-left: 2rem;
   padding-right: 2rem;
-  display: flex;
+  display: none;
 }
 
 .Carousel-spacer{

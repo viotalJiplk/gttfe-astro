@@ -17,35 +17,12 @@ import HorizontalCenter from "../components/HorizontalCenter.astro";
     </section>
     <section id="sponsors">
         <h2>Sponzoři</h2>
-        <Carousel>
-            <div class="index-sponsor">1</div>
-            <div class="index-sponsor">2</div>
-            <div class="index-sponsor">3</div>
-            <div class="index-sponsor">4</div>
-            <div class="index-sponsor">5</div>
-            <div class="index-sponsor">6</div>
-            <div class="index-sponsor">7</div>
-            <div class="index-sponsor">8</div>
-            <div class="index-sponsor">9</div>
-            <div class="index-sponsor">10</div>
-            <div class="index-sponsor">11</div>
-            <div class="index-sponsor">12</div>
-            <div class="index-sponsor">13</div>
+        <Carousel elementId="index-sponsor-carousel">
         </Carousel>
     </section>
     <section id="games">
         <h2>Co hrajeme?</h2>
         <div id="index-gamesHolder">
-            <div class="index-games">1</div>
-            <div class="index-games">2</div>
-            <div class="index-games">3</div>
-            <div class="index-games">4</div>
-            <div class="index-games">5</div>
-            <div class="index-games">6</div>
-            <div class="index-games">7</div>
-            <div class="index-games">8</div>
-            <div class="index-games">9</div>
-            <div class="index-games">10</div>
         </div>
     </section>
     <section id="stats">
@@ -91,6 +68,47 @@ import HorizontalCenter from "../components/HorizontalCenter.astro";
         </div>
     </section>
 </GttLayout>
+<script>
+import { listGames } from "../scripts/api/game";
+import { loadSponsors } from "../scripts/api/sponsors";
+import { carouselAppendChild } from "../scripts/carousel";
+
+    const carousel = document.getElementById("index-sponsor-carousel") as HTMLDivElement;
+    const gameHolder = document.getElementById("index-gamesHolder") as HTMLDivElement;
+    
+    async function loadSponsorCarousel(){
+        const sponsors = await loadSponsors();
+        
+        for(let sponsor of sponsors){
+            const a = document.createElement("a");
+            a.classList.add("index-sponsor");
+            a.setAttribute("href", sponsor.sponsorLink);
+
+            const img = document.createElement("img");
+            img.setAttribute("src", sponsor.logo);
+            a.appendChild(img);
+
+            carouselAppendChild(carousel, a);
+        }
+    }
+
+    async function loadGameBanners(){
+        const games = await listGames();
+        for(const game of games){
+            const a = document.createElement("a");
+            a.classList.add("index-game");
+            a.setAttribute("href", `/games/rules/${game.name}`);
+
+            const img = document.createElement("img");
+            img.setAttribute("src", game.icon);
+            a.appendChild(img);
+
+            gameHolder.appendChild(a);
+        }
+    }
+    loadGameBanners();
+    loadSponsorCarousel();
+</script>
 <style>
     section{
         min-height: 100vh;
@@ -257,4 +275,15 @@ import HorizontalCenter from "../components/HorizontalCenter.astro";
     #how_to_participate{
         overflow: hidden;
     }
+</style>
+<style is:global>
+.index-sponsor img{
+    height: 5rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+#index-gamesHolder img{
+    height: 20rem;
+    width: auto;
+}
 </style>
