@@ -3,6 +3,13 @@ import ImageLink from './ImageLink.astro';
 import logo from '../../public/favicon.svg';
 import VerticalCenter from './VerticalCenter.astro';
 ---
+<div id="Header-hamburgerButton-holder">
+    <div id="Header-hamburgerButton">
+        <div class="Header-hamburgerButton-line"></div>
+        <div class="Header-hamburgerButton-line"></div>
+        <div class="Header-hamburgerButton-line"></div>
+    </div>
+</div>
 <nav id="Header-navbar">
   <div>
     <li><ImageLink image={logo} link="/"></ImageLink></li>
@@ -19,7 +26,23 @@ import VerticalCenter from './VerticalCenter.astro';
     <li><a href="/account"><VerticalCenter className="Header-link-button Header-link-account">Účet</VerticalCenter></a></li>
   </div>
 </nav>
+
+<script>
+    const hamButton = document.getElementById("Header-hamburgerButton") as HTMLDivElement;
+    const nav = document.getElementById("Header-navbar") as HTMLDivElement;
+    hamButton.addEventListener("click", event => {
+        if(nav.style.display === "block"){
+            nav.style.display = "none";
+        }else{
+            nav.style.display = "block";
+        }
+    });
+</script>
+
 <style is:global>
+    #Header-hamburgerButton-holder{
+        display: none;
+    }
   #Header-navbar{
       background-color: black;
       padding: 1vh;
@@ -81,5 +104,52 @@ import VerticalCenter from './VerticalCenter.astro';
   }
   #Nav-spacer{
       flex-grow: 1;
+  }
+  @media screen and (max-width: 1200px) {
+    #Header-navbar{
+        display: none;
+        box-shadow: 0 0 0rem 0rem #ffad0aa1;
+    }
+    #Header-navbar div{
+        padding: 1vh;
+        display: block;
+    }
+    #Header-hamburgerButton-holder{
+        display: block;
+        width: 100%;
+        background-color: black;
+    }
+    /* Hamburger container styles */
+    #Header-hamburgerButton {
+        width: 20vw;
+        height: 12vw;
+        margin: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    /* Hamburger lines */
+    #Header-hamburgerButton .Header-hamburgerButton-line {
+        width: 100%;
+        height: 2vw;
+        background-color: white;
+        border-radius: 1vw;
+        transition: all 0.3s ease;
+    }
+
+    /* Animation for active state */
+    #Header-hamburgerButton.active .Header-hamburgerButton-line:nth-child(1) {
+        transform: translateY(13px) rotate(45deg);
+    }
+
+    #Header-hamburgerButton.active .Header-hamburgerButton-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    #Header-hamburgerButton.active .Header-hamburgerButton-line:nth-child(3) {
+        transform: translateY(-13px) rotate(-45deg);
+    }
   }
 </style>

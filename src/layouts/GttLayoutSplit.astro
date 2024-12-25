@@ -24,6 +24,21 @@ const {pageTitle} = Astro.props;
         flex-grow: 1;
         margin-right: 4rem;
     }
+    @media screen and (max-width: 1200px) {
+        .GttLayoutSplit img{
+            display: none;
+        }
+        .GttLayoutSplit .ContentHolder{
+            flex-grow: 1;
+            margin-right: 0rem;
+        }
+        .GttLayoutSplit{
+            display: block;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            width: 95%;
+        }
+    }
 </style>
 <style is:global>
     .GttLayoutSplit h1{

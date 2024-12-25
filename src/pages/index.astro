@@ -274,6 +274,40 @@ import { carouselAppendChild } from "../scripts/carousel";
     #how_to_participate{
         overflow: hidden;
     }
+
+    @media screen and (max-width: 1200px) {
+        h1{
+            font-size: 3rem;
+        }
+
+        #index-statsHolder{
+            display: block;
+            width: 90vw;
+            padding-top: 3vw;
+            padding-bottom: 3vw;
+            padding-left: 2vw;
+            padding-right: 2vw;
+            margin: 4vw;
+            border-radius: 3rem;
+        }
+        .index-stats-up{
+            font-size: 3rem;
+            min-width: 0rem;
+            margin: 3rem;
+        }
+
+        h2{
+            font-size: 2rem;
+            text-align: center;
+        }
+        #index-logo{
+            display: none;
+        }
+        #index-participationHolder{
+            display: block;
+            width: 100%;
+        }
+    }
 </style>
 <style is:global>
 .index-sponsor img{
@@ -284,5 +318,11 @@ import { carouselAppendChild } from "../scripts/carousel";
 #index-gamesHolder img{
     height: 20rem;
     width: auto;
+}
+@media screen and (max-width: 1200px) {
+    #index-gamesHolder img{
+        height: 5rem;
+        width: auto;
+    }
 }
 </style>

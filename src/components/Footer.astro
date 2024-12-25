@@ -56,4 +56,23 @@ import GithubSvg from "../assets/github-logo.svg";
     .Footer-holder{
         display: flex;
     }
+    @media screen and (max-width: 1200px) {
+        #Footer-linkHolder{
+            display: block;
+            grid-template-columns: auto auto auto;
+        }
+        .Footer-holder{
+            display: block;
+        }
+        #Footer-gttLogo{
+            height: 6vh;
+            width: auto;
+            padding: 0vh;
+            margin-right: 0vh;
+            margin-bottom: 1vh;
+            padding-bottom: 1vh;
+            border-right: 0rem solid white;
+            border-bottom: 0.1rem solid white;
+        }
+    }
 </style>

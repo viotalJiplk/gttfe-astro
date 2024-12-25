@@ -144,4 +144,14 @@ import GttLayoutSplit from "../layouts/GttLayoutSplit.astro";
     #account-main .account-div-half, #account-main .account-div, #account-main #saveButton{
         margin-top: 1rem;
     }
+    @media screen and (max-width: 1200px) {
+        #account-main .account-div-half{
+            width: 90%;
+            display: block;
+            margin-right: 0%;
+        }
+        #account-main .account-div-half, #account-main .account-div, #account-main #saveButton{
+            width: 95%;
+        }
+    }
 </style>

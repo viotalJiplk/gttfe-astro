@@ -49,4 +49,15 @@ const {pageTitle} = Astro.props;
         max-width: 90%;
         height: auto;
     }
+    @media screen and (max-width: 1200px) {
+        .ContentHolder{
+            margin: 0.1rem;
+            padding: 0rem;
+            padding-bottom: 1rem;
+            padding-top: 1rem;
+        }
+        .ContentHolder h1, .ContentHolder h2, .ContentHolder h3, .ContentHolder p{
+            padding: 1rem;
+        }
+    }
 </style>
