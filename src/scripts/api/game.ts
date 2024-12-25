@@ -32,7 +32,7 @@ export class Game extends ApiObject {
 }
 
 export async function listGames() {
-    let res = await authFetch('/backend/game/all/');
+    let res = await fetch('/backend/game/all/');
     let gamesObj = await res.json();
     let games: Game[] = [];
     if (!isIterable(gamesObj)) {

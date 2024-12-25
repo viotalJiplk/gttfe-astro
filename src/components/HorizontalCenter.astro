@@ -1,9 +1,9 @@
 ---
-const {className} = Astro.props;
+const {className, elementId} = Astro.props;
 ---
 <div class="HorizontalCenter-flexbox">
     <div class="HorizontalCenter-spacer"></div>
-    <div class={className}><slot/></div>
+    <div id={elementId} class={className}><slot/></div>
     <div class="HorizontalCenter-spacer"></div>
 </div>
 <style>

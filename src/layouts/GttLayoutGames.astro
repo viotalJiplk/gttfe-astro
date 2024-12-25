@@ -1,12 +1,35 @@
 ---
 import Carousel from "../components/Carousel.astro";
+import HorizontalCenter from "../components/HorizontalCenter.astro";
 import GttLayout from "./GttLayout.astro";
 const {frontmatter} = Astro.props;
 ---
 <GttLayout pageTitle={frontmatter.title}>
-    <Carousel></Carousel>
+    <HorizontalCenter elementId="GttLayoutGames-sponsor-carouselHolder"><Carousel elementId="gameSelectCarousel"></Carousel></HorizontalCenter>
     <div class="ContentHolder"><slot/></div>
 </GttLayout>
+<script>
+    import { listGames } from "../scripts/api/game";
+import { carouselAppendChild } from "../scripts/carousel";
+
+    const carousel = document.getElementById("gameSelectCarousel") as HTMLDivElement;
+
+    async function loadGameBanners(){
+        const games = await listGames();
+        for(const game of games){
+            const a = document.createElement("a");
+            a.classList.add("index-game");
+            a.setAttribute("href", `/games/rules/${game.name}`);
+
+            const img = document.createElement("img");
+            img.setAttribute("src", game.icon);
+            a.appendChild(img);
+
+            carouselAppendChild(carousel, a);
+        }
+    }
+    loadGameBanners();
+</script>
 <style is:global>
     .ContentHolder{
         background: rgb(8,14,31);
@@ -53,5 +76,11 @@ const {frontmatter} = Astro.props;
     .ContentHolder a{
         text-decoration: none;
         color: blue;
+    }
+</style>
+<style is:global>
+    #gameSelectCarousel img{
+        height: 8rem;
+        width: auto;
     }
 </style>
