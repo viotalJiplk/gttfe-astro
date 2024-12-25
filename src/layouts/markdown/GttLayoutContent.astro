@@ -1,0 +1,5 @@
+---
+import Layout from "../GttLayoutContent.astro"
+const {frontmatter} = Astro.props;
+---
+<Layout pageTitle = {frontmatter.title}><slot/></Layout>
