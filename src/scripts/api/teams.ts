@@ -41,6 +41,32 @@ export class Team extends ApiObject {
     }
 }
 
+export class Participating extends ApiObject {
+    static types = {
+        "canPlaySince": String,
+        "generatedRoleId": Number,
+        "name": String,
+        "nick": String,
+        "teamId": Number,
+        "userId": [undefined, String],
+    }
+    canPlaySince: string;
+    generatedRoleId: number;
+    name: string;
+    nick: string;
+    teamId: number;
+    userId?: string;
+    constructor(canPlaySince: string, generatedRoleId: number, name: string, nick: string, teamId: number, userId: string | undefined) {
+        super();
+        this.canPlaySince = canPlaySince;
+        this.generatedRoleId = generatedRoleId;
+        this.name = name;
+        this.nick = nick;
+        this.teamId = teamId;
+        this.userId = userId;
+    }
+}
+
 /**
  * Returns users teams
  * @param userId userId or '@me'
@@ -191,4 +217,36 @@ export async function create(name: string, gameId: number, nick: string, rank: n
         })
     });
     return await errorTest(res);
+}
+
+export async function listParticipating(gameId: number, withUserIds: boolean = false) {
+    const res = await fetch(`/backend/team/list/participating/${String(gameId)}/${withUserIds}`);
+    const participatingsObj = await res.json();
+    const participating: Participating[][] = [];
+    const teams: Team[] = [];
+    if (!isIterable(participatingsObj)) {
+        console.error(`/backend/team/list/participating/${String(gameId)}/false responded with non iterable.`);
+        throw new ShowError("Chyba serveru, kontaktujte prosím podporu.");
+    }
+    for (let participatingObj of participatingsObj) {
+        //@ts-expect-error
+        let playerParticipating: Participating = Participating.fromObject(participatingObj);
+        if (!(playerParticipating.teamId in participating)) {
+            participating[playerParticipating.teamId] = [];
+        }
+        participating[playerParticipating.teamId].push(playerParticipating);
+    }
+    for (let teamParticipating of participating) {
+        if (teamParticipating !== undefined) {
+            if (teamParticipating.length > 0) {
+                const team = new Team(teamParticipating[0].name, teamParticipating[0].teamId, gameId);
+                team.players = []
+                for (let participant of teamParticipating) {
+                    team.players.push(new Player(participant.userId || "", participant.nick, participant.generatedRoleId));
+                }
+                teams.push(team);
+            }
+        }
+    }
+    return teams;
 }

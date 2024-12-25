@@ -34,7 +34,7 @@ export class GeneratedRole extends ApiObject{
 }
 
 export async function listGeneratedRoles(gameId: number | "all" = "all") {
-    let res = await authFetch(`/backend/generatedRole/list/${gameId}/`);
+    let res = await fetch(`/backend/generatedRole/list/${gameId}/`);
     let generatedRolesObj = await res.json();
     let generatedRole: GeneratedRole[] = [];
     if (!isIterable(generatedRolesObj)) {

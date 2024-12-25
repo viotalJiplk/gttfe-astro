@@ -15,7 +15,7 @@ export class School extends ApiObject{
 }
 
 export async function listSchools(){
-    let res = await authFetch("/backend/school/listAll/");
+    let res = await fetch(`/backend/school/listAll/`);
     let schoolsObj = await res.json();
     let schools: School[] = [];
     if (!isIterable(schoolsObj)) {

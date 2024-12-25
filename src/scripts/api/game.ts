@@ -46,6 +46,15 @@ export async function listGames() {
     return games;
 }
 
+export function getGameFromGameName(name: String, games: Game[]) {
+    for (let game of games) {
+        if (game.name === name) {
+            return game;
+        }
+    }
+    return undefined;
+}
+
 export function getGameNameFromId(id: Number, games: Game[]) {
     for (let game of games) {
         if (game.gameId === id) {
@@ -56,10 +65,6 @@ export function getGameNameFromId(id: Number, games: Game[]) {
 }
 
 export function getIdFromGameName(name: String, games: Game[]) {
-    for (let game of games) {
-        if (game.name === name) {
-            return game.gameId;
-        }
-    }
-    return -1;
+    const game = getGameFromGameName(name, games);
+    return game?game.gameId:-1;
 }
