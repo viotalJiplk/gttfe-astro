@@ -10,7 +10,7 @@ import GttLayoutSplit from "../layouts/GttLayoutSplit.astro"
     <Loading elementId="myTeams-loading"></Loading>
     <main id="myTeams" style="display: none">
         <div class="myTeams-header">
-            <h1>Moje týmy</h1><div class="spacer"></div><a>Nový tým</a>
+            <h1>Moje týmy</h1><div class="spacer"></div><a href="/team/create">Nový tým</a>
         </div>
         <div id="myTeams-teamHolder"></div>
     </main>
@@ -67,6 +67,9 @@ import GttLayoutSplit from "../layouts/GttLayoutSplit.astro"
         width: 100%;
         padding-bottom: 1rem;
         border-bottom: 0.3rem solid white;
+    }
+    .myTeams-header a{
+        text-decoration: none;
     }
     .spacer{
         flex-grow: 1;

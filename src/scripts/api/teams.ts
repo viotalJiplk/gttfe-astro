@@ -23,13 +23,13 @@ export class Team extends ApiObject {
         "name": String,
         "teamId": Number,
         "gameId": Number,
-        "joinString": [String, undefined],
+        "joinString": [String, undefined, null],
         "players": [Array, undefined]
     };
     name = "";
     teamId = -1;
     gameId = -1;
-    joinString?: string;
+    joinString?: string | null;
     players?: Player[];
     constructor(name: string = "", teamId: number = -1, gameId: number = -1, joinString: string | undefined = undefined, players: Player[] | undefined = undefined) {
         super();
@@ -113,4 +113,82 @@ export async function newJoinString(teamId: number) {
             return String(response.joinString);
         }
     }
+}
+
+async function errorTest(response: Response) {
+    let resObj = await response.json();
+    if(resObj){
+        if (response.status === 403) {
+            if (resObj.msg === "Team full or you are in another team for this game.") {
+                throw new ShowError("Tým je plný nebo již jste v jiném týmu pro tuto hru.");
+            } else if (resObj.msg === "Game not found.") {
+                throw new ShowError("Hra nebyla nalezena.");
+            } else if (resObj.msg === "Wrong joinString.") {
+                throw new ShowError("Špatny link pro připojení do týmu.");
+            } else if (resObj.msg === "Already registered for game.") {
+                throw new ShowError("Již jste v jiném týmu pro tuto hru.");
+            } else if (resObj.msg === "This team already has the maximum number of players permitted in this role.") {
+                throw new ShowError("Tato role je v tomto týmu již plně obsazena.");
+            }  else if (resObj.msg === "Missing nick, rank, max_rank or role." || resObj.msg === "Missing game_id or name." || resObj.msg === "Missing nick, rank, or max_rank of capitain.") {
+                throw new ShowError("Chyba požadavku.");
+            } else {
+                console.error(response.status);
+                throw new ShowError("Neznámá chyba. Zkuste akci opakovat později.");
+            }
+        } else if (response.status === 404) {
+            if (resObj.msg === "User is not in database.") {
+                throw new ShowError("Nejste zaregistrován v systému.");
+            } else {
+                console.error(response.status);
+                throw new ShowError("Neznámá chyba. Zkuste akci opakovat později.");
+            }
+        } else if (response.status === 410) {
+            throw new ShowError("Registrace ještě nezačala nebo už byla ukončena.");
+        } else if (response.status === 400) {
+            if (resObj.msg === 'You have not filled info required for creating Team.') {
+                throw new ShowError("Nemáte zadané informace potřebné k připojení k týmu. Nastavte je v záložce Váš profil.");
+            } else {
+                console.error(response.status);
+                throw new ShowError("Neznámá chyba. Zkuste akci opakovat později.");
+            }
+        } else {
+            return resObj;
+        }
+    } else {
+        console.error(response.status + " Odpověď nemá tělo.");
+        throw new ShowError("Neznámá chyba. Zkuste akci opakovat později.");
+    }
+}
+
+export async function join(teamId: number, joinString: string, nick: string, rank: number, maxRank: number, role: number) {
+    let res = await authFetch(`/backend/team/id/${String(teamId)}/join/${joinString}/`, {
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": JSON.stringify({
+            "nick":nick,
+            "rank": rank,
+            "maxRank": maxRank,
+            "generatedRoleId": role
+        })
+    });
+    return await errorTest(res);
+}
+
+export async function create(name: string, gameId: number, nick: string, rank: number, maxRank: number) {
+    let res = await authFetch("/backend/team/create/", {
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "body": JSON.stringify({
+            "name": name,
+            "gameId": gameId,
+            "nick": nick,
+            "rank": rank,
+            "maxRank": maxRank
+        })
+    });
+    return await errorTest(res);
 }

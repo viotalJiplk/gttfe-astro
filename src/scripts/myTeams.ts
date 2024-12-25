@@ -129,7 +129,7 @@ function render(teams: Team[], generatedRoles: GeneratedRole[], generatedRolePer
                 button.innerText = "Přidat člena";
                 button.setAttribute("data-teamId", String(team.teamId));
                 button.setAttribute("data-gameId", String(team.gameId));
-                button.setAttribute("data-joinString", team.joinString);
+                button.setAttribute("data-joinString", team.joinString?team.joinString:"null");
                 button.addEventListener("click", loadJoin);
                 teamHolder.appendChild(button);
             }
@@ -245,7 +245,10 @@ async function regenJoinString(event: Event) {
 }
 
 function createJoinStringUrl(teamId: number, joinString: string, gameId: number) {
-    const url = new URL(window.location.origin + "/join");
+    if (joinString === "null" || joinString === "undefined") {
+        return "";
+    }
+    const url = new URL(window.location.origin + "/team/join");
     url.searchParams.append("teamId", String(teamId));
     url.searchParams.append("gameId", String(gameId));
     url.searchParams.append("joinString", joinString);

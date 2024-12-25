@@ -24,7 +24,7 @@ export class User extends ApiObject{
     }
 }
 
-export async function meInfo() {
+export async function meInfo(): Promise<User> {
     let res = await authFetch("/backend/user/@me/");
     let response = await res.json();
     if (!("schoolId" in response) || (response.schoolId === null)) {
@@ -42,6 +42,7 @@ export async function meInfo() {
     if (!("camera" in response) || (response.camera === "\"\"")) {
         response.camera = false;
     }
+    //@ts-expect-error
     return User.fromObject(response);
 }
 

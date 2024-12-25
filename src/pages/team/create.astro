@@ -1,0 +1,196 @@
+---
+import Input from "../../components/forms/Input.astro";
+import Selection from "../../components/forms/Selection.astro";
+import Submit from "../../components/forms/Submit.astro";
+import Loading from "../../components/Loading.astro";
+import GttLayoutSplit from "../../layouts/GttLayoutSplit.astro";
+---
+<GttLayoutSplit pageTittle="Připojit se do týmu">
+    <Loading elementId="create-loading"></Loading>
+    <main id="create" style="display: none">
+        <section id="create-info">
+            Nejdříve vyplňte informace o Vás <a href="/account" target="_blank">zde</a>.<br>
+            <button id="create-accountInfo-complete">Hotovo</button>
+        </section>
+        <section id="create-game-info" style="display: none">
+            <Selection elementId="create-game" divClass="create-div" selectionId="create-game-selection">Hra</Selection>
+            <Submit elementId="create-gameSave" value="Vybrat hru" />
+        </section>
+        <section id="create-formHolder" style="display: none">
+            <h1>Připojit se do týmu</h1>
+            <div class="account-underline"></div>
+            <form id = "create-form">
+                <Input elementId="create-name" divClass="create-div">Název týmu</Input>
+                <Input elementId="create-nick" divClass="create-div">Přezdívka</Input>
+                <Selection elementId="create-rank" divClass="create-div" selectionId="create-rank-selection">Rank</Selection>
+                <Selection elementId="create-maxRank" divClass="create-div" selectionId="create-maxRank-selection">Maximimální dosažený rank</Selection>
+                <Submit elementId="create-saveButton" value="Vytvořit tým" />
+            </form>
+        </section>
+    </main>
+</GttLayoutSplit>
+<script>
+import { loadingError } from "../../scripts/loading";
+import { flashToastError, showToastError } from "../../scripts/toast";
+import { getIdFromRankName, listRanks } from "../../scripts/api/ranks";
+import { Rank } from "../../scripts/api/ranks";
+import { addOptions } from "../../scripts/selection";
+import { ShowError } from "../../scripts/api/utils";
+import { Game, listGames, getIdFromGameName } from "../../scripts/api/game";
+import { create } from "../../scripts/api/teams";
+
+const main = document.getElementById("create") as HTMLDivElement;
+const loading = document.getElementById("create-loading") as HTMLDivElement;
+const accountInfoComplete = document.getElementById("create-accountInfo-complete") as HTMLDivElement;
+const createInfo = document.getElementById("create-info") as HTMLDivElement;
+const gameInfo = document.getElementById("create-game-info") as HTMLDivElement;
+const gameButton = document.getElementById("create-gameSave") as HTMLButtonElement;
+const gameInput = document.getElementById("create-game") as HTMLInputElement;
+const formHolder = document.getElementById("create-formHolder") as HTMLDivElement;
+const form = document.getElementById("create-form") as HTMLDivElement;
+const formInputs = {
+    "name": document.getElementById("create-name") as HTMLInputElement,
+    "nick": document.getElementById("create-nick") as HTMLInputElement,
+    "rank": document.getElementById("create-rank") as HTMLInputElement,
+    "maxRank": document.getElementById("create-maxRank") as HTMLInputElement
+}
+let games: Game[] = [];
+let ranks: Rank[] = [];
+let gameId: number = -1;
+
+async function loadRanks(gameId: number) {
+    ranks = await listRanks(gameId);
+    let options: string[] = [];
+    ranks.forEach(rank => {
+        options.push(rank.rankName);
+    });
+    addOptions("create-rank-selection", "create-rank", options);
+    addOptions("create-maxRank-selection", "create-maxRank", options);
+    return ranks;
+}
+
+async function loadGameSelector(){
+    try {
+        games = await listGames();
+        let options: string[] = [];
+        games.forEach(game => {
+            options.push(game.name);
+        });
+        addOptions("create-game-selection", "create-game", options);
+        main.style.display = "block";
+        loading.style.display = "none";
+        accountInfoComplete.addEventListener("click", event=>{
+            gameInfo.style.display = "block";
+            createInfo.style.display = "none";
+        });
+        gameButton.addEventListener("click", event=>{
+            gameId = getIdFromGameName(gameInput.value, games);
+            if(gameId === -1){
+                flashToastError("Vyberte hru.");
+            }else{
+                load(gameId);
+            }
+        });
+    } catch (e) {
+        if (e instanceof ShowError) {
+            loadingError(loading);
+            showToastError(e.message);
+        } else {
+            loadingError(loading);
+            showToastError("Neznámá chyba, kontaktujte prosím podporu.");
+            throw e;
+        }
+    }
+}
+
+async function load(gameId: number){
+    try {
+        await loadRanks(gameId);
+        formHolder.style.display = "block";
+        gameInfo.style.display = "none";
+    } catch (e) {
+        if (e instanceof ShowError) {
+            loadingError(loading);
+            showToastError(e.message);
+        } else {
+            loadingError(loading);
+            showToastError("Neznámá chyba, kontaktujte prosím podporu.");
+            throw e;
+        }
+    }
+}
+async function submit(event: Event){
+    event.preventDefault();
+    const rank = getIdFromRankName(formInputs.rank.value, ranks);
+    const maxRank = getIdFromRankName(formInputs.maxRank.value, ranks);
+    if(formInputs.name.value === ""){
+        flashToastError("Zadejte prosím název týmu.");
+    } else if(formInputs.nick.value === ""){
+        flashToastError("Zadejte prosím přezdívku.");
+    } else if(rank === -1){
+        flashToastError("Zadejte prosím aktuální rank.");
+    } else if(maxRank === -1){
+        flashToastError("Zadejte prosím maximimální dosažený rank.");
+    } else if(gameId === -1){
+        flashToastError("Zadejte prosím hru.");
+    }else{
+        main.style.display = "none";
+        loading.style.display = "block";
+        try {
+            await create(formInputs.name.value, gameId, formInputs.nick.value, rank, maxRank);
+            window.location.href = "/myTeams";
+        } catch (e) {
+            if (e instanceof ShowError) {
+                loadingError(loading);
+                flashToastError(e.message);
+            } else {
+                loadingError(loading);
+                showToastError("Neznámá chyba, kontaktujte prosím podporu.");
+                throw e;
+            }
+        }
+    }
+}
+
+loadGameSelector();
+
+form.addEventListener("submit", submit);
+</script>
+<style>
+    #create-info{
+        font-weight: bold;
+        font-size: 2rem;
+    }
+    #create-info a{
+        text-decoration: none;
+        color: blue;
+    }
+    #create-info button, #create-game-info button{
+        border: none;
+        outline: none;
+        margin-top: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
+        border-radius: 1rem;
+        box-shadow: 0 0 0.2rem 0.3rem #ffffff34;
+        font-size: 1.5rem;
+        padding-left: 1%;
+        padding-right: 1%;
+        background-color: #FF9E00;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    #create-info button:hover, #create-game-info button:hover{
+        box-shadow: 0 0 0rem 0rem #ffffff34;
+    }
+</style>
+<style is:global>
+    #create-gameSave{
+        margin-top: 1rem;
+    }
+    #create-form .create-div-half, #create-form .create-div, #create-form #create-saveButton{
+        margin-top: 1rem;
+    }
+</style>

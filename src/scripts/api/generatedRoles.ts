@@ -33,8 +33,8 @@ export class GeneratedRole extends ApiObject{
     }
 }
 
-export async function listGeneratedRoles() {
-    let res = await authFetch(`/backend/generatedRole/list/all/`);
+export async function listGeneratedRoles(gameId: number | "all" = "all") {
+    let res = await authFetch(`/backend/generatedRole/list/${gameId}/`);
     let generatedRolesObj = await res.json();
     let generatedRole: GeneratedRole[] = [];
     if (!isIterable(generatedRolesObj)) {
@@ -55,4 +55,13 @@ export function generatedRoleNameFromId(id: number, generatedRoles: GeneratedRol
         }
     }
     return "";
+}
+
+export function getIdFromGeneratedRoleName(name: string, generatedRoles: GeneratedRole[]) {
+    for (let generatedRole of generatedRoles) {
+        if (generatedRole.roleName === name) {
+            return generatedRole.generatedRoleId;
+        }
+    }
+    return -1;
 }
