@@ -1,46 +1,14 @@
 ---
+import { getCollection } from "astro:content";
 import GttLayoutContent from "../layouts/GttLayoutContent.astro"
 import "../styles/pages/sponsors.css"
+const sponsors = await getCollection('sponsors');
 ---
 
 <GttLayoutContent pageTitle = "Sponzoři">
         <main id="sponsors">
             <h1>Sponzoři</h1>
-            <div class="sponsors-sponsor">
-                <h2>Artin</h2>
-                <p>Neuvěřitelný tým špičkových softwarových vývojářů a IT odborníků. <br>
-                    Softwarová řešení a firemní kulturu posouváme kupředu, abychom byli inspirací pro ostatní. <br>
-                    Během posledních 25 let jsme se rozrostli na více než 200 pracovníků &gt; Vývojáři softwaru &gt; Projektoví manažeři a mistři Scrum &gt; Obchodní analytici &gt; Experti na uživatelské zkušenosti &gt; Inženýři pro zajištění kvality</p>
-            </div>
-            <div class="sponsors-sponsor">
-                <h2>Fakaheda</h2>
-                <p>FakaHeda.eu, největší český poskytovatel herních serverů byl založen v roce 2006. <br>
-                    Naší hlavní prioritou je již od počátku maximální kvalita poskytovaných služeb a technické podpory. Jsme jako jedni z mála (první v ČR a SK) autorizovaný poskytovatel TeamSpeak serverů. Jako partner EA jsme také jediný poskytovatel Battlefield RANKED a Medal of Honor: Warfighter serverů v České republice a na Slovensku.</p>
-            </div>
-            <div class="sponsors-sponsor">
-                <h2>Helkor</h2>
-                <p>Projekt Helkor.eu je český herní hosting, zaměřený primárně na hru Minecraft.<br>
-                    Mimo hry je u nás tatkéž možné hostovat webové stránky, Discord boty a JavaScript, Java a Python aplikace.<br>
-                    Dbáme na kvalitu poskytovaných služeb a to jak po stránce Hardware, tak po stránce Software. Snažíme se naslouchat potřebám zákazníků a implementovat jejich požadavky do našeho systému</p>
-            </div>
-            <div class="sponsors-sponsor">
-                <h2>Jihomoravský kraj</h2>
-                <p>Dotace jsou poskytovány ve veřejném zájmu v souladu se Strategií rozvoje Jihomoravského kraje 2021+, případně s jinými rozvojovými dokumenty Jihomoravského kraje tak, aby byl zajištěn všestranný rozvoj území kraje a uspokojeny potřeby občanů kraje.<br>
-                    Postup pro poskytování dotací je upraven ve směrnici 24/INA-VOK Dotační pravidla.<br>
-                    Pravidla publicity jsou podrobněji upraveny ve směrnici 23/INA-VOK Znak, vlajka a logo JMK.</p>
-            </div>
-            <div class="sponsors-sponsor">
-                <h2>JRDM</h2>
-                <p>Jihomoravská rada dětí a mládeže je krajský střešní spolek spolků dětí a mládeže, které působí na území Jihomoravského kraje.<br>
-                    JRDM je tu s vámi již od roku 2001.<br>
-                    V našich členských organizacích je přes 40 000 členů.<br>
-                    Aktuálně sdružujeme 24 členských organizací.</p>
-            </div>
-            <div class="sponsors-sponsor">
-                <h2>MŠMT</h2>
-                <p>Ministerstvo školství, mládeže a tělovýchovy České je ústřední orgán státní správy pro předškolní zařízení, školská zařízení, základní školy, střední školy a vysoké školy, pro vědní politiku, výzkum a vývoj, včetně mezinárodní spolupráce v této oblasti, a pro vědecké hodnosti, pro státní péče o děti, mládež, tělesnou výchovu, sport, turistiku a sportovní reprezentaci státu.<br>
-                    Často bývá zkráceně označováno jen jako Ministerstvo školství. Sídlí v Karmelitské ulici v Praze 1-Malé Straně.</p>
-            </div>
+            {sponsors.map(sponsor =><div class="sponsors-sponsor"><h2>{sponsor.data.title}</h2><p>{sponsor.body}</p></div>)}
         </main>
     </ContentHolder>
 </GttLayoutContent>

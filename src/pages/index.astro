@@ -5,6 +5,8 @@ import GttLogo from "../../public/favicon.svg";
 import Carousel from "../components/Carousel.astro";
 import HorizontalCenter from "../components/HorizontalCenter.astro";
 import "../styles/pages/index.css"
+import { getCollection } from "astro:content";
+const sponsors = await getCollection('sponsors');
 ---
 
 <GttLayout pageTitle = "Hlavní stránka">
@@ -18,7 +20,7 @@ import "../styles/pages/index.css"
     </section>
     <section id="sponsors">
         <h2>Sponzoři</h2>
-        <HorizontalCenter><Carousel elementId="index-sponsor-carousel"></Carousel></HorizontalCenter>
+        <HorizontalCenter><Carousel elementId="index-sponsor-carousel">{sponsors.map(sponsor =><a href={sponsor.data.link} class="index-sponsor"><Image src={sponsor.data.logo} alt={"Sponzor " + sponsor.data.title}/></a>)}</Carousel></HorizontalCenter>
     </section>
     <section id="games">
         <h2>Co hrajeme?</h2>

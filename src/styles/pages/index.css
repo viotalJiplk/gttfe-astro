@@ -194,6 +194,7 @@ h1 .index-yellow{
 
 .index-sponsor img{
     height: 5rem;
+    width: auto;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
 }

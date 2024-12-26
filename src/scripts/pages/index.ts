@@ -36,4 +36,4 @@ import { carouselAppendChild } from "../carousel";
         }
     }
     loadGameBanners();
-    loadSponsorCarousel();
+    //loadSponsorCarousel();
