@@ -11,18 +11,18 @@
     -webkit-background-clip: text; /* For WebKit browsers */
     color: transparent;
 }
-#GttLayoutGameRules-gameRoles thead span{
+#gameRules-gameRoles thead span{
     width: fit-content;
     background-image: linear-gradient(45deg, #FFD60A, #FF9E00);
     background-clip: text;
     -webkit-background-clip: text; /* For WebKit browsers */
     color: transparent;
 }
-#GttLayoutGameRules-gameRoles table{
+#gameRules-gameRoles table{
     border-collapse: collapse;
 }
 
-#GttLayoutGameRules-gameRoles td, #GttLayoutGameRules-gameRoles th{
+#gameRules-gameRoles td, #gameRules-gameRoles th{
     border-collapse: collapse;
     border: 0.3rem solid white;
     padding: 1rem;

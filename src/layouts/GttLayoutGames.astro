@@ -1,16 +1,20 @@
 ---
+import { Image } from "astro:assets";
 import Carousel from "../components/Carousel.astro";
 import HorizontalCenter from "../components/HorizontalCenter.astro";
 import GttLayout from "./GttLayout.astro";
 const {pageTitle} = Astro.props;
 import "../styles/layouts/GttLayoutGames.css"
+import { getCollection } from "astro:content";
+const games = await getCollection('games');
 ---
 <GttLayout pageTitle={pageTitle}>
-    <HorizontalCenter elementId="GttLayoutGames-sponsor-carouselHolder"><Carousel elementId="gameSelectCarousel"></Carousel></HorizontalCenter>
+    <HorizontalCenter elementId="GttLayoutGames-sponsor-carouselHolder"><Carousel elementId="gameSelectCarousel">
+        {games.map(game =><a href={`./${game.data.name}`} class="index-game"><Image src={game.data.picture} alt={"Hra: " + game.data.name}/></a>)}    
+    </Carousel></HorizontalCenter>
     <div id="GttLayoutGames-sponsor-underline"></div>
     <HorizontalCenter elementId="GttLayoutGames-subnav"><a id="GttLayoutGames-generalRules" class="disabled">OBECNÁ PRAVIDLA</a><a id="GttLayoutGames-rules" class="disabled">PRAVIDLA</a><a id="GttLayoutGames-bracket" class="disabled">BRACKET</a><a id="GttLayoutGames-contestants" class="disabled">ÚČASTNÍCI</a></HorizontalCenter>
     <div class="ContentHolder">
         <slot></slot>
     </div>
 </GttLayout>
-<script src="../scripts/layouts/GttLayoutGames.ts"></script>

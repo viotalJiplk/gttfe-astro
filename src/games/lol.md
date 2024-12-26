@@ -1,7 +1,10 @@
 ---
-layout: ../../../layouts/markdown/GttLayoutGameRules.astro
-title: League of legends
+name: League of legends
+logo: ../assets/games/logo/lol.svg
+picture: ../assets/games/logo/lol.svg
+id: 2
 ---
+
 # Pravidla
 
 ## Týmy

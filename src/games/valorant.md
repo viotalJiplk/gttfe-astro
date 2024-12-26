@@ -1,7 +1,10 @@
 ---
-layout: ../../../layouts/markdown/GttLayoutGameRules.astro
-title: Valorant
+name: Valorant
+logo: ../assets/games/logo/valorant.png
+picture: ../assets/games/logo/valorant.png
+id: 5
 ---
+
 # Pravidla
 
 ## Formát zápasů

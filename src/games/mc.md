@@ -1,7 +1,10 @@
 ---
-layout: ../../../layouts/markdown/GttLayoutGameRules.astro
-title: Minecraft
+name: Minecraft
+logo: ../assets/games/logo/mc.svg
+picture: ../assets/games/logo/mc.svg
+id: 3
 ---
+
 # Pravidla
 
 1. **Zakazuje se:**

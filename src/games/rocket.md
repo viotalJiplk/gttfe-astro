@@ -1,6 +1,8 @@
 ---
-layout: ../../../layouts/markdown/GttLayoutGameRules.astro
-title: Rocket League
+name: Rocket League
+logo: ../assets/games/logo/rocket.webp
+picture: ../assets/games/logo/rocket.webp
+id: 4
 ---
 ## **Pravidla turnaje**
 

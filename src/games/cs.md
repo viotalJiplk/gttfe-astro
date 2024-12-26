@@ -1,7 +1,10 @@
 ---
-layout: ../../../layouts/markdown/GttLayoutGameRules.astro
-title: Counter-Strike 2
+name: Counter-Strike 2
+logo: ../assets/games/logo/cs.svg
+picture: ../assets/games/logo/cs.svg
+id: 1
 ---
+
 # Pravidla
 
 ## Formát turnaje

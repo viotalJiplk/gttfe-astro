@@ -1,0 +1,9 @@
+.contestants-player{
+    display: flex;
+}
+.contestants-spacer{
+    flex-grow: 1;
+}
+.contestants-players{
+    width: 30rem;
+}

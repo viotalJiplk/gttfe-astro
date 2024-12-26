@@ -1,5 +1,5 @@
-import { getGameFromGameName, listGames } from "../api/game";
-import { listGeneratedRoles } from "../api/generatedRoles";
+import { getGameFromGameName, listGames } from "../../api/game";
+import { listGeneratedRoles } from "../../api/generatedRoles";
 
 const nav = {
     "generalRules": document.getElementById("GttLayoutGames-generalRules") as HTMLLinkElement,
@@ -7,7 +7,7 @@ const nav = {
     "bracket": document.getElementById("GttLayoutGames-bracket") as HTMLLinkElement,
     "contestants": document.getElementById("GttLayoutGames-contestants") as HTMLLinkElement,
 }
-nav.generalRules.href = "/games/rules/general";
+nav.generalRules.href = "/games/rules/";
 nav.generalRules.classList.remove("disabled");
 
 function formateDate(date: Date|undefined){
@@ -18,8 +18,10 @@ function formateDate(date: Date|undefined){
     }
 }
 
-const registration = document.getElementById("GttLayoutGameRules-registrationTime") as HTMLDivElement;
-const gameRolesHolder = document.getElementById("GttLayoutGameRules-gameRoles") as HTMLDivElement;
+const registration = document.getElementById("gameRules-registrationTime") as HTMLDivElement;
+const gameRolesHolder = document.getElementById("gameRules-gameRoles") as HTMLDivElement;
+// const gameRulesH1 = document.getElementById("gameRules-h1") as HTMLHeadingElement;
+// const gameId = Number(gameRulesH1.getAttribute("data-gameId") || "-1");
 const url = window.location.href;
 const gameName = decodeURIComponent(url.split('/').filter(Boolean).pop()||"");
 
@@ -32,7 +34,7 @@ async function loadGame(){
         if(game === undefined){
             console.error("game is undefined");
         }else{
-            nav.contestants.href = `/games/contestants?game=${game.name}`;
+            nav.contestants.href = `/games/contestants/${game.name}`;
             nav.contestants.classList.remove("disabled");
 
             const registrationStart = game.registrationStart?new Date(game.registrationStart): undefined;

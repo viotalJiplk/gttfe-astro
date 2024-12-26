@@ -1,6 +1,8 @@
 ---
-layout: ../../../layouts/markdown/GttLayoutGameRules.astro
-title: Asseto Corsa
+name: Assetto Corsa
+logo: ../assets/games/logo/assetto.png
+picture: ../assets/games/logo/assetto.png
+id: 7
 ---
 
 # Pravidla hry:

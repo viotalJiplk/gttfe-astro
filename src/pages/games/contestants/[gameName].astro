@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import GttLayoutGames from "../../../layouts/GttLayoutGames.astro";
+import HorizontalCenter from "../../../components/HorizontalCenter.astro";
+import "../../../styles/pages/game/contestants.css";
+
+export async function getStaticPaths() {
+    const games = await getCollection('games');
+    interface Params{
+        gameName: string
+    }
+
+    interface Static{
+        params: Params
+    }
+
+    const paths: Static[] = [];
+
+    for(const gameObj of games){
+        paths.push({ params: { gameName: gameObj.data.name} });
+    }
+    return paths;
+}
+
+const { gameName } = Astro.params;
+const games = await getCollection('games');
+let game = games[0];
+for(let gameTest of games){
+    if(gameTest.data.name == gameName){
+        game = gameTest;
+    }
+}
+---
+
+<GttLayoutGames pageTitle="Účastníci">
+    <HorizontalCenter><h1 class="GttLayoutGames-main">Účastníci</h1></HorizontalCenter>
+    <div id="contestants-TeamsHolder" data-gameId = {game.data.id} data-gameName = {game.data.name}></div>
+</GttLayoutGames>
+
+<script src="../../../scripts/pages/game/contestants.ts"></script>

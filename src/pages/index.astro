@@ -7,6 +7,7 @@ import HorizontalCenter from "../components/HorizontalCenter.astro";
 import "../styles/pages/index.css"
 import { getCollection } from "astro:content";
 const sponsors = await getCollection('sponsors');
+const games = await getCollection('games');
 ---
 
 <GttLayout pageTitle = "Hlavní stránka">
@@ -25,6 +26,7 @@ const sponsors = await getCollection('sponsors');
     <section id="games">
         <h2>Co hrajeme?</h2>
         <div id="index-gamesHolder">
+            {games.map(game =><a href={`/games/rules/${game.data.name}/`} class="index-game"><Image src={game.data.logo} alt={"Hra: " + game.data.name}/></a>)}
         </div>
     </section>
     <section id="stats">
@@ -70,4 +72,3 @@ const sponsors = await getCollection('sponsors');
         </div>
     </section>
 </GttLayout>
-<script src="../scripts/pages/index.ts"></script>
