@@ -12,7 +12,7 @@ const teamsHolder = document.getElementById("contestants-TeamsHolder") as HTMLDi
 const teamsHolderNotParticipating = document.getElementById("contestants-TeamsHolder-notparticipating") as HTMLDivElement;
 
 const gameName = teamsHolder.getAttribute("data-gameName") || "";
-nav.generalRules.href = "/games/rules/";
+nav.generalRules.href = "/games/rules/general/";
 nav.generalRules.classList.remove("disabled");
 
 async function loadGame() {
@@ -24,7 +24,7 @@ async function loadGame() {
         if(game === undefined){
             console.error("game is undefined");
         }else{
-            nav.rules.href = `/games/rules/${game.name}`;
+            nav.rules.href = `/games/rules/${game.name}/`;
             nav.rules.classList.remove("disabled");
             
             const generatedRoles = await listGeneratedRoles(game.gameId);

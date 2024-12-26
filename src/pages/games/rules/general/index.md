@@ -1,5 +1,5 @@
 ---
-layout: ../../../layouts/markdown/GttLayoutGames.astro
+layout: ../../../../layouts/markdown/GttLayoutGames.astro
 title: Obecná pravidla turnaje
 ---
 ## Registrace

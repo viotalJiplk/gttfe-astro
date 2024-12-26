@@ -26,7 +26,7 @@ const games = await getCollection('games');
     <section id="games">
         <h2>Co hrajeme?</h2>
         <div id="index-gamesHolder">
-            {games.map(game =><a href={`/games/rules/${game.data.name}`} class="index-game"><Image src={game.data.logo} alt={"Hra: " + game.data.name}/></a>)}
+            {games.map(game =><a href={`/games/rules/${game.data.name}/`} class="index-game"><Image src={game.data.logo} alt={"Hra: " + game.data.name}/></a>)}
         </div>
     </section>
     <section id="stats">
