@@ -24,20 +24,23 @@ export class Team extends ApiObject {
         "teamId": Number,
         "gameId": Number,
         "joinString": [String, undefined, null],
-        "players": [Array, undefined]
+        "players": [Array, undefined],
+        "canPlaySince": [String, undefined]
     };
     name = "";
     teamId = -1;
     gameId = -1;
     joinString?: string | null;
     players?: Player[];
-    constructor(name: string = "", teamId: number = -1, gameId: number = -1, joinString: string | undefined = undefined, players: Player[] | undefined = undefined) {
+    canPlaySince?: string;
+    constructor(name: string = "", teamId: number = -1, gameId: number = -1, joinString: string | undefined = undefined, players: Player[] | undefined = undefined, canPlaySince: string | undefined = undefined) {
         super();
         this.name = name;
         this.teamId = teamId;
         this.gameId = gameId;
         this.joinString = joinString;
         this.players = players;
+        this.canPlaySince = canPlaySince;
     }
 }
 
@@ -239,7 +242,7 @@ export async function listParticipating(gameId: number, withUserIds: boolean = f
     for (let teamParticipating of participating) {
         if (teamParticipating !== undefined) {
             if (teamParticipating.length > 0) {
-                const team = new Team(teamParticipating[0].name, teamParticipating[0].teamId, gameId);
+                const team = new Team(teamParticipating[0].name, teamParticipating[0].teamId, gameId, undefined, undefined, teamParticipating[0].canPlaySince);
                 team.players = []
                 for (let participant of teamParticipating) {
                     team.players.push(new Player(participant.userId || "", participant.nick, participant.generatedRoleId));

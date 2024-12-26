@@ -35,6 +35,8 @@ for(let gameTest of games){
 <GttLayoutGames pageTitle="Účastníci">
     <HorizontalCenter><h1 class="GttLayoutGames-main">Účastníci</h1></HorizontalCenter>
     <div id="contestants-TeamsHolder" data-gameId = {game.data.id} data-gameName = {game.data.name}></div>
+    <HorizontalCenter><h1 class="GttLayoutGames-main">Náhradníci</h1></HorizontalCenter>
+    <div id="contestants-TeamsHolder-notparticipating" data-gameId = {game.data.id} data-gameName = {game.data.name}></div>
 </GttLayoutGames>
 
 <script src="../../../scripts/pages/game/contestants.ts"></script>

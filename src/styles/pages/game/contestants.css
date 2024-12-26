@@ -7,3 +7,10 @@
 .contestants-players{
     width: 30rem;
 }
+.contestants-team-teamIndex-participating{
+    color: #68ff00;
+}
+
+.contestants-team-teamIndex-notparticipating{
+    color: red;
+}
