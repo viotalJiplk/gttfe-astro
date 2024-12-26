@@ -4,36 +4,8 @@ const Props ={
     divClass: String
 }
 const {elementId, divClass} = Astro.props;
+import "../../styles/components/forms/input.css"
 ---
-<style>
-.Input-input{
-    border: none;
-    outline: none;
-    width: 97%;
-    height: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 0.2rem 0.3rem #ffffff34;
-    font-size: 1.5rem;
-    padding-left: 1%;
-    padding-right: 1%;
-}
-
-.Input-input:hover{
-    box-shadow: 0 0 0 0 #ffffff34;
-}
-
-.Input-input:focus{
-    border: none;
-    outline: none;
-    box-shadow: 0 0 0 0 #ffffff34;
-}
-
-.Input-label{
-    font-size: larger;
-    margin-left: 1rem;
-    font-weight: bold;
-}
-</style>
 <div class={divClass}>
     <label for={elementId} class="Input-label"><slot/></label>
     <input id={elementId} class="Input-input" type="text"/>

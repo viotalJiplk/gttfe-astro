@@ -2,6 +2,7 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import LoginOverlay from "../components/LoginOverlay.astro";
+import "../styles/layouts/GttLayout.css";
 
 const {pageTitle} = Astro.props;
 ---
@@ -19,81 +20,9 @@ const {pageTitle} = Astro.props;
       <slot />
     </div>
     <div id="GttLayout-toast" style="display:none"></div>
-    <style>
-      #GttLayout-toast{
-        position: fixed;
-        z-index: 10000;
-        bottom: 1em;
-        left: 1em;
-        right: 1em;
-        border-radius: 1em;
-        font-size: 3rem;
-        padding: 0.5rem;
-        text-align: center;
-      }
-      .GttLayout-toast-error{
-        color: red;
-        background-color: rgb(254, 143, 143);
-      }
-      .GttLayout-toast-ok{
-        color: green;
-        background-color: rgb(143, 254, 143);
-      }
-    </style>
-    <script>
-      const toast = document.getElementById("GttLayout-toast")
-      if(toast === null){
-        console.error("Toast not found");
-      }else{
-        toast.addEventListener("click", event=>{
-          toast.style.display = "none";
-        });
-      }
-    </script>
+    <script src="../scripts/layouts/GttLayout.ts"></script>
     <Footer id="GttLayout-footer" />
     <LoginOverlay elementId="account-overlay">
     </LoginOverlay>
   </body>
-  <style is:global>
-    @font-face {
-        font-family: 'Montserrat';
-        src: url('/fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
-        font-weight: 400;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'Montserrat';
-        src: url('/fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
-        font-weight: 700;
-        font-style: normal;
-    }
-
-    @font-face {
-        font-family: 'Montserrat';
-        src: url('/fonts/Montserrat/static/Montserrat-Italic.ttf') format('truetype');
-        font-weight: 400;
-        font-style: italic;
-    }
-
-    @font-face {
-        font-family: 'Montserrat';
-        src: url('/fonts/Montserrat/static/Montserrat-BoldItalic.ttf') format('truetype');
-        font-weight: 700;
-        font-style: italic;
-    }
-
-    body{
-        background-color: #040610;
-        display: flex;
-        flex-direction: column;
-        color: white;
-        min-height: 100vh;
-        margin: 0;
-        font-family: 'Montserrat';
-    }
-    #GttLayout-container{
-        flex-grow: 1;
-    }
-  </style>
 </html>

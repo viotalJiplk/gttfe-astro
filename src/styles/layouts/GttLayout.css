@@ -1,0 +1,59 @@
+#GttLayout-toast{
+    position: fixed;
+    z-index: 10000;
+    bottom: 1em;
+    left: 1em;
+    right: 1em;
+    border-radius: 1em;
+    font-size: 3rem;
+    padding: 0.5rem;
+    text-align: center;
+}
+.GttLayout-toast-error{
+    color: red;
+    background-color: rgb(254, 143, 143);
+}
+.GttLayout-toast-ok{
+    color: green;
+    background-color: rgb(143, 254, 143);
+}
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/static/Montserrat-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat/static/Montserrat-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+body{
+    background-color: #040610;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Montserrat';
+}
+#GttLayout-container{
+    flex-grow: 1;
+}

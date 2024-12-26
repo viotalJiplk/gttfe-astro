@@ -1,5 +1,6 @@
 ---
 const { elementId } = Astro.props;
+import "../styles/components/carousel.css"
 ---
 <div class="Carousel-carouselHolder">
     <div id={elementId} class="Carousel">
@@ -12,62 +13,4 @@ const { elementId } = Astro.props;
       <button class="Carousel-scroll Carousel-button Carousel-right">&gt;</button>
       </div>
     </div>
-<script>
-import { onCarouselChange } from "../scripts/carousel";
-
-Array.from(document.getElementsByClassName("Carousel")).forEach(element => {
-    window.onresize = function(){
-      //@ts-expect-error
-      onCarouselChange(element);
-    }
-    //@ts-expect-error
-    onCarouselChange(element);
-});
-
-</script>
-<style>
-.Carousel{
-  overflow: scroll;
-  grid-auto-flow: column;
-  white-space: nowrap;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.Carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.Carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.Carousel-button{
-  width: 2rem;
-  height: 2rem;
-  font-weight: bold;
-  border-radius: 1rem;
-  background-color: #FFAF0A;
-  transform: translateY(-4.5rem);
-  border: 0rem;
-  cursor: pointer;
-}
-
-.Carousel-controls{
-  padding-left: 2rem;
-  padding-right: 2rem;
-  display: none;
-}
-
-.Carousel-spacer{
-  flex-grow: 1;
-}
-
-.Carousel-disabled{
-  background-color: #ffad0a95;
-  cursor: not-allowed;
-}
-.Carousel-carouselHolder{
-  max-width: 100vw;
-}
-</style>
+<script src="../scripts/components/carousel.ts"></script>

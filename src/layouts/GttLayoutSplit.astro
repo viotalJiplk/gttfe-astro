@@ -3,6 +3,7 @@ import GttLayout from "./GttLayout.astro";
 import GttLogo from "../assets/logo.svg";
 import { Image } from "astro:assets";
 const {pageTitle} = Astro.props;
+import "../styles/layouts/GttLayoutSplit.css"
 ---
 <GttLayout pageTitle={pageTitle}>
     <div class="GttLayoutSplit">
@@ -10,48 +11,3 @@ const {pageTitle} = Astro.props;
         <Image src={GttLogo} alt="gtt logo"></Image>
     </div>
 </GttLayout>
-<style>
-    .GttLayoutSplit{
-        display: flex;
-        margin-left: 8rem;
-        margin-right: 8rem;
-    }
-    .GttLayoutSplit img{
-        width: 40vw;
-        height: auto;
-    }
-    .GttLayoutSplit .ContentHolder{
-        flex-grow: 1;
-        margin-right: 4rem;
-    }
-    @media screen and (max-width: 1200px) {
-        .GttLayoutSplit img{
-            display: none;
-        }
-        .GttLayoutSplit .ContentHolder{
-            flex-grow: 1;
-            margin-right: 0rem;
-        }
-        .GttLayoutSplit{
-            display: block;
-            margin-left: 1rem;
-            margin-right: 1rem;
-            width: 95%;
-        }
-    }
-</style>
-<style is:global>
-    .GttLayoutSplit h1{
-        width: fit-content;
-        background-image: linear-gradient(45deg, #FFD60A, #FF9E00);
-        background-clip: text;
-        -webkit-background-clip: text; /* For WebKit browsers */
-        color: transparent;
-        font-size: 2.5rem;
-    }
-    .GttLayoutSplit .account-underline{
-        border-bottom: 0.3rem solid white;
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-</style>

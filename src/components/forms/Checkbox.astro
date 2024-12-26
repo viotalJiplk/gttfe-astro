@@ -4,36 +4,8 @@ const Props ={
     divClass: String
 }
 const {elementId, divClass} = Astro.props;
+import "../../styles/components/forms/checkbox.css"
 ---
-<style>
-.Checkbox-input{
-    border: none;
-    outline: none;
-    display: block;
-    height: 1.5rem;
-    width: 1.5rem;
-    box-shadow: 0 0 0.2rem 0.3rem #ffffff34;
-    font-size: 1.5rem;
-    padding-left: 1%;
-    padding-right: 1%;
-    accent-color: #FFD700;
-}
-
-.Checkbox-input:hover{
-    box-shadow: 0 0 0 0 #ffffff34;
-}
-
-.Checkbox-input:focus{
-    border: none;
-    outline: none;
-}
-
-.Checkbox-label{
-    font-size: larger;
-    margin-left: 1rem;
-    font-weight: bold;
-}
-</style>
 <div class={divClass}>
     <label for={elementId} class="Checkbox-label"><slot/></label>
     <input id={elementId} class="Checkbox-input" type="checkbox"/>

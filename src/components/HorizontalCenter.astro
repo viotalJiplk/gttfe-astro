@@ -1,16 +1,9 @@
 ---
 const {className, elementId} = Astro.props;
+import "../styles/components/horizontalCenter.css"
 ---
 <div class="HorizontalCenter-flexbox">
     <div class="HorizontalCenter-spacer"></div>
     <div id={elementId} class={className}><slot/></div>
     <div class="HorizontalCenter-spacer"></div>
 </div>
-<style>
-    .HorizontalCenter-spacer{
-        flex-grow: 1;
-    }
-    .HorizontalCenter-flexbox{
-        display: flex;
-    }
-</style>

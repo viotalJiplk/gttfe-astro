@@ -1,0 +1,8 @@
+.ImageLink-a{
+    text-decoration: none;
+    color: white;
+}
+.ImageLink-a img{
+    height: 100%;
+    width: auto;
+}

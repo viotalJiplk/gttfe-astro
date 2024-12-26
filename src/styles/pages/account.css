@@ -1,0 +1,19 @@
+#account-main .account-div-half{
+    width: 48%;
+    display: inline-block;
+    margin-right: 2%;
+}
+
+#account-main .account-div-half, #account-main .account-div, #account-main #saveButton{
+    margin-top: 1rem;
+}
+@media screen and (max-width: 1200px) {
+    #account-main .account-div-half{
+        width: 90%;
+        display: block;
+        margin-right: 0px;
+    }
+    #account-main .account-div-half, #account-main .account-div, #account-main #saveButton{
+        width: 95%;
+    }
+}

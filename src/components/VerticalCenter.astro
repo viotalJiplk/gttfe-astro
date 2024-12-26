@@ -1,18 +1,9 @@
 ---
 const {className} = Astro.props;
+import "../styles/components/verticalCenter.css"
 ---
 <div class="VerticalCenter-flexbox">
     <div class="VerticalCenter-spacer"></div>
     <div class={className}><slot/></div>
     <div class="VerticalCenter-spacer"></div>
 </div>
-<style>
-    .VerticalCenter-spacer{
-        flex-grow: 1;
-    }
-    .VerticalCenter-flexbox{
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
-</style>

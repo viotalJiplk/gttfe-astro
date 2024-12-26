@@ -1,5 +1,6 @@
 ---
 import GttLayoutContent from "../layouts/GttLayoutContent.astro"
+import "../styles/pages/sponsors.css"
 ---
 
 <GttLayoutContent pageTitle = "Sponzoři">
@@ -43,55 +44,3 @@ import GttLayoutContent from "../layouts/GttLayoutContent.astro"
         </main>
     </ContentHolder>
 </GttLayoutContent>
-<style>
-    #sponsors{
-
-    }
-
-    .sponsors-sponsor{
-        padding: 2rem;
-        margin: 2rem;
-        border-radius: 2rem;
-        width: 60%;
-    }
-
-    .sponsors-sponsor:nth-of-type(odd){
-        text-align: left;
-        background-color: #FF9E00;
-        color: white;
-    }
-
-    .sponsors-sponsor:nth-of-type(odd) h2{
-        color: white;
-    }
-
-    .sponsors-sponsor:nth-of-type(2n){
-        margin-left: 35%;
-        text-align: right;
-        background-color: white;
-        color: black;
-    }
-
-    .sponsors-sponsor:nth-of-type(2n) h2{
-        color: black;
-        width: 100%;
-    }
-    @media screen and (max-width: 1200px) {
-        .sponsors-sponsor{
-            padding: 1vw;
-            margin: 3vw;
-            border-radius: 2rem;
-            width: 90vw;
-        }
-        .sponsors-sponsor:nth-of-type(2n){
-            padding: 1vw;
-            margin-left: 3vw;
-            text-align: right;
-            background-color: white;
-            color: black;
-        }
-        #sponsors h1, #sponsors h2, #sponsors h3, #sponsors p {
-            padding: 0rem;
-        }
-    }
-</style>

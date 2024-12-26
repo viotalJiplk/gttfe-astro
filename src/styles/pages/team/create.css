@@ -1,0 +1,34 @@
+#create-info{
+    font-weight: bold;
+    font-size: 2rem;
+}
+#create-info a{
+    text-decoration: none;
+    color: blue;
+}
+#create-info button, #create-game-info button{
+    border: none;
+    outline: none;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 0.2rem 0.3rem #ffffff34;
+    font-size: 1.5rem;
+    padding-left: 1%;
+    padding-right: 1%;
+    background-color: #FF9E00;
+    font-weight: bold;
+    cursor: pointer;
+}
+#create-info button:hover, #create-game-info button:hover{
+    box-shadow: 0 0 0rem 0rem #ffffff34;
+}
+#create-gameSave{
+    margin-top: 1rem;
+}
+#create-form .create-div-half, #create-form .create-div, #create-form #create-saveButton{
+    margin-top: 1rem;
+}

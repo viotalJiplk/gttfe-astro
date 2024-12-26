@@ -1,10 +1,10 @@
-import { listGeneratedRolePermissions, type GeneratedRolePermission } from "./api/generatedRolePermissions";
-import { generatedRoleNameFromId, listGeneratedRoles, type GeneratedRole } from "./api/generatedRoles";
-import { getPlayerFromId, getPlayers, getUsersTeam, kickUser, newJoinString, Team } from "./api/teams";
-import { ShowError } from "./api/utils";
-import { loadingError } from "./loading";
-import { showToastError } from "./toast";
-import { storage, UserObject } from "./utils";
+import { listGeneratedRolePermissions, type GeneratedRolePermission } from "../api/generatedRolePermissions";
+import { generatedRoleNameFromId, listGeneratedRoles, type GeneratedRole } from "../api/generatedRoles";
+import { getPlayerFromId, getPlayers, getUsersTeam, kickUser, newJoinString, Team } from "../api/teams";
+import { ShowError } from "../api/utils";
+import { loadingError } from "../loading";
+import { showToastError } from "../toast";
+import { storage, UserObject } from "../utils";
 
 const main = document.getElementById("myTeams") as HTMLDivElement | null;
 const loading = document.getElementById("myTeams-loading") as HTMLDivElement | null;
@@ -262,3 +262,15 @@ if (joinStringRegen !== null) {
 }
 
 loadTeams();
+
+const joinHolderOverlay = document.getElementById("myTeams-join-overlay-holder");
+const joinSpacer = document.getElementById("myTeams-join-spacer");
+if(joinSpacer === null){
+    console.error("joinSpacer not found");
+} else if(joinHolderOverlay === null){
+    console.error("joinHolderOverlay not found");
+}else {
+    joinSpacer.addEventListener("click", event =>{
+        window.location.reload();
+    });
+}

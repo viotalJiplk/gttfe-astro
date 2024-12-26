@@ -5,6 +5,7 @@ const Props ={
     loadingText: String
 }
 const {elementId = "Loading", loadingText = "Načítání"} = Astro.props;
+import "../styles/components/loading.css"
 ---
 <div id={elementId} class="Loading">
     <div class="Loading-wait">
@@ -27,39 +28,3 @@ const {elementId = "Loading", loadingText = "Načítání"} = Astro.props;
         </div>
     </div>
 </div>
-<style>
-    .Loading{
-        height: 100%;
-    }
-    .Loading-wait, .Loading-error{
-        display: flex;
-    }
-    @keyframes spinner {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-    .Loading-spinner {
-        border: 2rem solid #f3f3f3; /* Light grey */
-        border-top: 2rem solid #383636; /* Black */
-        border-radius: 50%;
-        animation: spinner 1.5s linear infinite;
-        margin-right: 3rem;
-    }
-    .Loading-textHolder {
-        display: inline-block;
-    }
-    .Loading-x, .Loading-spinner{
-        width: 10rem;
-        height: 10rem;
-        display: inline-block;
-    }
-    .Loading-x {
-        font-size: 10rem;
-        font-weight: bold;
-        color: red;
-    }
-</style>

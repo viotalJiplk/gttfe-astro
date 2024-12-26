@@ -1,0 +1,156 @@
+#myTeams, #myTeams #myTeams-loading{
+    flex-grow: 1;
+    margin-right: 4rem;
+}
+
+#myTeams a{
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    font-weight: bold;
+    display: inline;
+    color: black;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 0 0.5rem 0.1rem #ffffff78;
+    cursor: pointer;
+}
+
+#myTeams a:hover{
+    box-shadow: 0 0 0rem 0rem #ffffff34;
+}
+
+#myTeams h1{
+    width: fit-content;
+    background-image: linear-gradient(45deg, #FFD60A, #FF9E00);
+    background-clip: text;
+    -webkit-background-clip: text; /* For WebKit browsers */
+    color: transparent;
+    font-size: 2.5rem;
+    display: inline;
+    margin: 0rem;
+}
+
+.myTeams-header{
+    display: flex;
+    width: 100%;
+    padding-bottom: 1rem;
+    border-bottom: 0.3rem solid white;
+}
+.myTeams-header a{
+    text-decoration: none;
+}
+.spacer{
+    flex-grow: 1;
+}
+#myTeams-join-closeHolder{
+    padding: 1rem;
+    display: flex;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.myTeams-spacer{
+    flex-grow: 1;
+}
+#myTeams-join-spacer{
+    cursor: pointer;
+    color: red;
+}
+#myTeams-join-joinString{
+    color: blue;
+    word-break: break-word;
+}
+#myTeams-join-overlay-holder{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#myTeams-join-regen{
+    font-size: 1rem;
+    padding: 0.5rem;
+    font-weight: bold;
+    display: block;
+    width: fit-content;
+    color: black;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem 0rem #FFAF0A;
+    background-color: #FF9E00;
+    cursor: pointer;
+    border: 0px;
+}
+#myTeams-join-regen:hover{
+    box-shadow: 0 0 0rem 0rem #FFAF0A;
+}
+@media screen and (max-width: 1200px) {
+    #myTeams, #myTeams #myTeams-loading{
+        flex-grow: 1;
+        margin-right: 0rem;
+    }
+}
+
+#myTeams h2{
+    width: fit-content;
+    background-image: linear-gradient(45deg, #FFD60A, #FF9E00);
+    background-clip: text;
+    -webkit-background-clip: text; /* For WebKit browsers */
+    color: transparent;
+    font-size: 2rem;
+    margin-bottom: 0rem;
+}
+
+.myTeams-team{
+    background: linear-gradient(90deg, #080E1F 0%, #040610 100%);
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10rem 0.5rem #ffffff13;
+}
+
+.myTeams-team a, .myTeams-team button{
+    font-size: 1rem;
+    padding: 0.5rem;
+    font-weight: bold;
+    display: block;
+    width: fit-content;
+    color: black;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem 0rem #FFAF0A;
+    background-color: #FF9E00;
+    cursor: pointer;
+    border: 0px;
+}
+
+.myTeams-team a:hover, .myTeams-team button:hover{
+    box-shadow: 0 0 0rem 0rem #FFAF0A;
+}
+
+.myTeams-team .myTeams-player a, .myTeams-team .myTeams-player button{
+    color: white;
+}
+
+.myTeams-nick, .myTeams-roleName{
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.myTeams-player{
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 1rem;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.myTeams-kickHolder{
+    display: flex;
+}
+
+.myTeams-spacer{
+    flex-grow: 1;
+}

@@ -1,0 +1,9 @@
+.LoginOverlay{
+    font-weight: bold;
+    font-size: 3em;
+}
+
+.LoginOverlay a{
+    text-decoration: none;
+    color: blue;
+}

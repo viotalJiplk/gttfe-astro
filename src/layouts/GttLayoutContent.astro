@@ -1,66 +1,8 @@
 ---
 import GttLayout from "./GttLayout.astro";
 const {pageTitle} = Astro.props;
+import "../styles/layouts/GttLayoutContent.css"
 ---
 <GttLayout pageTitle={pageTitle}>
     <div class="ContentHolder"><slot/></div>
 </GttLayout>
-<style is:global>
-    .ContentHolder{
-        background: rgb(8,14,31);
-        background: linear-gradient(90deg, rgba(8,14,31,1) 0%, rgba(4,6,16,1) 100%);
-        margin: 8rem;
-        padding: 4rem;
-        border-radius: 1rem;
-        font-size: 1.5rem;
-        font-weight: bold;
-        box-shadow: 0 0 10rem 0.5rem #ffffff34;
-    }
-
-    .ContentHolder h1{
-        text-align: center;
-        font-weight: bolder;
-        font-size: 3rem;
-        background-image: linear-gradient(90deg, #FFFFFF 0%, #FFC300 100%);
-        background-clip: text;
-        -webkit-background-clip: text; /* For WebKit browsers */
-        color: transparent;
-    }
-
-    .ContentHolder h2{
-        width: fit-content;
-        background-image: linear-gradient(45deg, #FFD60A, #FF9E00);
-        background-clip: text;
-        -webkit-background-clip: text; /* For WebKit browsers */
-        color: transparent;
-        font-size: 2.5rem;
-    }
-
-    .ContentHolder h3{
-        width: fit-content;
-        background-image: linear-gradient(45deg, #FFD60A, #FF9E00);
-        background-clip: text;
-        -webkit-background-clip: text; /* For WebKit browsers */
-        color: transparent;
-        font-size: 2rem;
-        margin-bottom: 0rem;
-    }
-    .ContentHolder img{
-        max-width: 90%;
-        height: auto;
-    }
-    @media screen and (max-width: 1200px) {
-        .ContentHolder{
-            margin: 0.1rem;
-            padding: 0rem;
-            padding-bottom: 1rem;
-            padding-top: 1rem;
-        }
-        .ContentHolder{
-            word-wrap: break-word;
-        }
-        .ContentHolder h1, .ContentHolder h2, .ContentHolder h3, .ContentHolder p{
-            padding: 1rem;
-        }
-    }
-</style>

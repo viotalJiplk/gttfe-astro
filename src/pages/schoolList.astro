@@ -3,6 +3,7 @@ import HorizontalCenter from "../components/HorizontalCenter.astro";
 import Input from "../components/forms/Input.astro";
 import Loading from "../components/Loading.astro";
 import GttLayoutContent from "../layouts/GttLayoutContent.astro";
+import "../styles/pages/schoolList.css"
 ---
 
 <GttLayoutContent pageTitle = "Seznam škol">
@@ -16,78 +17,4 @@ import GttLayoutContent from "../layouts/GttLayoutContent.astro";
         </ul>
     </main>
 </GttLayoutContent>
-<script>
-import { listSchools, School } from "../scripts/api/schools";
-import { ShowError } from "../scripts/api/utils";
-import { loadingError } from "../scripts/loading";
-import { showToastError } from "../scripts/toast";
-
-const ul = document.getElementById("schoolList-list");
-const loading = document.getElementById("schoolList-loading");
-const main = document.getElementById("schools");
-const input = document.getElementById("schoolList-input");
-let schools: School[] = [];
-
-async function loadSchools() {
-    try {
-        schools = await listSchools();
-        render(schools);
-    } catch (e) {
-        if (e instanceof ShowError) {
-            loadingError(loading);
-            showToastError(e.message);
-        } else {
-            loadingError(loading);
-            showToastError("Neznámá chyba, kontaktujte prosím podporu.");
-            throw e;
-        }
-    }
-}
-
-function render(schools: School[]){
-    if(ul !== null && loading !== null && main !== null){
-        ul.innerHTML = "";
-        schools.forEach(school => {
-            let li = document.createElement("li");
-            li.innerText = school.name;
-            ul.appendChild(li);
-        });
-        main.style.display = "block";
-        loading.style.display = "none";
-    }else{
-        console.error("loading or list or main not found");
-    }
-}
-
-if(input !== null){
-    input.addEventListener("keyup", event=>{
-        if(event.target != null && "value" in event.target){
-            const target = event.target as HTMLInputElement;
-            let schoolsLocal = schools.filter(school =>{
-                return school.name.toUpperCase().includes(target.value.toUpperCase());
-            });
-            render(schoolsLocal);
-        }
-    });
-}
-
-loadSchools();
-</script>
-<style is:global>
-    #schoolList-input{
-        min-width: 40vw;
-    }
-    .schoolList-input-div{
-        display: flex;
-    }
-    .schoolList-input-div label{
-        white-space: nowrap;
-        padding: 0rem;
-        margin-right: 1rem;
-    }
-    @media screen and (max-width: 1200px) {
-        .schoolList-input-div{
-            display: block;
-        }
-    }
-</style>
+<script src="../scripts/pages/schoolList.ts"></script>

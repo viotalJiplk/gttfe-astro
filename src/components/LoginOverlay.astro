@@ -3,6 +3,7 @@ import Overlay from "../components/Overlay.astro";
 import HorizontalCenter from "../components/HorizontalCenter.astro";
 import VerticalCenter from "../components/VerticalCenter.astro";
 const { elementId } = Astro.props;
+import "../styles/components/loginOverlay.css"
 ---
 <div class="LoginOverlay" style="display: none">
     <Overlay elementId={elementId} >
@@ -13,14 +14,3 @@ const { elementId } = Astro.props;
         </VerticalCenter>
     </Overlay>
 </div>
-<style>
-.LoginOverlay{
-    font-weight: bold;
-    font-size: 3em;
-}
-
-.LoginOverlay a{
-    text-decoration: none;
-    color: blue;
-}
-</style>
