@@ -57,3 +57,9 @@ body{
 #GttLayout-container{
     flex-grow: 1;
 }
+
+@media screen and (max-width: 1200px) {
+    #GttLayout-toast{
+    font-size: 2rem;
+    }
+}
