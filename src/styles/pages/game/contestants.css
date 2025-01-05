@@ -14,3 +14,15 @@
 .contestants-team-teamIndex-notparticipating{
     color: red;
 }
+
+@media screen and (max-width: 1200px) {
+    .contestants-players{
+        width: 15rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .contestants-players{
+        width: unset;
+    }
+}

@@ -51,13 +51,7 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-@media screen and (max-width: 1200px) {
-    .ContentHolder{
-        margin: 0.1rem;
-        padding: 1rem;
-        word-wrap: break-word;
-    }
-}
+
 #gameSelectCarousel img{
     height: 8rem;
     width: auto;
@@ -104,4 +98,21 @@
     box-shadow: 0 0 0rem 0rem #FFAF0A;
     background-color: #ffad0a65;
     color: black;
+}
+
+@media screen and (max-width: 1200px) {
+    .ContentHolder{
+        margin: 0.1rem;
+        padding: 1rem;
+        word-wrap: break-word;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    #GttLayoutGames-subnav a{
+        min-width: 0rem;
+        padding: 0.5rem;
+        margin: 0rem;
+        margin-bottom: 0.1rem;
+    }
 }

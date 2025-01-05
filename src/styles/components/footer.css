@@ -5,7 +5,7 @@ footer{
     margin-top: 8rem;
 }
 #Footer-gttLogo{
-    height: 6vh;
+    height: 4rem;
     width: auto;
     padding: 2vh;
     margin-right: 2vh; 
@@ -16,8 +16,8 @@ footer{
     grid-template-columns: auto auto auto;
 }
 .Footer-link{
-    height: 2vh;
-    padding: 0.5vh;
+    height: 1.5rem;
+    padding: 0.1rem;
     text-wrap: nowrap;
 }
 .Footer-link img{
@@ -29,7 +29,7 @@ footer{
 @media screen and (max-width: 1200px) {
     #Footer-linkHolder{
         display: block;
-        grid-template-columns: auto auto auto;
+        /*grid-template-columns: auto auto auto;*/
         word-wrap: break-word;
     }
     .Footer-holder{
@@ -40,12 +40,12 @@ footer{
         text-wrap: unset;
     }
     #Footer-gttLogo{
-        height: 6vh;
+        height: 1rem;
         width: auto;
         padding: 0vh;
-        margin-right: 0vh;
-        margin-bottom: 1vh;
-        padding-bottom: 1vh;
+        margin-right: 0.1rem;
+        margin-bottom: 0.1rem;
+        padding-bottom: 0.1rem;
         border-right: 0rem solid white;
         border-bottom: 0.1rem solid white;
     }

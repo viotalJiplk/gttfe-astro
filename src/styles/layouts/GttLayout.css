@@ -60,6 +60,15 @@ body{
 
 @media screen and (max-width: 1200px) {
     #GttLayout-toast{
-    font-size: 2rem;
+        font-size: 2rem;
+    }
+    body{
+        overflow-x: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    body{
+        word-break: break-all;
     }
 }
