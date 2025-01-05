@@ -2,18 +2,10 @@ import { generatedRoleNameFromId, listGeneratedRoles } from "../../../scripts/ap
 import { listParticipating } from "../../../scripts/api/teams";
 import { getGameFromGameName, listGames } from "../../api/game";
 
-const nav = {
-    "generalRules": document.getElementById("GttLayoutGames-generalRules") as HTMLLinkElement,
-    "rules": document.getElementById("GttLayoutGames-rules") as HTMLLinkElement,
-    "bracket": document.getElementById("GttLayoutGames-bracket") as HTMLLinkElement,
-    "contestants": document.getElementById("GttLayoutGames-contestants") as HTMLLinkElement,
-}
 const teamsHolder = document.getElementById("contestants-TeamsHolder") as HTMLDivElement;
 const teamsHolderNotParticipating = document.getElementById("contestants-TeamsHolder-notparticipating") as HTMLDivElement;
 
 const gameName = teamsHolder.getAttribute("data-gameName") || "";
-nav.generalRules.href = "/games/rules/general/";
-nav.generalRules.classList.remove("disabled");
 
 async function loadGame() {
     const allGames = await listGames();
@@ -24,9 +16,6 @@ async function loadGame() {
         if(game === undefined){
             console.error("game is undefined");
         }else{
-            nav.rules.href = `/games/rules/${game.name}/`;
-            nav.rules.classList.remove("disabled");
-            
             const generatedRoles = await listGeneratedRoles(game.gameId);
             const teams = (await listParticipating(game.gameId)).sort((a, b) => {
                 if (a.canPlaySince === undefined && b.canPlaySince === undefined) {

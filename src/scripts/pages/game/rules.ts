@@ -1,15 +1,6 @@
 import { getGameFromGameName, listGames } from "../../api/game";
 import { listGeneratedRoles } from "../../api/generatedRoles";
 
-const nav = {
-    "generalRules": document.getElementById("GttLayoutGames-generalRules") as HTMLLinkElement,
-    "rules": document.getElementById("GttLayoutGames-rules") as HTMLLinkElement,
-    "bracket": document.getElementById("GttLayoutGames-bracket") as HTMLLinkElement,
-    "contestants": document.getElementById("GttLayoutGames-contestants") as HTMLLinkElement,
-}
-nav.generalRules.href = "/games/rules/general/";
-nav.generalRules.classList.remove("disabled");
-
 function formateDate(date: Date|undefined){
     if(date === undefined){
         return "již brzy";
@@ -34,9 +25,6 @@ async function loadGame(){
         if(game === undefined){
             console.error("game is undefined");
         }else{
-            nav.contestants.href = `/games/contestants/${game.name}/`;
-            nav.contestants.classList.remove("disabled");
-
             const registrationStart = game.registrationStart?new Date(game.registrationStart): undefined;
             const registrationEnd = game.registrationEnd?new Date(game.registrationEnd): undefined;
             registration.innerText = `${formateDate(registrationStart)} - ${formateDate(registrationEnd)}`;

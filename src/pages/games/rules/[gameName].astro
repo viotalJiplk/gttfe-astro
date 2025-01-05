@@ -34,7 +34,7 @@ for(let gameTest of games){
 const { Content } = await render(game);
 ---
 
-<GttLayoutGames pageTitle = {gameName}>
+<GttLayoutGames pageTitle = {gameName} generalRules={true} contestants={`/games/contestants/${gameName}/`}>
     <HorizontalCenter><h1 id="gameRules-h1" data-gameId = {game.data.gameId} class="GttLayoutGames-main">{gameName}</h1></HorizontalCenter>
     <HorizontalCenter><h2 class="GttLayoutGames-registration">Registrace: <span id="gameRules-registrationTime">již brzy</h2></HorizontalCenter>
         <Content/>
