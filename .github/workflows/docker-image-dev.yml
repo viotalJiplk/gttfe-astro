@@ -48,3 +48,11 @@ jobs:
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
           docker buildx build . --platform linux/amd64,linux/arm64 --file Dockerfile --tag $IMAGE_ID:testing --tag $IMAGE_ID:$VERSION --label "runnumber=${GITHUB_RUN_ID}" --push
+    - name: deploy
+      run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_BETA_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H beta.gttournament.cz >> ~/.ssh/known_hosts
+          ssh -i ./github viotal@beta.gttournament.cz
+
