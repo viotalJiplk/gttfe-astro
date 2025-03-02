@@ -16,4 +16,4 @@ Organizační tým dnes čítá již 25 členů z různých středních i vysok�
 
 ### Vyplň tento dotazník!
 
-V případě jakýchkoliv dotazů prosím kontaktuj @xvojta.
+V případě jakýchkoliv dotazů prosím kontaktuj @orik.
