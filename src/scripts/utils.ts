@@ -36,7 +36,7 @@ export class UserObject extends ApiObject{
         "accent_color": [null, Number],
         "global_name": String,
         "avatar_decoration_data": [null, Object],
-        "banner_color": null,
+        "banner_color": [null, String],
         "clan": null,
         "primary_guild": null
     };
