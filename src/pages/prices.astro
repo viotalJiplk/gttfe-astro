@@ -1,0 +1,50 @@
+---
+import GttLayoutContent from "../layouts/GttLayoutContent.astro";
+import { Image } from 'astro:assets';
+import "../styles/pages/prices.css" //vytvoř a hoď tam styly
+
+import AssettoPrice from '../assets/prices/2024/asseto_corsa-resized.webp';
+import McPrice from '../assets/prices/2024/mc-resized.webp';
+import R6Price from '../assets/prices/2024/r6-resized.webp';
+import RiotPrice from '../assets/prices/2024/riot.webp';
+import RocketPrice from '../assets/prices/2024/rocket.webp';
+
+import AllPrice2023 from '../assets/prices/2023.webp';
+---
+
+<GttLayoutContent pageTitle = "Ceny her">
+    <main id="prices">
+        <h2>2024</h2>
+        <div>
+            <section class="price">
+                <h3>Assetto Corsa</h3>
+                <Image src={AssettoPrice} alt="Cena Assetto Corsa v ročníku 2024" class="image"/>
+            </section>
+            <section class="price">
+                <h3>Minecraft</h3>
+                <Image src={McPrice} alt="Cena Minecraftu v ročníku 2024" class="image"/>
+            </section>
+        </div>
+        <div>
+            <section class="price">
+                <h3>Rainbow Six: Siege</h3>
+                <Image src={R6Price} alt="Cena Rainbow Six: Siege v ročníku 2024" class="image"/>
+            </section>
+            <section class="price">
+                <h3>League of Legends & Valorant</h3>
+                <Image src={RiotPrice} alt="Cena League of Legends a Valorant v ročníku 2024" class="image"/>
+            </section>
+        </div>
+        <div>
+            <section class="price">
+                <h3>Rocket League</h3>
+                <Image src={RocketPrice} alt="Cena Rocket League v ročníku 2024" class="image"/>
+            </section>
+        </div>
+
+        <section id="r2023">
+            <h2>2023</h2>
+            <Image src={AllPrice2023} alt="Ceny v ročníku 2023" id="image2023"/>
+        </section>
+    </main>
+</GttLayoutContent>
