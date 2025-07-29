@@ -92,6 +92,7 @@ h1 .index-yellow{
     font-size: larger;
     font-weight: bold;
     border-radius: 2rem;
+    width: 50%;
 }
 
 #index-register{
@@ -141,15 +142,25 @@ h1 .index-yellow{
     flex-grow: 1;
 }
 
-#index-participation-right{
+
+#index-participation-left::after{
     background: radial-gradient(circle, #ffffff55, transparent 65%);
-    transform: translateX(-60%);
+    transform: translateX(-25vw);
 }
 
-#index-participation-left{
+#index-participation-right::after{
     background: radial-gradient(circle, #ffad0a55, transparent 65%);
-    transform: translateX(60%);
+    transform: translateX(2vw);
 }
+
+#index-participation-right::after, #index-participation-left::after {
+    content: "";
+    width: 400%;
+    display: block;
+    height: 100vw;
+    background-size: 50vw 50vw;
+    background-repeat: no-repeat;
+  }
 
 #how_to_participate h2{
     margin-bottom: 10rem;
@@ -193,6 +204,9 @@ h1 .index-yellow{
     #index-participationHolder{
         display: block;
         width: 100%;
+    }
+    #index-register, #index-createTeam{
+        width: auto;
     }
 }
 
