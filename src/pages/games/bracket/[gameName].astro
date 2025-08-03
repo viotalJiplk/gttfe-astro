@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import GttLayoutGames from "../../../layouts/GttLayoutGames.astro";
-import { render } from "astro:content";
+import "../../../styles/pages/game/bracket.css";
+import Carousel from "../../../components/Carousel.astro";
 import HorizontalCenter from "../../../components/HorizontalCenter.astro";
-import "../../../styles/pages/game/rules.css";
 
 export async function getStaticPaths() {
     const games = await getCollection("games");
@@ -31,31 +31,23 @@ for (let gameTest of games) {
         game = gameTest;
     }
 }
-const { Content } = await render(game);
 ---
 
 <GttLayoutGames
-    pageTitle={gameName}
+    pageTitle="Bracket"
     generalRules={true}
+    gameRules={`/games/rules/${gameName}/`}
     contestants={`/games/contestants/${gameName}/`}
-    bracket={`/games/bracket/${gameName}/`}
 >
-    <HorizontalCenter
-        ><h1
-            id="gameRules-h1"
-            data-gameId={game.data.gameId}
-            class="GttLayoutGames-main"
+    <Carousel elementId="contestants-events-selector" />
+    <HorizontalCenter>
+        <div
+            id="contestants-events-holder"
+            data-gameId={game.data.id}
+            data-gameName={game.data.name}
         >
-            {gameName}
-        </h1></HorizontalCenter
-    >
-    <HorizontalCenter
-        ><h2 class="GttLayoutGames-registration">
-            Registrace: <span id="gameRules-registrationTime">již brzy</span>
-        </h2>
-        <Content />
-        <HorizontalCenter><div id="gameRules-gameRoles"></div></HorizontalCenter
-        >
+        </div>
     </HorizontalCenter>
-    <script src="../../../scripts/pages/game/rules.ts"></script>
 </GttLayoutGames>
+
+<script src="../../../scripts/pages/game/bracket.ts"></script>

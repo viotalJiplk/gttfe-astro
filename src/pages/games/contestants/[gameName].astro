@@ -5,38 +5,57 @@ import HorizontalCenter from "../../../components/HorizontalCenter.astro";
 import "../../../styles/pages/game/contestants.css";
 
 export async function getStaticPaths() {
-    const games = await getCollection('games');
-    interface Params{
-        gameName: string
+    const games = await getCollection("games");
+    interface Params {
+        gameName: string;
     }
 
-    interface Static{
-        params: Params
+    interface Static {
+        params: Params;
     }
 
     const paths: Static[] = [];
 
-    for(const gameObj of games){
-        paths.push({ params: { gameName: gameObj.data.name} });
+    for (const gameObj of games) {
+        paths.push({ params: { gameName: gameObj.data.name } });
     }
     return paths;
 }
 
 const { gameName } = Astro.params;
-const games = await getCollection('games');
+const games = await getCollection("games");
 let game = games[0];
-for(let gameTest of games){
-    if(gameTest.data.name == gameName){
+for (let gameTest of games) {
+    if (gameTest.data.name == gameName) {
         game = gameTest;
     }
 }
 ---
 
-<GttLayoutGames pageTitle="Účastníci" generalRules={true} gameRules={`/games/rules/${gameName}/`}>
-    <HorizontalCenter><h1 class="GttLayoutGames-main">Účastníci</h1></HorizontalCenter>
-    <div id="contestants-TeamsHolder" data-gameId = {game.data.id} data-gameName = {game.data.name}></div>
-    <HorizontalCenter><h1 class="GttLayoutGames-main">Náhradníci</h1></HorizontalCenter>
-    <div id="contestants-TeamsHolder-notparticipating" data-gameId = {game.data.id} data-gameName = {game.data.name}></div>
+<GttLayoutGames
+    pageTitle="Účastníci"
+    generalRules={true}
+    gameRules={`/games/rules/${gameName}/`}
+    bracket={`/games/bracket/${gameName}/`}
+>
+    <HorizontalCenter
+        ><h1 class="GttLayoutGames-main">Účastníci</h1></HorizontalCenter
+    >
+    <div
+        id="contestants-TeamsHolder"
+        data-gameId={game.data.id}
+        data-gameName={game.data.name}
+    >
+    </div>
+    <HorizontalCenter
+        ><h1 class="GttLayoutGames-main">Náhradníci</h1></HorizontalCenter
+    >
+    <div
+        id="contestants-TeamsHolder-notparticipating"
+        data-gameId={game.data.id}
+        data-gameName={game.data.name}
+    >
+    </div>
 </GttLayoutGames>
 
 <script src="../../../scripts/pages/game/contestants.ts"></script>

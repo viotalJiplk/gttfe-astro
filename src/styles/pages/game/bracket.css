@@ -1,0 +1,17 @@
+#contestants-events-selector div {
+    width: fit-content;
+    display: inline-block;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+#contestants-events-selector div.active {
+    text-decoration: underline;
+    text-decoration-thickness: 0.5rem;
+    text-decoration-color: #FF9E00;
+    cursor: not-allowed;
+}
+
+#contestants-events-holder {
+    margin-top: 4rem;
+}
