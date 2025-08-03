@@ -44,6 +44,16 @@ async function loadEvent(eventId: number, eventType: string) {
                 .sort(([a], [b]) => Number(a) - Number(b)) // sort by stageIndex
                 .map(([_, value]) => value);
             for (let i = 0; i < preparedMatches.length; i++) {
+                if ((i > 0) && (preparedMatches[i].length < (Math.ceil(preparedMatches[i - 1].length / 2)))) {
+                    for (let j = preparedMatches[i].length; j < Math.ceil(preparedMatches[i - 1].length / 2); j++) {
+                        preparedMatches[i].push({
+                            team1: undefined,
+                            score1: undefined,
+                            team2: undefined,
+                            score2: undefined,
+                        });
+                    }
+                }
                 if (((i + 1) == preparedMatches.length) && (preparedMatches[i].length > 1)) {
                     preparedMatches.push([]);
                     for (let j = 0; j < Math.ceil(preparedMatches[i].length / 2); j++) {
