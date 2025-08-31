@@ -6,7 +6,7 @@ title: O nás
 
 ## GT Tournament
 
-**Vznikl díky iniciativě žáků Gymnázia Tišnov, kteří jej od začátku až do konce celý připravují sami dobrovolně ve svém volném čase. Jedná se o jedinečnou akci pro žáky a učitele středních škol, která jim dává možnost vyzkoušet si kompetitivní hraní počítačových her bez nutnosti platit jakékoliv startovné. Turnaj nyní tvoří pět hlavních her, kterými jsou: CS:GO, Minecraft, League of Legends, Rocket League a Valorant, Rainbow Six: Siege a Assetto Corsa.**
+**Vznikl díky iniciativě žáků Gymnázia Tišnov, kteří jej od začátku až do konce celý připravují sami dobrovolně ve svém volném čase. Jedná se o jedinečnou akci pro žáky a učitele středních škol, která jim dává možnost vyzkoušet si kompetitivní hraní počítačových her bez nutnosti platit jakékoliv startovné. Turnaj nyní tvoří šest hlavních her, kterými jsou: CS2, Minecraft, League of Legends, Rocket League a Valorant, Assetto Corsa Rainbox Six: Siege. Tento rok poprvé přidáváme k těmto hrám i DOTA 2.**
 
 ![Foto týmu](../assets/teamphoto.jpeg)
 
