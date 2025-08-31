@@ -1,14 +1,24 @@
 ---
-import { getCollection } from "astro:content";
-import GttLayoutContent from "../layouts/GttLayoutContent.astro"
-import "../styles/pages/sponsors.css"
-const sponsors = await getCollection('sponsors');
+import { getCollection, render } from "astro:content";
+import GttLayoutContent from "../layouts/GttLayoutContent.astro";
+import "../styles/pages/sponsors.css";
+const sponsors = await getCollection("sponsors");
 ---
 
-<GttLayoutContent pageTitle = "Sponzoři">
-        <main id="sponsors">
-            <h1>Sponzoři</h1>
-            {sponsors.map(sponsor =><div class="sponsors-sponsor"><h2>{sponsor.data.title}</h2><p>{sponsor.body}</p></div>)}
-        </main>
-    </ContentHolder>
+<GttLayoutContent pageTitle="Sponzoři">
+    <main id="sponsors">
+        <h1>Sponzoři</h1>
+        {
+            sponsors.map(async (sponsor) => {
+                let { Content, headings, remarkPluginFrontmatter } =
+                    await render(sponsor);
+                return (
+                    <div class="sponsors-sponsor">
+                        <h2>{sponsor.data.title}</h2>
+                        <Content />
+                    </div>
+                );
+            })
+        }
+    </main>
 </GttLayoutContent>
