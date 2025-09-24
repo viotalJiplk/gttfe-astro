@@ -10,7 +10,7 @@ title: O nás
 
 ![Foto týmu](../assets/teamphoto.jpeg)
 
-**Organizační tým dnes čítá již 25 členů z různých středních i vysokých škol po celé ČR, na organizaci se může podílet kdokoliv, kdo má čas a chuť si práci na takovémto projektu vyzkoušet. V rámci tohoto týmu se snažíme novým organizátorům předat co nejvíce zkušeností a znalostí.**
+**Organizační tým dnes čítá již 32 členů z různých středních i vysokých škol po celé ČR, na organizaci se může podílet kdokoliv, kdo má čas a chuť si práci na takovémto projektu vyzkoušet. V rámci tohoto týmu se snažíme novým organizátorům předat co nejvíce zkušeností a znalostí.**
 
 ## Chceš se k nám přidat?
 
