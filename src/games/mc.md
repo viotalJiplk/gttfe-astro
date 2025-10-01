@@ -11,7 +11,7 @@ id: 3
 
 - Používat jakékoli hacky, cheaty, resourcepacky co by dávaly výhody ve hře (např. Xray) – (máme anticheat!)
 	- Specificky povolené módy jsou: Sodium, Lithium, Iris, and Starlight
-	- Pokud používáte OptiFine je nutno **vypnout fast math**
+	- Pokud používáte OptiFine, je nutno **vypnout fast math**
 	- Jiné optimalizační módy je možné použít po domluvě s admin teamem
 - Používat jakákoli makra nebo modifikace myši které dávají nefér výhodu ve hře. (např. autoclicker)
 
@@ -20,7 +20,8 @@ id: 3
 	- Dvojklikání
 	- Klikat rychleji než 20 cps
 	- Sledovat stream a tím neférově získávat informace o ostatních týmech
-	- Zneužívat exploity ve hře, pokud nějaké znáte (duplikace itemů a podobně) **Hrajte fair-play a bavte se!**
+	- Zneužívat exploity ve hře, pokud nějaké znáte (duplikace itemů a podobně) 
+- **Hrajte fair-play a bavte se!**
 
 ## Pro chat na serveru platí stejná pravidla jako na discordu.
 
