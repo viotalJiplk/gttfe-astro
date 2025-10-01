@@ -23,7 +23,7 @@ id: 1
 
 ## Povinnosti hráčů a omezení
 
-- Každý tým musí poskytnout skutečná jména, in game nicky a STEAM ID všech hráčů i náhradníků, jména a nicky budou zveřejněny na startovní listině.
+- Každý tým musí poskytnout skutečná jména, in-game nicky a STEAM ID všech hráčů i náhradníků, jména a nicky budou zveřejněny na startovní listině.
 
 - Na zápas smí nastoupit pouze hráči, kteří nejsou blokováni (zabanováni atp.).
 
