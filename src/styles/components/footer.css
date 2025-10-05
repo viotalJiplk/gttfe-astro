@@ -8,12 +8,13 @@ footer{
     height: 4rem;
     width: auto;
     padding: 2vh;
-    margin-right: 2vh; 
+    margin-right: 2vh;
     border-right: 0.1rem solid white;
 }
 #Footer-linkHolder{
     display: grid;
     grid-template-columns: auto auto auto;
+    column-gap: 2rem;
 }
 .Footer-link{
     height: 1.5rem;

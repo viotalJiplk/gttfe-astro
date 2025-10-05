@@ -4,16 +4,17 @@
 
 #Header-navbar {
     background-color: black;
-    padding: 1vh;
+    padding-top: 0vh;
+    padding-bottom: 1vh;
     display: flex;
-    padding-left: 5vh;
-    padding-right: 5vh;
+    padding-left: 1.2vw;
+    padding-right: 1.2vw;
     box-shadow: 0 0 10rem 0.1rem #ffad0aa1;
     margin-bottom: 7rem;
 }
 
 #Header-navbar div {
-    padding: 1vh;
+    padding: 0.5vh;
     display: flex;
 }
 
@@ -29,6 +30,10 @@
     text-align: center;
     text-decoration: none;
     color: white;
+}
+
+#Header-navbar a:hover {
+    color: #FF9E00;
 }
 
 .Header-link-text {

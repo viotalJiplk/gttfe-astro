@@ -1,5 +1,5 @@
 section{
-    min-height: 100vh;
+    min-height: 50vh;
 }
 
 body{
@@ -36,16 +36,18 @@ h1 .index-yellow{
 
 #index-gamesHolder{
     display: flex;
-    margin: 1%;
-    width: 98%;
+    width: 80vw;
+    padding-left: 10vw;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
 #games{
-    background: radial-gradient(circle, #ffad0a55, transparent 80vh);
-    padding-top: 50vh;
-    padding-bottom: 50vh;
+    padding-top: 15vh;
+    background: radial-gradient(ellipse, #ffad0a55, transparent 50%);
+    padding-bottom: 15vh;
+    margin-bottom: 20vh;
 }
 
 .index-games{
@@ -157,13 +159,13 @@ h1 .index-yellow{
     content: "";
     width: 400%;
     display: block;
-    height: 100vw;
+    height: 95vh;
     background-size: 50vw 50vw;
     background-repeat: no-repeat;
   }
 
 #how_to_participate h2{
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
 }
 #how_to_participate{
     overflow: hidden;
@@ -217,12 +219,28 @@ h1 .index-yellow{
     margin-right: 1.5rem;
 }
 #index-gamesHolder img{
-    height: 20rem;
+    height: 10rem;
     width: auto;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    transition: height 0.05s linear;
+}
+#index-gamesHolder a{
+    min-height: 16rem;
+    align-content: center;
+}
+#index-gamesHolder img:hover{
+    height: 11rem;
 }
 @media screen and (max-width: 1200px) {
     #index-gamesHolder img{
         height: 5rem;
         width: auto;
+    }
+    #index-gamesHolder a{
+        min-height: 7.5rem;
+    }
+    #index-gamesHolder img:hover{
+        height: 5.5rem;
     }
 }
