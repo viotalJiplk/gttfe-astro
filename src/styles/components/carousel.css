@@ -1,20 +1,24 @@
-.Carousel{
+.Carousel {
     overflow: scroll;
     grid-auto-flow: column;
     white-space: nowrap;
     scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
-  }
-  .Carousel::-webkit-scrollbar {
+}
+.Carousel > * {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+.Carousel::-webkit-scrollbar {
     display: none;
-  }
-  
-  .Carousel::-webkit-scrollbar {
+}
+
+.Carousel::-webkit-scrollbar {
     display: none;
-  }
-  
-  .Carousel-button{
+}
+
+.Carousel-button{
     width: 2rem;
     height: 2rem;
     font-weight: bold;
@@ -23,22 +27,22 @@
     transform: translateY(-4.5rem);
     border: 0rem;
     cursor: pointer;
-  }
-  
-  .Carousel-controls{
+}
+
+.Carousel-controls{
     padding-left: 2rem;
     padding-right: 2rem;
     display: none;
-  }
-  
-  .Carousel-spacer{
+}
+
+.Carousel-spacer{
     flex-grow: 1;
-  }
-  
-  .Carousel-disabled{
+}
+
+.Carousel-disabled{
     background-color: #ffad0a95;
     cursor: not-allowed;
-  }
-  .Carousel-carouselHolder{
+}
+.Carousel-carouselHolder{
     max-width: 100vw;
-  }
+}

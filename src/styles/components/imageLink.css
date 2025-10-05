@@ -1,8 +1,14 @@
 .ImageLink-a{
+    display: flex;
     text-decoration: none;
     color: white;
+    align-items: center;
+}
+.ImageLink-a:hover{
+    color: #FF9E00;
 }
 .ImageLink-a img{
     height: 100%;
     width: auto;
+    padding-right: 0.5rem;
 }
