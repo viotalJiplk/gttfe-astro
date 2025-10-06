@@ -26,7 +26,7 @@
     color: black;
     width: 100%;
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
     .sponsors-sponsor{
         padding: 1vw;
         margin: 3vw;

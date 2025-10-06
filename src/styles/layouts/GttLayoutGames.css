@@ -100,7 +100,7 @@
     color: black;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
     .ContentHolder{
         margin: 0.1rem;
         padding: 1rem;

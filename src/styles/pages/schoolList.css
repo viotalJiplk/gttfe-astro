@@ -9,7 +9,7 @@
     padding: 0rem;
     margin-right: 1rem;
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
     .schoolList-input-div{
         display: block;
     }

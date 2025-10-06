@@ -75,7 +75,7 @@
     flex-grow: 1;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
     #Header-navbar {
         display: none;
         box-shadow: 0 0 0rem 0rem #ffad0aa1;
