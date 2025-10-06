@@ -1,5 +1,5 @@
 section{
-    min-height: 50vh;
+    min-height: 45vh;
 }
 
 body, html{
@@ -7,7 +7,7 @@ body, html{
 }
 
 h1{
-    font-size: 5rem;
+    font-size: calc(2rem + 2vw);
 }
 
 h2{
@@ -22,8 +22,8 @@ h2{
 }
 
 #index-logo{
-    width: 20%;
-    height: auto;
+    height: calc(10vh + 12vw);
+    width: auto;
     display: inline-block;
 }
 
