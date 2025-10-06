@@ -1,5 +1,10 @@
 section{
     min-height: 45vh;
+    margin-bottom: 20vh;
+}
+
+#home, #how_to_participate{
+    margin-bottom: 0vh;
 }
 
 body, html{
@@ -44,10 +49,7 @@ h1 .index-yellow{
 }
 
 #games{
-    padding-top: 15vh;
     background: radial-gradient(ellipse, #ffad0a55, transparent 50%);
-    padding-bottom: 15vh;
-    margin-bottom: 20vh;
 }
 
 .index-games{
