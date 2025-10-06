@@ -26,9 +26,11 @@ const games = await getCollection('games');
     </section>
     <section id="games">
         <h2>Co hrajeme?</h2>
-        <div id="index-gamesHolder">
-            {games.map(game =><a href={`/games/rules/${game.data.name}/`} class="index-game"><Image src={game.data.logo} alt={"Hra: " + game.data.name}/></a>)}
-        </div>
+        <HorizontalCenter>
+            <div id="index-gamesHolder">
+                {games.map(game =><a href={`/games/rules/${game.data.name}/`} class="index-game"><Image src={game.data.logo} alt={"Hra: " + game.data.name}/></a>)}
+            </div>
+        </HorizontalCenter>
     </section>
     <section id="stats">
         <HorizontalCenter>
@@ -52,8 +54,8 @@ const games = await getCollection('games');
         <div class="index-flexbox">
             <div id="index-participation-left" class="index-spacer"></div>
             <div>
-                <h2>Jak se zúčastnit?</h2>
-                <div id="index-participationHolder">  
+                <h2>Jak se zůčastnit?</h2>
+                <div id="index-participationHolder">
                     <div id="index-register">
                         <h3>Nejdříve si založte účet</h3>
                         <p>Nejdříve si musíte vytvořit účet. (Nezapomeň vyplnit důležité informace, které o tobě potřebujeme vědět.)</p>

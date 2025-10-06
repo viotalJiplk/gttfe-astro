@@ -36,8 +36,8 @@ h1 .index-yellow{
 
 #index-gamesHolder{
     display: flex;
-    width: 80vw;
-    padding-left: 10vw;
+    width: max-content;
+    max-width: 80vw;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -231,26 +231,41 @@ h1 .index-yellow{
 #index-gamesHolder img{
     height: 10rem;
     width: auto;
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
-    transition: height 0.05s linear;
+    border-style: solid;
+    border-color: transparent;
+    border-right-width: 0.5rem;
+    border-left-width: 0.5rem;
+    object-fit: contain;
+    flex-grow: 1;
+    transition:
+        height 0.05s linear,
+        border-right-width 0.05s linear,
+        border-left-width 0.05s linear;
 }
 #index-gamesHolder a{
-    min-height: 16rem;
-    align-content: center;
+    display: flex;
+    height: 16rem;
+    aspect-ratio: 1;
+    /* different aspect ratios might cause flickering when hovering icons
+    due to wrapping (the border doesn't claim enough space) */
+    align-items: center;
 }
 #index-gamesHolder img:hover{
     height: 11rem;
+    border-right-width: 0rem;
+    border-left-width: 0rem;
 }
 @media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
     #index-gamesHolder img{
         height: 5rem;
         width: auto;
+        border: 0rem solid transparent;
     }
     #index-gamesHolder a{
-        min-height: 7.5rem;
+        height: 5rem;
+        margin: 1rem;
     }
     #index-gamesHolder img:hover{
-        height: 5.5rem;
+        height: 5rem;
     }
 }
