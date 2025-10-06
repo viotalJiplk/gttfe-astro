@@ -58,7 +58,7 @@ body{
     flex-grow: 1;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
     #GttLayout-toast{
         font-size: 2rem;
     }

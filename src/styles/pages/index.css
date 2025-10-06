@@ -179,7 +179,7 @@ h1 .index-yellow{
     overflow: hidden;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
     h1{
         font-size: 3rem;
     }
@@ -242,7 +242,7 @@ h1 .index-yellow{
 #index-gamesHolder img:hover{
     height: 11rem;
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
     #index-gamesHolder img{
         height: 5rem;
         width: auto;

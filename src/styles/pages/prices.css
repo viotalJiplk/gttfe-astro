@@ -14,7 +14,7 @@ div {
 	display: flex;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
     .image {
         margin-left: 5%;
     }
@@ -32,7 +32,7 @@ div {
         margin-left: 5%;
         width: 100%;
     }
-    
+
     body {
         overflow-x: 0;
     }
