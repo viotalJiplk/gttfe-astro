@@ -13,7 +13,7 @@
     margin-bottom: 7rem;
 }
 
-#Header-navbar div {
+#Header-navbar > div {
     padding: 0.5vh;
     display: flex;
 }
@@ -38,14 +38,15 @@
 
 .Header-link-text {
     font-size: 1.6rem;
-    padding-bottom: 1rem;
     font-weight: bold;
     border-bottom: 0.1rem solid white;
 }
 
 .Header-link-button {
+    display: flex;
+    align-items: center;
     font-size: 1.6rem;
-    padding-bottom: 1rem;
+    padding: 0.2em;
     font-weight: bold;
     border: 0.1rem solid #FF9E00;
     border-radius: 1rem;
@@ -80,9 +81,17 @@
         box-shadow: 0 0 0rem 0rem #ffad0aa1;
     }
 
-    #Header-navbar div {
+    #Header-navbar > div {
         padding: 1vh;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Header-link-text, .Header-link-button, .ImageLink-a {
+        padding-left: 0.8em;
+        padding-right: 0.8em;
+        margin-bottom: 1em;
     }
 
     #Header-hamburgerButton-holder {
