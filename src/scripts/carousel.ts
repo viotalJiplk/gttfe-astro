@@ -1,5 +1,11 @@
+enum Edirection {
+    LEFT,
+    RIGHT
+};
+
 const scrollStep = 200;
-let scrollDirection = "left";
+let scrollDirection = Edirection.LEFT;
+let lastScroll = Date.now();
 
 export function onCarouselChange(element: HTMLDivElement) {
     const container = element as HTMLDivElement;
@@ -13,23 +19,27 @@ export function onCarouselChange(element: HTMLDivElement) {
         carouselControls.style.display = "flex";
     }
     scrollHandler(container);
-    container.addEventListener('scroll', event => {scrollHandler(container);});
+    container.addEventListener('scroll', () => {scrollHandler(container);});
 
-    rightButton.addEventListener("click", event => {scrollRight(container);});
-    leftButton.addEventListener("click", event => {scrollLeft(container);});
+    rightButton.addEventListener("click", () => {scrollRight(container);});
+    leftButton.addEventListener("click", () => {scrollLeft(container);});
 }
 
 /**
- * Enable autoscroll for carousel. 
+ * Enable autoscroll for carousel.
  * @param element carousel element
  * @param interval time in milliseconds
  */
 export function enableAutoScroll(element: HTMLDivElement, interval: number) {
     const container = element as HTMLDivElement;
-    setInterval(function (container: HTMLDivElement) {
-        if (scrollDirection === "left") {
+    setInterval((container: HTMLDivElement) => {
+        if (Date.now() - lastScroll < interval * 0.5) {
+            return;
+        }
+
+        if (scrollDirection === Edirection.LEFT) {
             scrollLeft(container);
-        } else if (scrollDirection === "right") {
+        } else if (scrollDirection === Edirection.RIGHT) {
             scrollRight(container);
         } else {
             console.error("Unknown scroll direction.");
@@ -45,7 +55,7 @@ function scrollRight(container: HTMLDivElement) {
     const scrollRight = container.scrollWidth - container.clientWidth - container.scrollLeft;
     if((scrollRight - scrollStep) < (scrollStep/2)){
         container.scrollBy(scrollRight, 0);
-        scrollDirection = "left";
+        scrollDirection = Edirection.LEFT;
     }else{
         container.scrollBy(scrollStep, 0);
     }
@@ -58,25 +68,29 @@ function scrollRight(container: HTMLDivElement) {
 function scrollLeft(container: HTMLDivElement) {
     if((container.scrollLeft-scrollStep) < (scrollStep/2)){
         container.scrollBy(-container.scrollLeft, 0);
-        scrollDirection = "right";
+        scrollDirection = Edirection.RIGHT;
     }else{
         container.scrollBy(-scrollStep, 0);
     }
 }
 
 function scrollHandler(container: HTMLDivElement){
+    lastScroll = Date.now();
+
     //@ts-expect-error
     const leftButton = container.parentElement.getElementsByClassName('Carousel-left')[0] as HTMLButtonElement;
     //@ts-expect-error
     const rightButton = container.parentElement.getElementsByClassName('Carousel-right')[0] as HTMLButtonElement;
+
     if (((container.scrollLeft + container.clientWidth) > (container.scrollWidth - 1)) && !rightButton.classList.contains("Carousel-disabled")) {
         rightButton.classList.add("Carousel-disabled");
     } else if (((container.scrollLeft + container.clientWidth) <= (container.scrollWidth - 1)) && rightButton.classList.contains("Carousel-disabled")) {
         rightButton.classList.remove("Carousel-disabled");
     }
-    if ((container.scrollLeft == 0) && !leftButton.classList.contains("Carousel-disabled")) {
+
+    if ((container.scrollLeft === 0) && !leftButton.classList.contains("Carousel-disabled")) {
         leftButton.classList.add("Carousel-disabled");
-    } else if ((container.scrollLeft != 0) && leftButton.classList.contains("Carousel-disabled")) {
+    } else if ((container.scrollLeft !== 0) && leftButton.classList.contains("Carousel-disabled")) {
         leftButton.classList.remove("Carousel-disabled");
     }
 }
@@ -84,7 +98,7 @@ function scrollHandler(container: HTMLDivElement){
 export function carouselAppendChild(carousel: HTMLDivElement, node: Node){
     carousel.appendChild(node);
     for (const img of carousel.querySelectorAll("img")) {
-        img.onload = function () {
+        img.onload = () => {
             onCarouselChange(carousel);
         }
     }
