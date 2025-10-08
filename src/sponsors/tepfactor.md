@@ -1,7 +1,7 @@
 ---
 title: TEPfactor
 logo: ../assets/sponsors/tepfactor.png
-link: https://helkor.eu/
+link: https://www.tepfactor.cz/cze/
 ---
 **Unikátní dobrodružný park, který kombinuje týmovou spolupráci, logické úkoly a fyzické výzvy.**
 
