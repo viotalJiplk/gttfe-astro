@@ -1,0 +1,52 @@
+.HoverIcons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.HoverIcons > *{
+    display: flex;
+    height: calc(8rem + 2vw);
+    aspect-ratio: 1;
+    /* different aspect ratios might cause flickering when hovering icons
+    due to wrapping (the border doesn't claim enough space) */
+    align-items: center;
+}
+
+.HoverIcons img {
+    height: calc(5rem + 2vw);
+    width: auto;
+    border-style: solid;
+    border-color: transparent;
+    border-right-width: 1rem;
+    border-left-width: 1rem;
+    object-fit: contain;
+    aspect-ratio: 1;
+    flex-grow: 1;
+    transition:
+        height 0.05s linear,
+        border-right-width 0.05s linear,
+        border-left-width 0.05s linear;
+}
+
+.HoverIcons img:hover{
+    height: calc(6rem + 2vw);
+    border-right-width: 0;
+    border-left-width: 0;
+}
+
+@media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
+    .HoverIcons img{
+        height: 5rem;
+        width: auto;
+        border: 0rem solid transparent;
+    }
+    .HoverIcons > *{
+        height: 5rem;
+        margin: 1rem;
+    }
+    .HoverIcons img:hover{
+        height: 5rem;
+    }
+}
