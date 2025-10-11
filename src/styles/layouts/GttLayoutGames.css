@@ -52,9 +52,10 @@
     margin-bottom: 1rem;
 }
 
-#gameSelectCarousel img{
-    height: 8rem;
-    width: auto;
+#GameIcons {
+    max-width: 80vw;
+    margin-top: -4vh;
+    margin-bottom: 2vh;
 }
 .ContentHolder .GttLayoutGames-main{
     text-align: center;
