@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import GttLayout from "../layouts/GttLayout.astro";
 import GttLogo from "../../public/favicon.svg";
 import Carousel from "../components/Carousel.astro";
+import HoverIcons from "../components/HoverIcons.astro";
 import HorizontalCenter from "../components/HorizontalCenter.astro";
 import "../styles/pages/index.css"
 import { getCollection } from "astro:content";
@@ -27,9 +28,9 @@ const games = await getCollection('games');
     <section id="games">
         <h2>Co hrajeme?</h2>
         <HorizontalCenter>
-            <div id="index-gamesHolder">
+            <HoverIcons id="index-gamesHolder">
                 {games.map(game =><a href={`/games/rules/${game.data.name}/`} class="index-game"><Image src={game.data.logo} alt={"Hra: " + game.data.name}/></a>)}
-            </div>
+            </HoverIcons>
         </HorizontalCenter>
     </section>
     <section id="stats">
