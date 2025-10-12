@@ -46,6 +46,9 @@ h1 .index-yellow{
     padding: 25vw;
     margin: -25vw;
     background: radial-gradient(circle, #ffad0a55, transparent 50%);
+    background-position: center;
+    background-size: 100vw;
+    background-repeat: no-repeat;
 }
 
 #games h2 {
