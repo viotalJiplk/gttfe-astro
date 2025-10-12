@@ -1,0 +1,28 @@
+#prizes > section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.prize {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#r2024 {
+    margin-bottom: 7em;
+}
+#r2023 {
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
+    #prizes {
+        padding: 2em;
+    }
+    #r2023 {
+        align-items: start;
+    }
+}

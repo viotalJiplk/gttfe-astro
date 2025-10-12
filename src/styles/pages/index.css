@@ -1,13 +1,18 @@
 section{
-    min-height: 100vh;
+    min-height: 45vh;
+    margin-bottom: 20vh;
 }
 
-body{
+#home, #how_to_participate{
+    margin-bottom: 0vh;
+}
+
+body, html{
     overflow-x: hidden;
 }
 
 h1{
-    font-size: 5rem;
+    font-size: calc(2rem + 2vw);
 }
 
 h2{
@@ -22,8 +27,8 @@ h2{
 }
 
 #index-logo{
-    width: 20%;
-    height: auto;
+    height: calc(10vh + 12vw);
+    width: auto;
     display: inline-block;
 }
 
@@ -35,17 +40,19 @@ h1 .index-yellow{
 }
 
 #index-gamesHolder{
-    display: flex;
-    margin: 1%;
-    width: 98%;
-    flex-wrap: wrap;
-    justify-content: center;
+    width: max-content;
+    max-width: min(max(calc(200vh - 25vw), 30vw), 75vw);
+
+    padding: 25vw;
+    margin: -25vw;
+    background: radial-gradient(circle, #ffad0a55, transparent 50%);
+    background-position: center;
+    background-size: 100vw;
+    background-repeat: no-repeat;
 }
 
-#games{
-    background: radial-gradient(circle, #ffad0a55, transparent 80vh);
-    padding-top: 50vh;
-    padding-bottom: 50vh;
+#games h2 {
+    margin-bottom: 0em;
 }
 
 .index-games{
@@ -70,9 +77,17 @@ h1 .index-yellow{
     text-align: center;
 }
 
+#index-statsHolder > div {
+    display: flex;
+    flex-direction: column;
+}
+
 .index-stats-up{
     font-size: 4rem;
-    min-width: 10rem;
+    width: 100%;
+    max-width: 50vw;
+    align-self: center;
+    margin-bottom: 0.2rem;
     background-image: linear-gradient(90deg, #FFD60A, #FF9E00);
     border-bottom: 0.2rem solid white;
     background-clip: text;
@@ -143,33 +158,39 @@ h1 .index-yellow{
 }
 
 
-#index-participation-left::after{
-    background: radial-gradient(circle, #ffffff55, transparent 65%);
+#index-participation-left {
+    /* gray to match the value of the orange, so it doesn't appear optically bigger */
+    background: radial-gradient(circle, #92929255, transparent 65%);
     transform: translateX(-25vw);
+    padding-right: 25vw;
+    margin-right: -25vw;
+    pointer-events: none;
 }
 
-#index-participation-right::after{
+#index-participation-right {
     background: radial-gradient(circle, #ffad0a55, transparent 65%);
-    transform: translateX(2vw);
+    transform: translateX(25vw);
+    padding-left: 25vw;
+    margin-left: -25vw;
+    pointer-events: none;
 }
 
 #index-participation-right::after, #index-participation-left::after {
     content: "";
-    width: 400%;
     display: block;
-    height: 100vw;
+    height: 95vh;
     background-size: 50vw 50vw;
     background-repeat: no-repeat;
   }
 
 #how_to_participate h2{
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
 }
 #how_to_participate{
     overflow: hidden;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
     h1{
         font-size: 3rem;
     }
@@ -184,10 +205,12 @@ h1 .index-yellow{
         margin: 4vw;
         border-radius: 3rem;
     }
+    #index-statsHolder > div{
+        margin: 3rem;
+    }
     .index-stats-up{
         font-size: 3rem;
-        min-width: 0rem;
-        margin: 3rem;
+        min-width: 40vw;
     }
 
     h1{
@@ -216,13 +239,9 @@ h1 .index-yellow{
     margin-left: 1.5rem;
     margin-right: 1.5rem;
 }
-#index-gamesHolder img{
-    height: 20rem;
-    width: auto;
-}
-@media screen and (max-width: 1200px) {
-    #index-gamesHolder img{
-        height: 5rem;
-        width: auto;
+@media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
+    #index-gamesHolder {
+        padding: 25vh;
+        margin: -25vh;
     }
 }

@@ -9,13 +9,13 @@ id: 2
 
 ## Týmy
 - Podle počtů týmů organizátoři vyhlásí formát zápasů, a to:
-	- **Bo5** nebo **Bo3** nebo pouze **jeden zápas** (možnost knock out stagů).
-- Tým se sestává z **5 hráčů**, je možnost nahlášení náhradníků.
-	- Lidé, kteří nejsou přihlášeni jako součást týmu (náhradníci včetně) se nesmí zúčastnit turnaje.
-- Každý tým musí vyhlásit svého **zástupce, kapitána**.
-- Každý tým musí poskytnout svá **skutečná jména a in-game nicky** všech hráčů i náhradníků, které budou zveřejněna na startovní listině.
-- Složení týmu se **nesmí změnit po datu** stanoveném organizátory z řad SPGT.
-- Jméno týmu **nesmí být ofenzivní a urážlivé a nevhodné**. Právo o tomto rozhodovat si vyhrazují organizátoři.
+	- **Bo5** nebo **Bo3** nebo pouze **jeden zápas** (možnost knock out stagů)
+- Tým se staví z **5 hráčů**, je možnost nahlášení náhradníků
+	- Lidé, kteří nejsou přihlášeni jako součást týmu (náhradníci včetně) se nesmí zúčastnit turnaje
+- Každý tým musí vyhlásit svého **zástupce, kapitána**
+- Každý tým musí poskytnout svá **skutečná jména a in-game nicky** všech hráčů i náhradníků, které budou zveřejněna na startovní listině
+- Složení týmu se **nesmí změnit po datu** stanoveném organizátory z řad SPGT
+- Jméno týmu **nesmí být ofenzivní a urážlivé a nevhodné**. Právo o tomto rozhodovat si vyhrazují organizátoři
 
 ## Hráč
 - Nahlášené jméno se od doby nahlášení až do vyhlášení výsledků nesmí změnit.
@@ -40,12 +40,12 @@ id: 2
 - **Externí programy**, které nejsou v rozporu s Riot Games, např.: porofessor, blitz, mobalytics ad. jsou **povoleny**.
 
 ## Problémy
-- Pokud se vyskytne problém při loading screen a bude zapotřebí odehrát nový zápas je povinností obout týmů zvolit si naprosto**stejné championy** se stejnými schopnostmi a runami. Toto bude kontrolováno a jinak **trestáno** jako porušení pravidel.
-- Pokud se vyskytne chyba v jakékoliv fázi před-hry (lobby až loading screen) může kapitán nahlásit organizátorům tuto chybu a organizátoři jsou povinni ji řešit například restartem hry.
-- Je možnost se odvolat kvůli chybě hráče na změnu run. Pak je hra restartována. Tato výsada je **pouze jedna** na celý tým po dobu celého turnaje.
-- Pokud se některý hráč ihned po startu hry nepřipojí hra bude pozastavena do doby, než se do hry připojí všech 10 hráčů.
-- Pokud se hráč nedostaví do lobby nebo do samotné hry ani po 10 minutách čekání bude **tým diskvalifikován**.
-	- Pokud je příčinnou faktor neovlivnitelný bude zváženo odsunutí zápasu.
+- Pokud se vyskytne problém při loading screen a bude zapotřebí odehrát nový zápas je povinností obout týmů zvolit si naprosto **stejné championy** se stejnými schopnostmi a runami. Toto bude kontrolováno a jinak **trestáno** jako porušení pravidel
+- Pokud se vyskytne chyba v jakékoliv fázi před-hry (lobby až loading screen) může kapitán nahlásit organizátorům tuto chybu a organizátoři jsou povinni ji řešit například restartem hry
+- Je možnost se odvolat kvůli chybě hráče na změnu run. Pak je hra restartována. Tato výsada je **pouze jedna** na celý tým po dobu celého turnaje
+- Pokud se některý hráč ihned po startu hry nepřipojí, hra bude pozastavena do doby, než se do hry připojí všech 10 hráčů.
+- Pokud se hráč nedostaví do lobby nebo do samotné hry ani po 10 minutách čekání, bude **tým diskvalifikován**
+	- Pokud je příčinou faktor neovlivnitelný, bude zváženo odsunutí zápasu
 - Hráč může pozastavit hru jen pokud:
 	- Se nějaký hráč **neúmyslně odpojí**.
 	- Malfunkce hardwaru nebo samotné aplikace LoL.
@@ -60,10 +60,10 @@ id: 2
 	- Rozdíl mezi živými nebo mrtvými championy je **4 a více**.
 
 ## Komunikace
-- Hráči mají povinnost se dostavit na discord **10 minut před** turnajem do místnosti obecné, kde jim budou zděleny podrobnosti k zápasu.
-- Komunikace probíhá mezi členy týmů **výhradně přes discord** , a to na serveru GT tournament v příslušných roomkách, kam budete přeřazeni.
-- V in-game chatu, lobby chatu a champ select chatu je psát zprávy povoleno.
-- Je zakázáno psát urážlivé, nevhodné i zprávy s úmyslem soupeře naštvat nebo vyhrožování.
+- Hráči mají povinnost se dostavit na discord **10 minut před** turnajem do místnosti obecné, kde jim budou sděleny podrobnosti k zápasu
+- Komunikace probíhá mezi členy týmů **výhradně přes discord** , a to na serveru The GT Tournament v příslušných roomkách, kam budete přeřazeni
+- V in-game chatu, lobby chatu a champ select chatu je psát zprávy povoleno
+- Je zakázáno psát urážlivé, nevhodné i zprávy s úmyslem soupeře naštvat nebo vyhrožování
 	- To se vztahuje i na zprávy „EZ“, „?“, „cy@“, atd.
 
 ## Organizátoři

@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import Carousel from "../components/Carousel.astro";
+import HoverIcons from "../components/HoverIcons.astro";
 import HorizontalCenter from "../components/HorizontalCenter.astro";
 import GttLayout from "./GttLayout.astro";
 interface Props {
@@ -20,9 +20,11 @@ const bracketAttributes = bracket?{href:bracket}:{class:"disabled"};
 const contestantsAttributes = contestants?{href:contestants}:{class:"disabled"};
 ---
 <GttLayout pageTitle={pageTitle}>
-    <HorizontalCenter elementId="GttLayoutGames-sponsor-carouselHolder"><Carousel elementId="gameSelectCarousel">
-        {games.map(game =><a href={`../${game.data.name}/`} class="index-game"><Image src={game.data.picture} alt={"Hra: " + game.data.name}/></a>)}    
-    </Carousel></HorizontalCenter>
+    <HorizontalCenter elementId="GttLayoutGames-sponsor-carouselHolder">
+        <HoverIcons id="GameIcons">
+            {games.map(game =><a href={`../${game.data.name}/`} class="index-game"><Image src={game.data.picture} alt={"Hra: " + game.data.name}/></a>)}
+        </HoverIcons>
+    </HorizontalCenter>
     <div id="GttLayoutGames-sponsor-underline"></div>
     <HorizontalCenter elementId="GttLayoutGames-subnav">
         <a id="GttLayoutGames-generalRules" {...generalRulesAttributes} >OBECNÁ PRAVIDLA</a>

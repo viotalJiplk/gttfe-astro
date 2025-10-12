@@ -61,20 +61,17 @@ async function getToken(code: string, state: string) {
 
 async function startLoginChain() {
     let res = await (fetch("/backend/discord/auth").catch(function (error) {
-        if(error.response.status !== 200){
+        if (error.response.status !== 200) {
             showToastError("Služba pravděpodobně není dostupná. Zkuste akci opakovat za chvíli.");
             loadingError(loading);
-        }else{
+        } else {
             return error.response;
         }
     }));
     res = await res.json();
 
-    const redirectUrl = new URL(res.redirectUrl )
+    const redirectUrl = new URL(res.redirectUrl)
     let newUrl = window.location.origin + "/login/";
-    if (newUrl.includes("localhost")) {
-        newUrl = newUrl.replace("localhost", "127.0.0.1");
-    }
     redirectUrl.searchParams.set("redirect_uri", newUrl);
     window.location.href = redirectUrl.href;
 }

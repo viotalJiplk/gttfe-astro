@@ -45,6 +45,10 @@
     font-style: italic;
 }
 
+html {
+    background-color: black;
+    /* Visible when scrolling out of page */
+}
 body{
     background-color: #040610;
     display: flex;
@@ -58,12 +62,12 @@ body{
     flex-grow: 1;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
     #GttLayout-toast{
         font-size: 2rem;
     }
     body{
-        overflow-x: 0;
+        overflow-x: hidden;
     }
 }
 

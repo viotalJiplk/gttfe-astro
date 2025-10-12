@@ -51,7 +51,8 @@ id: 7
 
 ## Předzávodní procedury
 
-- Server bude zapnut 1.11. a po každém závodě se objeví nová trať, aby se mohlo trénovat.
+- Server bude zapnut 11.11. a po každém závodě se objeví nová trať, aby se mohlo trénovat.
+- Pokud se na šampionát zaregistruje více než 20 závodníků, bude předem týden dlouhá kvalifikace.
 
 ## Starty
 
@@ -71,7 +72,7 @@ id: 7
 
 ## Safety Car
 
-- Pokud dojde k velké nehodě, tak na trať vyjede Safety Car (dále jen SC).
+- Pokud dojde k velké nehodě, na trať vyjede Safety Car (dále jen SC).
 - SC ve hře bude Toyota GT86
 - Pod SC se všichni jezdci, kteří jsou o kolo pozadu, mohou vrátit do závodního kola.
 - Jakmile bude SC ukončen, závod bude restartován projetím vozidla na prvním místě Startovní čárou.
@@ -89,7 +90,7 @@ id: 7
 
 ### Přestupky a Následky
 
-- Zkrácení tratě a následné předjetí → Vrátit pozici, která byla získáná
+- Zkrácení tratě a následné předjetí → Vrátit pozici, která byla získána
 - Weaving, nebezpečné připojení na trať → Upozornění
 - Vytlačení, 3x upozornění → 5 sec penalizace
 - Kolize, kde není moc následků (jedno auto mimo trať) → 10 sec penalizace.
@@ -111,7 +112,7 @@ id: 7
 
 ## Závod
 
-- Pokud s někým bojujete a vyjedete mimo trať a tím ho předjedete, pozici vraťte.
+- Pokud s někým bojujete, vyjedete mimo trať a tím ho předjedete, pozici vraťte.
 - Pokud uvidíte modrou vlajku, zůstaňte předvídatelní a umožněte předjetí.
 
 # Technické regulace

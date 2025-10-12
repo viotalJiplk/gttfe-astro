@@ -12,11 +12,19 @@ id: 3
 - Hráči mohou používat klienty jako feather a lunar (a originální verzi minecraftu). Pokud hráči používají jiný klient může být povolen po domluvě s některým z organizátorů.
 - Kapitán týmu vždy bude zápasit proti kapitánovy z druhého týmu.
 
-## Zakazuje se:
+- Používat jakékoli hacky, cheaty, resourcepacky co by dávaly výhody ve hře (např. Xray) – (máme anticheat!)
+	- Specificky povolené módy jsou: Sodium, Lithium, Iris, and Starlight
+	- Pokud používáte OptiFine, je nutno **vypnout fast math**
+	- Jiné optimalizační módy je možné použít po domluvě s admin teamem
+- Používat jakákoli makra nebo modifikace myši které dávají nefér výhodu ve hře. (např. autoclicker)
 
-- V gamemodu vanilla je zakázán jakýkoliv typ campingu (např. používání elytra a raketek k campení ve vzduchu, nebo se kopat pod zem).
-- Hráči nesmí využívat žádný typ glitchu,bugů nebo hacků (pokud se nějaký takový hráč najde, celý jeho tým je vyhozen z turnaje).
-- Nebýt toxic k ostatním protihráčům či spoluhráčům.
+- Dále je zakázáno:
+	- Přemapovávat si více tlačítek na útok
+	- Dvojklikání
+	- Klikat rychleji než 20 cps
+	- Sledovat stream a tím neférově získávat informace o ostatních týmech
+	- Zneužívat exploity ve hře, pokud nějaké znáte (duplikace itemů a podobně) 
+- **Hrajte fair-play a bavte se!**
 
 ## Pro chat na serveru platí stejná pravidla jako na discordu.
 

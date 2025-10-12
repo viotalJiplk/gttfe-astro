@@ -32,7 +32,7 @@
     font-weight: bold;
     color: red;
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
     .Loading-x, .Loading-spinner{
         width: 10vw;
         height: 10vw;

@@ -3,58 +3,58 @@ footer{
     padding: 1vh;
     box-shadow: 0 0 10rem 0.1rem #ffad0aa1;
     margin-top: 8rem;
+    overflow-x: hidden;
 }
 #Footer-gttLogo{
     height: 4rem;
     width: auto;
     padding: 2vh;
-    margin-right: 2vh; 
+    margin-right: 2vh;
     border-right: 0.1rem solid white;
 }
 #Footer-linkHolder{
     display: grid;
     grid-template-columns: auto auto auto;
+    column-gap: 2rem;
 }
-.Footer-link{
-    height: 1.5rem;
+.Footer-link, .Footer-link_wrap{
+    height: 1.5em;
     padding: 0.1rem;
     text-wrap: nowrap;
 }
-.Footer-link img{
+.Footer-link img, .Footer-link_wrap img{
     margin-right: 0.2rem;
-    height: 1.5rem;
-    width: auto;
-}
-.Footer-link_wrap img{
-    margin-right: 0.2rem;
-    height: 1.5rem;
+    height: 1.5em;
     width: auto;
 }
 .Footer-holder{
     display: flex;
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
     #Footer-linkHolder{
         display: block;
-        /*grid-template-columns: auto auto auto;*/
         word-wrap: break-word;
     }
     .Footer-holder{
-        display: block;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
     }
-    .Footer-link{
+    .Footer-link, .Footer-link_wrap{
         word-wrap: break-word;
         text-wrap: nowrap;
+        margin-bottom: 0.5em;
+        font-size: calc(0.8em + 0.5vw);
     }
     #Footer-gttLogo{
-        height: 1rem;
-        width: auto;
+        display: block;
+        height: auto;
+        width: 60%;
         padding: 0vh;
         margin-right: 0.1rem;
         margin-bottom: 0.1rem;
         padding-bottom: 0.1rem;
         border-right: 0rem solid white;
-        border-bottom: 0.1rem solid white;
     }
 }
 
