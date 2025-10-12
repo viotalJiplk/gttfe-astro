@@ -47,6 +47,7 @@
 }
 
 .Header-link-text {
+    padding: 0.2em;
     border-bottom: 0.1rem solid white;
 }
 
@@ -95,6 +96,7 @@
     }
 
     .Header-link-text, .Header-link-button, .ImageLink-a {
+        font-size: 2em;
         padding-left: 0.8em;
         padding-right: 0.8em;
         margin-bottom: 1em;
