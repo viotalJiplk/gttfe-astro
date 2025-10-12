@@ -1,0 +1,46 @@
+---
+import GttLayoutContent from "../layouts/GttLayoutContent.astro";
+import { Image } from 'astro:assets';
+import "../styles/pages/prizes.css"
+
+import AssettoPrize from '../assets/prizes/2024/asseto_corsa-resized.webp';
+import McPrize from '../assets/prizes/2024/mc-resized.webp';
+import R6Prize from '../assets/prizes/2024/r6-resized.webp';
+import RiotPrize from '../assets/prizes/2024/riot.webp';
+import RocketPrize from '../assets/prizes/2024/rocket.webp';
+
+import AllPrize2023 from '../assets/prizes/2023.webp';
+---
+
+<GttLayoutContent pageTitle = "Ceny her">
+    <main id="prizes">
+        <h2>2024</h2>
+        <section id="r2024">
+            <div class="prize">
+                <h3>Assetto Corsa</h3>
+                <Image src={AssettoPrize} alt="Cena Assetto Corsa v ročníku 2024"/>
+            </div>
+            <div class="prize">
+                <h3>Minecraft</h3>
+                <Image src={McPrize} alt="Cena Minecraftu v ročníku 2024"/>
+            </div>
+            <div class="prize">
+                <h3>Rainbow Six: Siege</h3>
+                <Image src={R6Prize} alt="Cena Rainbow Six: Siege v ročníku 2024"/>
+            </div>
+            <div class="prize">
+                <h3>League of Legends & Valorant</h3>
+                <Image src={RiotPrize} alt="Cena League of Legends a Valorant v ročníku 2024"/>
+            </div>
+            <div class="prize">
+                <h3>Rocket League</h3>
+                <Image src={RocketPrize} alt="Cena Rocket League v ročníku 2024"/>
+            </div>
+        </section>
+
+        <section id="r2023">
+            <h2>2023</h2>
+            <Image src={AllPrize2023} alt="Ceny v ročníku 2023"/>
+        </section>
+    </main>
+</GttLayoutContent>

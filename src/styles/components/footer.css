@@ -3,6 +3,7 @@ footer{
     padding: 1vh;
     box-shadow: 0 0 10rem 0.1rem #ffad0aa1;
     margin-top: 8rem;
+    overflow-x: hidden;
 }
 #Footer-gttLogo{
     height: 4rem;
