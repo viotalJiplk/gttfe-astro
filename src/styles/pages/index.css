@@ -155,19 +155,25 @@ h1 .index-yellow{
 }
 
 
-#index-participation-left::after{
-    background: radial-gradient(circle, #ffffff55, transparent 65%);
+#index-participation-left {
+    /* gray to match the value of the orange, so it doesn't appear optically bigger */
+    background: radial-gradient(circle, #92929255, transparent 65%);
     transform: translateX(-25vw);
+    padding-right: 25vw;
+    margin-right: -25vw;
+    pointer-events: none;
 }
 
-#index-participation-right::after{
+#index-participation-right {
     background: radial-gradient(circle, #ffad0a55, transparent 65%);
-    transform: translateX(2vw);
+    transform: translateX(25vw);
+    padding-left: 25vw;
+    margin-left: -25vw;
+    pointer-events: none;
 }
 
 #index-participation-right::after, #index-participation-left::after {
     content: "";
-    width: 400%;
     display: block;
     height: 95vh;
     background-size: 50vw 50vw;
