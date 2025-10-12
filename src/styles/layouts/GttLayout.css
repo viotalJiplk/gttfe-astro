@@ -67,7 +67,7 @@ body{
         font-size: 2rem;
     }
     body{
-        overflow-x: 0;
+        overflow-x: hidden;
     }
 }
 
