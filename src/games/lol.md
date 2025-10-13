@@ -40,11 +40,7 @@ id: 2
 - **Externí programy**, které nejsou v rozporu s Riot Games, např.: porofessor, blitz, mobalytics ad. jsou **povoleny**.
 
 ## Problémy
-<<<<<<< HEAD
-- Pokud se vyskytne problém při loading screen a bude zapotřebí odehrát nový zápas je povinností obout týmů zvolit si naprosto**stejné championy** se stejnými schopnostmi a runami. Toto bude kontrolováno a jinak **trestáno** jako porušení pravidel.
-=======
 - Pokud se vyskytne problém při loading screen a bude zapotřebí odehrát nový zápas, je povinností obout týmů zvolit si naprosto **stejné championy** se stejnými schopnostmi a runami. Toto bude kontrolováno a jinak **trestáno** jako porušení pravidel.
->>>>>>> 64e406b (feat(games rules): Updated game rules for 2025 event)
 - Pokud se vyskytne chyba v jakékoliv fázi před-hry (lobby až loading screen) může kapitán nahlásit organizátorům tuto chybu a organizátoři jsou povinni ji řešit například restartem hry.
 - Je možnost se odvolat kvůli chybě hráče na změnu run. Pak je hra restartována. Tato výsada je **pouze jedna** na celý tým po dobu celého turnaje.
 - Pokud se některý hráč ihned po startu hry nepřipojí hra bude pozastavena do doby, než se do hry připojí všech 10 hráčů.

@@ -12,10 +12,14 @@ id: 7
 ## Data a čas
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Během turnaje bude probíhat 5 závody.
 =======
 - Během turnaje bude probíhat 5 závodů.
 >>>>>>> 64e406b (feat(games rules): Updated game rules for 2025 event)
+=======
+- Během turnaje bude probíhat 5 závodů.
+>>>>>>> 78d495ee9dbbe287dfd6e2800c8bcf2b952f93c2
 - Závody se budou konat 16.11., 17.11., 22.11. a 23.11.
 - Všechny budou začínat ve stejný čas, v 10 ráno, kromě posledního závodu v 9 ráno.
 
@@ -30,12 +34,17 @@ id: 7
 - Auto, které bude použito při všech závodech, je Radical SR3 (mod).
 - Můžete mít svoje vlastní livery.
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Link na server: https://rain.emperorservers.com/live-timing
 - Všechen kontent najdete na Discordu v kanále #content
 =======
 - Link na server: https://rain.emperorservers.com/live-timing.
 - Všechen kontent najdete na Discordu v kanále #content.
 >>>>>>> 64e406b (feat(games rules): Updated game rules for 2025 event)
+=======
+- Link na server: https://rain.emperorservers.com/live-timing.
+- Všechen kontent najdete na Discordu v kanále #content.
+>>>>>>> 78d495ee9dbbe287dfd6e2800c8bcf2b952f93c2
 
 # Formát
 
@@ -65,11 +74,7 @@ id: 7
 ## Starty
 
 - Standing start je start z roštu, uvidíte 6 červených světel a jakmile zhasnou, závod začal.
-<<<<<<< HEAD
-- Letmý start, je start za Safety Carem. Pojedete 100 km/h a na poslední dvě zatáčky pojedete pit limiter (80 km/h), jakmile zazní **“Green Flag”**, tak je start závodu.
-=======
 - Letmý start, je start za Safety Carem. Pojedete 100 km/h a na poslední dvě zatáčky pojedete pit limiter (80 km/h). Jakmile zazní **“Green Flag”**, tak je start závodu.
->>>>>>> 64e406b (feat(games rules): Updated game rules for 2025 event)
 
 ## Kvalifikace
 
