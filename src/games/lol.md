@@ -40,12 +40,20 @@ id: 2
 - **Externí programy**, které nejsou v rozporu s Riot Games, např.: porofessor, blitz, mobalytics ad. jsou **povoleny**.
 
 ## Problémy
+<<<<<<< HEAD
 - Pokud se vyskytne problém při loading screen a bude zapotřebí odehrát nový zápas je povinností obout týmů zvolit si naprosto**stejné championy** se stejnými schopnostmi a runami. Toto bude kontrolováno a jinak **trestáno** jako porušení pravidel.
+=======
+- Pokud se vyskytne problém při loading screen a bude zapotřebí odehrát nový zápas, je povinností obout týmů zvolit si naprosto **stejné championy** se stejnými schopnostmi a runami. Toto bude kontrolováno a jinak **trestáno** jako porušení pravidel.
+>>>>>>> 64e406b (feat(games rules): Updated game rules for 2025 event)
 - Pokud se vyskytne chyba v jakékoliv fázi před-hry (lobby až loading screen) může kapitán nahlásit organizátorům tuto chybu a organizátoři jsou povinni ji řešit například restartem hry.
 - Je možnost se odvolat kvůli chybě hráče na změnu run. Pak je hra restartována. Tato výsada je **pouze jedna** na celý tým po dobu celého turnaje.
 - Pokud se některý hráč ihned po startu hry nepřipojí hra bude pozastavena do doby, než se do hry připojí všech 10 hráčů.
 - Pokud se hráč nedostaví do lobby nebo do samotné hry ani po 10 minutách čekání bude **tým diskvalifikován**.
+<<<<<<< HEAD
 	- Pokud je příčinnou faktor neovlivnitelný bude zváženo odsunutí zápasu.
+=======
+	- Pokud je příčinnou faktor neovlivnitelný, bude zváženo odsunutí zápasu.
+>>>>>>> 64e406b (feat(games rules): Updated game rules for 2025 event)
 - Hráč může pozastavit hru jen pokud:
 	- Se nějaký hráč **neúmyslně odpojí**.
 	- Malfunkce hardwaru nebo samotné aplikace LoL.
@@ -61,13 +69,22 @@ id: 2
 
 ## Komunikace
 - Hráči mají povinnost se dostavit na discord **10 minut před** turnajem do místnosti obecné, kde jim budou zděleny podrobnosti k zápasu.
+<<<<<<< HEAD
 - Komunikace probíhá mezi členy týmů **výhradně přes discord** , a to na serveru GT tournament v příslušných roomkách, kam budete přeřazeni.
 - V in-game chatu, lobby chatu a champ select chatu je psát zprávy povoleno.
+=======
+- Komunikace probíhá mezi členy týmů **výhradně přes discord** , a to na serveru The GT Tournament v příslušných roomkách, kam budete přeřazeni.
+- V in-game chatu, lobby chatu a champ select chatu je povoleno psát zprávy.
+>>>>>>> 64e406b (feat(games rules): Updated game rules for 2025 event)
 - Je zakázáno psát urážlivé, nevhodné i zprávy s úmyslem soupeře naštvat nebo vyhrožování.
 	- To se vztahuje i na zprávy „EZ“, „?“, „cy@“, atd.
 
 ## Organizátoři
+<<<<<<< HEAD
 - Vyhrazují si právo zasahovat do zápasu jako například nařídit pauzu.
+=======
+- Vyhrazují si právo zasahovat do zápasu (např. nařídit pauzu).
+>>>>>>> 64e406b (feat(games rules): Updated game rules for 2025 event)
 - Rozhodnout spor mezi hráči.
 - Přerušit nebo ukončit hru.
 - Diskvalifikovat tým na základě porušení pravidel nebo obecných pravidel chování.

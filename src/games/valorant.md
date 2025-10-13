@@ -14,10 +14,17 @@ id: 5
 - Každý tým má právo na 5 minut pauzy.
 
 ##  Výběr map
+<<<<<<< HEAD
 - Dostupné mapy k volbě jsou momentální kompetetivní mapy
 - Týmy se střídají v postupném banování map na stránce MapBan (odkaz bude zaslán kapitánovi týmu)
 - Tým, kterému zbydou poslední dvě mapy na výběr a je na řadě, si vybere jednu se zbylých map.
 - Druhý tým si vybere, zda bude začínat jako Attacker nebo Deffender
+=======
+- Dostupné mapy k volbě jsou momentální kompetetivní mapy.
+- Týmy se střídají v postupném banování map na stránce MapBan (odkaz bude zaslán kapitánovi týmu).
+- Tým, kterému zbydou poslední dvě mapy na výběr a je na řadě, si vybere jednu se zbylých map.
+- Druhý tým si vybere, zda bude začínat jako Attacker nebo Deffender.
+>>>>>>> 64e406b (feat(games rules): Updated game rules for 2025 event)
 
 ## Zákazy
 - Zákaz všech externích programů, které nějak mění vlastnosti hry nebo poskytují výhodu nad soupeřem (cheaty), platí také pro tzv. "low graphic mody".
