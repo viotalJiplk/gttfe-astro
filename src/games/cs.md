@@ -9,7 +9,7 @@ id: 1
 
 ## Formát turnaje
 
-- Podle počtů týmů organizátoři vyhlásí formát zápasů, a to: o Bo5 nebo Bo3 nebo pouze jeden zápas (možnost knock out stagů nebo swiss systém)
+- Podle počtů týmů organizátoři vyhlásí formát zápasů, a to: o Bo5 nebo Bo3 nebo pouze jeden zápas (možnost knock out stagů nebo swiss systém).
 
 ## Formát zápasů
 
@@ -20,7 +20,7 @@ id: 1
 
 ## Povinnosti hráčů a omezení
 
-- Každý tým musí poskytnout skutečná jména, in game nicky a STEAM ID všech hráčů i náhradníků, jména a nicky budou zveřejněny na startovní listině.
+- Každý tým musí poskytnout skutečná jména, in-game nicky a STEAM ID všech hráčů i náhradníků, jména a nicky budou zveřejněny na startovní listině.
 - Na zápas smí nastoupit pouze hráči, kteří nejsou blokováni (zabanováni atp.).
 - Oficiální soupisky týmů vycházejí ze soupisky uvedené při registraci.
 - Každý hráč je povinen mít při oficiálním zápase shodné STEAM ID s hodnotou, kterou uvedl při přihlášení do turnaje.

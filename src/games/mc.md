@@ -9,13 +9,13 @@ id: 3
 
 ## Klienti a týmové věci
 
-- Hráči mohou používat klienty jako feather a lunar (a originální verzi minecraftu). Pokud hráči používají jiný klient může být povolen po domluvě s některým z organizátorů.
-- Kapitán týmu vždy bude zápasit proti kapitánovy z druhého týmu.
+- Hráči mohou používat klienty jako feather a lunar (a originální verzi minecraftu). Pokud hráči používají jiný klient, může být povolen po domluvě s některým z organizátorů.
+- Kapitán týmu vždy bude zápasit proti kapitánovi z druhého týmu.
 
 ## Zakazuje se:
 
 - V gamemodu vanilla je zakázán jakýkoliv typ campingu (např. používání elytra a raketek k campení ve vzduchu, nebo se kopat pod zem).
-- Hráči nesmí využívat žádný typ glitchu,bugů nebo hacků (pokud se nějaký takový hráč najde, celý jeho tým je vyhozen z turnaje).
+- Hráči nesmí využívat žádný typ glitchu, bugů nebo hacků (pokud se nějaký takový hráč najde, celý jeho tým je vyhozen z turnaje).
 - Nebýt toxic k ostatním protihráčům či spoluhráčům.
 
 ## Pro chat na serveru platí stejná pravidla jako na discordu.
