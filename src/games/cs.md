@@ -20,11 +20,7 @@ id: 1
 
 ## Povinnosti hráčů a omezení
 
-<<<<<<< HEAD
-- Každý tým musí poskytnout skutečná jména, in game nicky a STEAM ID všech hráčů i náhradníků, jména a nicky budou zveřejněny na startovní listině.
-=======
 - Každý tým musí poskytnout skutečná jména, in-game nicky a STEAM ID všech hráčů i náhradníků, jména a nicky budou zveřejněny na startovní listině.
->>>>>>> 64e406b (feat(games rules): Updated game rules for 2025 event)
 - Na zápas smí nastoupit pouze hráči, kteří nejsou blokováni (zabanováni atp.).
 - Oficiální soupisky týmů vycházejí ze soupisky uvedené při registraci.
 - Každý hráč je povinen mít při oficiálním zápase shodné STEAM ID s hodnotou, kterou uvedl při přihlášení do turnaje.

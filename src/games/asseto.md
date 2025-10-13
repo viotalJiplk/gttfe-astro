@@ -85,11 +85,7 @@ id: 7
 ## Safety Car
 
 - Pokud dojde k velké nehodě, tak na trať vyjede Safety Car (dále jen SC).
-<<<<<<< HEAD
-- SC ve hře bude Toyota GT86
-=======
 - SC ve hře bude Toyota GT86.
->>>>>>> 64e406b (feat(games rules): Updated game rules for 2025 event)
 - Pod SC se všichni jezdci, kteří jsou o kolo pozadu, mohou vrátit do závodního kola.
 - Jakmile bude SC ukončen, závod bude restartován projetím vozidla na prvním místě Startovní čárou.
 - Pod SC se nesmí předjíždět.
