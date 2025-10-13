@@ -11,15 +11,7 @@ id: 7
 
 ## Data a čas
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-- Během turnaje bude probíhat 5 závody.
-=======
 - Během turnaje bude probíhat 5 závodů.
->>>>>>> 64e406b (feat(games rules): Updated game rules for 2025 event)
-=======
-- Během turnaje bude probíhat 5 závodů.
->>>>>>> 64e406b (feat(games rules): Updated game rules for 2025 event)
 - Závody se budou konat 16.11., 17.11., 22.11. a 23.11.
 - Všechny budou začínat ve stejný čas, v 10 ráno, kromě posledního závodu v 9 ráno.
 
@@ -33,18 +25,8 @@ id: 7
   - TT Assen (mod)
 - Auto, které bude použito při všech závodech, je Radical SR3 (mod).
 - Můžete mít svoje vlastní livery.
-<<<<<<< HEAD
-<<<<<<< HEAD
-- Link na server: https://rain.emperorservers.com/live-timing
-- Všechen kontent najdete na Discordu v kanále #content
-=======
 - Link na server: https://rain.emperorservers.com/live-timing.
 - Všechen kontent najdete na Discordu v kanále #content.
->>>>>>> 64e406b (feat(games rules): Updated game rules for 2025 event)
-=======
-- Link na server: https://rain.emperorservers.com/live-timing.
-- Všechen kontent najdete na Discordu v kanále #content.
->>>>>>> 64e406b (feat(games rules): Updated game rules for 2025 event)
 
 # Formát
 
