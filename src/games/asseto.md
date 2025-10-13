@@ -11,68 +11,68 @@ id: 7
 
 ## Data a čas
 
-- Během turnaje budou probíhat 4 závody.
-- Závody se budou konat 16.11, 17.11, 22.11 a 23.11.
-- Všechny budou začínat ve stejný čas, v 9:00h.
+- Během turnaje bude probíhat 5 závodů.
+- Závody se budou konat 16.11., 17.11., 22.11. a 23.11.
+- Všechny budou začínat ve stejný čas, v 10 ráno, kromě posledního závodu v 9 ráno.
 
 ## Kontent
 
-- Jsou vybrány následující tratě: Barcelona (DLC - Dream Pack 2), Mugello, Silverstone, Spa - Francorchamps.
-- Auto, které bude použito při všech závodech, je Praga R1 (DLC - Tripl3 Pack).
+- Jsou vybrány následující tratě:
+  - Tor Poznan (mod)
+  - Most Autodrom (mod)
+  - Red Bull Ring (Možná mod)
+  - Oschersleben (mod)
+  - TT Assen (mod)
+- Auto, které bude použito při všech závodech, je Radical SR3 (mod).
 - Můžete mít svoje vlastní livery.
-- Link na server: https://gttournament.emperorservers.com/live-timing
+- Link na server: https://rain.emperorservers.com/live-timing.
+- Všechen kontent najdete na Discordu v kanále #content.
 
 # Formát
 
 ## Kvalifikace
 
-- Kvalifikace bude trvat 40 minut po třech částech.
-- Bude použit Formule 1 formát s Q1, Q2 a Q3 (po 10 minutách).
-- V Q1 vypadne 5 jezdců.
-- V Q2 vypadne 5 jezdců.
+- Kvalifikace bude trvat 24 minut po dvou skupinách (10+2 minuty na skupinu).
+- Skupiny budou podle postavení v šampionátu.
+- Spodní půlka v šampionátu bude 1. skupina a horní půlka bude 2. skupina.
 
 ## Závod
 
-- Start se bude řadit podle kvalifikace.
-- Závod bude trvat 60 min.
-- Každý jezdec musí udělat jeden pitstop během závodu.
+- Oba dva závody mají 45 minut + 1 kolo.
+- První závod se řadí podle kvalifikace.
+- Druhý závod se řadí podle opačného pořadí závodu prvního (První je poslední…poslední je první).
+- První závod startuje jako standing start, druhý závod startuje jako letmý start.
 
 ## Výsledky
 
-- Bodovací systém bude stejný jako ve Formuli 1.
+- Bodovací systém máte v sheets, které najdete na discordu.
 
 # Procedury
 
 ## Předzávodní procedury
 
-- Server bude zapnut 11.11. a po každém závodě se objeví nová trať, aby se mohlo trénovat.
-- Pokud se na šampionát zaregistruje více než 20 závodníků, bude předem týden dlouhá kvalifikace.
+- Server bude zapnut 1.11. a po každém závodě se objeví nová trať, aby se mohlo trénovat.
 
-## Týdenní kvalifikace
+## Starty
 
-- Tato akce proběhne pouze v případě, že se zaregistruje více než 20 závodníků.
-- Probíhat bude od 4.11. do 10.11.
-- Auto zůstane stejné jako na šampionát (Praga R1) a jako trať byla vybrána Laguna Seca.
-- 20 nejrychlejších časů bude kvalifikováno do šampionátu.
+- Standing start je start z roštu, uvidíte 6 červených světel a jakmile zhasnou, závod začal.
+- Letmý start, je start za Safety Carem. Pojedete 100 km/h a na poslední dvě zatáčky pojedete pit limiter (80 km/h). Jakmile zazní **“Green Flag”**, tak je start závodu.
 
 ## Kvalifikace
 
-- Začíná v 9:00 a končí v 9:40.
-
-## Start závodu
-
-- Start bude formou standing start.
+- Začíná v 10:00 a končí v 10:26.
+- Skupina 1. bude spodní polovina ve výsledcích, Skupina 2. bude vrchní část tabulky
 
 ## Kolize a penalty
 
 - Všechny kolize budou řešeny po závodě.
-- Můžete podat stížnost do 3 hodin po konci závodu.
+- Můžete podat stížnost do 6 hodin po konci závodu.
 - Všechny protesty se budou vyřizovat přes Discord.
 
 ## Safety Car
 
-- Pokud dojde k velké nehodě, na trať vyjede Safety Car (dále jen SC).
-- SC ve hře bude Toyota GT86
+- Pokud dojde k velké nehodě, tak na trať vyjede Safety Car (dále jen SC).
+- SC ve hře bude Toyota GT86.
 - Pod SC se všichni jezdci, kteří jsou o kolo pozadu, mohou vrátit do závodního kola.
 - Jakmile bude SC ukončen, závod bude restartován projetím vozidla na prvním místě Startovní čárou.
 - Pod SC se nesmí předjíždět.
@@ -81,7 +81,7 @@ id: 7
 
 - Pokud server spadne během kvalifikace, začne se odznova v části, kde jsme skončili.
 - Pokud server spadne během prvního závodu, všichni se vrátí na kvalifikační pozice a závod bude opětovně odstartován.
-- Pokud server spadne během druhého závodu, po odjetí min. 3 kol se výsledky zachovají a nebude se pokračovat.
+- Pokud server spadne během druhého závodu, po odjetí min. 15 minut se výsledky zachovají a nebude se pokračovat.
 
 # Pravidla a regulace
 
@@ -94,14 +94,13 @@ id: 7
 - Vytlačení, 3x upozornění → 5 sec penalizace
 - Kolize, kde není moc následků (jedno auto mimo trať) → 10 sec penalizace.
 - Úmyslná kolize → 15 sec penalizace.
-- Žádný Pitstop → 20 sec penalizace
 - T-bone, pomsta → 3x 15 sec penalizace → DSQ.
 
 ## Závodníci by měli dávat přednost těm rychlejším.
 
 ## Ježdění mimo trať a ztráta kontroly
 
-- Pokud ztratíte kontrolu vozu a zůstanete na trati, počkejte až projedou auta a až potom můžete pokračovat v jízdě
+- Pokud ztratíte kontrolu vozu a zůstanete na trati, počkejte až projedou auta a až potom můžete pokračovat v jízdě.
 - Pokud ztratíte kontrolu vozu a objevíte se mimo trať, bezpečně se na ní připojte.
 
 ## Kvalifikace
