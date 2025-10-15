@@ -28,7 +28,7 @@ export class UserObject extends ApiObject{
     static types = {
         "id": String,
         "username": String,
-        "avatar": String,
+        "avatar": [null, String],
         "discriminator": String,
         "public_flags": [undefined, Number],
         "flags": [undefined, Number],
@@ -37,22 +37,22 @@ export class UserObject extends ApiObject{
         "global_name": String,
         "avatar_decoration_data": [null, Object],
         "banner_color": [null, String],
-        "clan": null,
-        "primary_guild": null
+        "clan": [null, Object],
+        "primary_guild": [null, Object]
     };
     id: string;
     username: string;
-    avatar: string;
+    avatar: null|string;
     discriminator: string;
     public_flags: undefined | number;
     flags: undefined | number;
     banner: null | string;
     accent_color: null | number;
     global_name: string;
-    avatar_decoration_data: null| Object;
-    banner_color: null;
-    clan: null;
-    primary_guild: null;
+    avatar_decoration_data: null | Object;
+    banner_color: null | string;
+    clan: null | Object;
+    primary_guild: null | Object;
     constructor(id = "", username = "", avatar = "", discriminator = "", public_flags = undefined,
         flags = undefined, banner = null, accent_color = null, global_name = "",
         avatar_decoration_data = null, banner_color = null, clan = null, primary_guild = null) {
@@ -89,7 +89,7 @@ class LocalStorageHandler{
             localStorage.removeItem("jwt");
         }
     }
-    
+
     get userObject() {
         let userObject = localStorage.getItem("userObject");
         if (userObject === null) {
@@ -100,7 +100,7 @@ class LocalStorageHandler{
     }
     set userObject(userObject: UserObject | undefined) {
         if (userObject !== undefined) {
-            localStorage.setItem("userObject", JSON.stringify(userObject));   
+            localStorage.setItem("userObject", JSON.stringify(userObject));
         } else {
             localStorage.removeItem("userObject");
         }
