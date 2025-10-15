@@ -7,6 +7,8 @@ const loading = document.getElementById("login-loading") as HTMLDivElement;
 const url = new URL(window.location.href);
 const code = url.searchParams.get("code");
 const state = url.searchParams.get("state");
+// This remove params from history so it could not be resubmitted
+window.history.replaceState({}, document.title, window.location.pathname);
 if ((url !== null) && (code !== null) && (state !== null)) {
     getToken(code, state);
 } else {
