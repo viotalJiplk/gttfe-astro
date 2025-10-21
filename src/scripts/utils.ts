@@ -34,7 +34,7 @@ export class UserObject extends ApiObject{
         "flags": [undefined, Number],
         "banner": [null, String],
         "accent_color": [null, Number],
-        "global_name": String,
+        "global_name": [null, String],
         "avatar_decoration_data": [null, Object],
         "banner_color": [null, String],
         "clan": [null, Object],
@@ -48,7 +48,7 @@ export class UserObject extends ApiObject{
     flags: undefined | number;
     banner: null | string;
     accent_color: null | number;
-    global_name: string;
+    global_name: null | string;
     avatar_decoration_data: null | Object;
     banner_color: null | string;
     clan: null | Object;
