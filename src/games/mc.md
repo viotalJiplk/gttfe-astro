@@ -32,6 +32,6 @@ id: 3
 ## Obecné
 
 - Každý tým má povolené dva náhradníky kteří se můžou vyměnit mezi koly (né mid game).
-- Hrát se budou všechny gamemody na https://mctiers.com.
+- Hrát se budou všechny gamemody na [mctiers.com](https://mctiers.com).
 - Pokud bude mít hráč jakékoliv technické problémy v průběhu turnaje, má 10 minut na to si je vyřešit. Pokud se to nepovede, bude za něj muset hrát náhradník.
 - Tento rok se nehraje 1.8.9 pvp!!! Bude se hrát 1.9!

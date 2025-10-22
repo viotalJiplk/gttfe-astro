@@ -25,7 +25,7 @@ id: 2
 - Champ select začíná, jakmile kapitáni obou týmů hlasovou nebo textovou formou potvrdí připravenost týmu.
 - Hra se uskutečňuje na mapě **summoners rift**.
 - Turnajový draft pick s 5ti bany (3+2).
-- Draft bude probíhat na stránkách: https://draftlol.dawe.gg (z důvodu že né všichni mají všechny champy).
+- Draft bude probíhat na stránkách [draftlol.gg](https://draftlol.dawe.gg) (z důvodu že né všichni mají všechny champy).
 - Hráči jsou povinni se seřadit v normálním **LCS pořadí** (top, jungle, mid, bot, support).
 - Blue a Red strana je před bitvou náhodně vybrána a potom se střídá.
 - Hra je ukončena vítězstvím jedné strany pokud:
