@@ -5,6 +5,9 @@ picture: ../assets/games/logo/dota2.png
 id: 8
 ---
 
+## Čas konání: Pavouk 17.11. 14:00 - 18:00
+## &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Finále 17.11. 18:00 - 19:00
+
 # Pravidla
 
 ## Zakladní informace

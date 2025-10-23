@@ -5,6 +5,8 @@ picture: ../assets/games/logo/mc.svg
 id: 3
 ---
 
+## Čas konání: 23.11. 10:00 - 14:00
+
 # Pravidla
 
 ## Klienti a týmové věci
