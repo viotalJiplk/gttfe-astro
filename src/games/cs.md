@@ -5,6 +5,9 @@ picture: ../assets/games/logo/cs.svg
 id: 1
 ---
 
+## Čas konání: Pavouk 16.11. 9:00 - 17:00
+## &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Finále 23.11. 16:00 - 19:00
+
 # Pravidla
 
 ## Formát turnaje

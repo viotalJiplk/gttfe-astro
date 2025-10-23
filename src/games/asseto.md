@@ -5,6 +5,12 @@ picture: ../assets/games/logo/assetto.png
 id: 7
 ---
 
+## Čas konání: 15.11. 10:00 - 12:00
+## &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 16.11. 10:00 - 12:00
+## &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 17.11. 10:00 - 12:00
+## &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 22.11. 10:00 - 12:00
+## &emsp;&emsp;&ensp;&nbsp;Finále 23.11. 9:00 - 11:00
+
 # Pravidla hry:
 
 ## Informace o události

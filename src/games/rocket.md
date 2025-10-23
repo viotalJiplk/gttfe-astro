@@ -4,6 +4,11 @@ logo: ../assets/games/logo/rocket.webp
 picture: ../assets/games/logo/rocket.webp
 id: 4
 ---
+
+## Čas konání:
+## Skupina + Osmifinále & Čtvrtfinále 16.11. 14:00 - 19:00
+## Semifinále & Finále &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp; 22.11. 13:00 - 15:00
+
 # Pravidla turnaje
 
  ## Technické problémy
