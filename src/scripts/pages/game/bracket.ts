@@ -6,14 +6,14 @@ import { ResizableSvg } from "./playoffRenderer/svgPrimitives";
 const eventsHolder = document.getElementById("contestants-events-holder") as HTMLDivElement;
 const eventsSelector = document.getElementById("contestants-events-selector") as HTMLDivElement;
 
-async function loadEvent(eventId: number, eventType: string) {
-    function getBlankDiv() {
-        const div = document.createElement("div");
-        div.classList.add("blank");
-        div.innerText = "Zatím nebylo publikováno";
-        return div;
-    }
+function getBlankDiv() {
+    const div = document.createElement("div");
+    div.classList.add("blank");
+    div.innerText = "Zatím nebylo publikováno";
+    return div;
+}
 
+async function loadEvent(eventId: number, eventType: string) {
     eventsHolder.innerHTML = "";
     const matches = await listAllMatches(eventId);
     if (matches.length === 0) {
@@ -144,6 +144,8 @@ async function loadEvents() {
     renderEventSelector(eventsSorted.reverse(), active);
     if (active !== undefined) {
         loadEvent(Number(active.eventId), active.eventType);
+    } else {
+        eventsHolder.appendChild(getBlankDiv());
     }
 }
 
