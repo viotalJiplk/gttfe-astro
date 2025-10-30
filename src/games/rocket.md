@@ -19,7 +19,7 @@ id: 4
  ## Obecná pravidla
  - Týmy budou hrát všichni proti všem ve skupinách, poté se přejde do playoff.
  - Zápasy se odehrávají hned po skončení předchozího zápasu.
- - Nezapomeňte, že právě vy můžete být streamováni, proto byste měli poslouchat pokyny na twitchi.
+ - Nezapomeňte, že právě vy můžete být streamováni, proto byste měli poslouchat pokyny na discordu.
  - Jakýkoliv admin má právo sledovat zápas.
  - Spectatovat mohou pouze admini.
  - Je zakázáno mít nevhodné názvy týmu, nicky hráčů a nadávat si v zápase.
