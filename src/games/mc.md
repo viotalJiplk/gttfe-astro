@@ -12,7 +12,6 @@ id: 3
 ## Klienti a týmové věci
 
 - Hráči mohou používat klienty jako feather a lunar (a originální verzi minecraftu). Pokud hráči používají jiný klient, může být povolen po domluvě s některým z organizátorů.
-- Kapitán týmu vždy bude zápasit proti kapitánovi z druhého týmu.
 
 ## Zakazuje se:
 
