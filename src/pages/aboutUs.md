@@ -14,4 +14,4 @@ title: O nás
 
 ## Chceš se k nám přidat?
 
-**V případě jakýchkoliv dotazů či žádosti o přidání k týmu prosím kontaktuj @orik.**
+**V případě jakýchkoliv dotazů či žádosti o přidání k týmu prosím kontaktuj @gulmien.**
