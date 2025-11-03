@@ -15,11 +15,12 @@ function getBlankDiv() {
 
 async function loadEvent(eventId: number, eventType: string) {
     eventsHolder.innerHTML = "";
+    eventType = eventType.toLowerCase();
     const matches = await listAllMatches(eventId);
     if (matches.length === 0) {
         eventsHolder.appendChild(getBlankDiv());
     } else {
-        if (eventType === "PlayOff") {
+        if (eventType === "playoff") {
             type MinifiedMatch = {
                 team1: string | undefined;
                 score1: number | undefined;
@@ -54,7 +55,7 @@ async function loadEvent(eventId: number, eventType: string) {
                         });
                     }
                 }
-                if (((i + 1) == preparedMatches.length) && (preparedMatches[i].length > 1)) {
+                if (((i + 1) === preparedMatches.length) && (preparedMatches[i].length > 1)) {
                     preparedMatches.push([]);
                     for (let j = 0; j < Math.ceil(preparedMatches[i].length / 2); j++) {
                         preparedMatches[i + 1].push({
@@ -73,6 +74,90 @@ async function loadEvent(eventId: number, eventType: string) {
 
             const event = new SvgEvent(root.elem, 0, 0, preparedMatches, undefined)
             root.appendChild(event);
+        } else if (eventType.startsWith("swiss")) {
+            type MinifiedMatch = {
+                team1: string;
+                score1: number;
+                id1: number;
+                team2: string;
+                score2: number;
+                id2: number;
+            };
+            let stageCount = 0;
+            const teamScores = {} as Record<number, number>;
+            const stageMatches = matches.reduce((acc, item) => {
+                const key = item.stageIndex;
+                if (!acc[key]) {
+                    acc[key] = [];
+                    stageCount++;
+                }
+                if (!teamScores[item.firstTeamId]) {
+                    teamScores[item.firstTeamId] = 0;
+                }
+                if (!teamScores[item.secondTeamId]) {
+                    teamScores[item.secondTeamId] = 0;
+                }
+
+                const minified: MinifiedMatch = {
+                    team1: item.firstTeamName,
+                    score1: item.firstTeamResult,
+                    id1: item.firstTeamId,
+                    team2: item.secondTeamName,
+                    score2: item.secondTeamResult,
+                    id2: item.secondTeamId,
+                };
+                acc[key].push(minified);
+                return acc;
+            }, {} as Record<number, MinifiedMatch[]>);
+
+            for (let i = 1; i < stageCount; i++) {
+                for (let j = 0; j < stageMatches[i-1].length; j++) {
+                    const match = stageMatches[i-1][j];
+
+                    if (match.score1 > match.score2) {
+                        teamScores[match.id1]++;
+                    }  else if (match.score2 > match.score1) {
+                        teamScores[match.id2]++;
+                    } else {
+                        console.error(`Invalid state! ${match.team1} vs ${match.team2} result is indeterminate.`);
+                    }
+                }
+                stageMatches[i].sort((a, b) => teamScores[b.id1] - teamScores[a.id1]) // sort by score in descending order
+            }
+
+            const root = document.createElement("div");
+            root.style.display = "flex";
+            root.style.flexDirection = "row";
+            eventsHolder.appendChild(root);
+            for (let i = 0; i < stageCount; i++) {
+                const stageContainer = document.createElement("table");
+                stageContainer.style.margin = "1em";
+
+                const stageCaption = document.createElement("caption");
+                stageCaption.innerText = `${i + 1}. kolo`;
+                stageContainer.appendChild(stageCaption);
+
+                const addCell = (row: HTMLTableRowElement, text: string) => {
+                    const cell = document.createElement("td");
+                    cell.innerText = text;
+                    row.appendChild(cell);
+                };
+
+                for (let j = 0; j < stageMatches[i].length; j++) {
+                    const match = stageMatches[i][j];
+                    const matchContainer = document.createElement("tr");
+
+                    addCell(matchContainer, String(match.score1));
+                    addCell(matchContainer, match.team1);
+                    addCell(matchContainer, "VS");
+                    addCell(matchContainer, match.team2);
+                    addCell(matchContainer, String(match.score2));
+
+                    stageContainer.appendChild(matchContainer);
+                }
+
+                root.appendChild(stageContainer);
+            }
         }
     }
 }
