@@ -43,6 +43,21 @@
     color: #FF9E00;
 }
 
+.ContentHolder table {
+    border-collapse: collapse;
+}
+.ContentHolder td{
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+    text-align: center;
+}
+.ContentHolder tr, .ContentHolder caption{
+    margin: 0.5em;
+}
+.ContentHolder tr:nth-child(even){
+    background-color: #112649;
+}
+
 #GttLayoutGames-sponsor-underline{
     width: 100%;
     background-color: white;
