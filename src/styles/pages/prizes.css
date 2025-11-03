@@ -13,6 +13,10 @@
 #r2024 {
     margin-bottom: 7em;
 }
+#r2024 h2 {
+    width: 100%;
+    text-align: center;
+}
 #r2023 {
     flex-direction: column;
     align-items: center;
