@@ -43,7 +43,7 @@ footer{
     .Footer-link, .Footer-link_wrap{
         word-wrap: break-word;
         text-wrap: nowrap;
-        margin-bottom: 0.5em;
+        margin-top: 1.2em;
         font-size: calc(0.8em + 0.5vw);
     }
     #Footer-gttLogo{
