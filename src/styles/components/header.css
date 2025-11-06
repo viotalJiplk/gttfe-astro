@@ -95,7 +95,7 @@
         align-items: center;
     }
 
-    .Header-link-text, .Header-link-button, .ImageLink-a {
+    .Header-link-text, .Header-link-button {
         font-size: 2em;
         padding-left: 0.8em;
         padding-right: 0.8em;
