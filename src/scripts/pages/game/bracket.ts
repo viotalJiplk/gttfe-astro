@@ -75,6 +75,13 @@ async function loadEvent(eventId: number, eventType: string) {
             const event = new SvgEvent(root.elem, 0, 0, preparedMatches, undefined)
             root.appendChild(event);
         } else if (eventType.startsWith("swiss")) {
+            const threshold = Number(eventType.slice("swiss,".length)?? "-1");
+            if (threshold === -1 || Number.isNaN(threshold)) {
+                eventsHolder.appendChild(getBlankDiv());
+                console.debug(`Malformed event type: ${eventType}`);
+                return;
+            }
+
             type MinifiedMatch = {
                 team1: string;
                 score1: number;
@@ -83,8 +90,12 @@ async function loadEvent(eventId: number, eventType: string) {
                 score2: number;
                 id2: number;
             };
+            type Score = {
+              wins: number;
+              losses: number;
+            };
             let stageCount = 0;
-            const teamScores = {} as Record<number, number>;
+            const teamScores = {} as Record<number, Score>;
             const stageMatches = matches.reduce((acc, item) => {
                 const key = item.stageIndex;
                 if (!acc[key]) {
@@ -92,10 +103,10 @@ async function loadEvent(eventId: number, eventType: string) {
                     stageCount++;
                 }
                 if (!teamScores[item.firstTeamId]) {
-                    teamScores[item.firstTeamId] = 0;
+                    teamScores[item.firstTeamId] = {wins: 0, losses: 0};
                 }
                 if (!teamScores[item.secondTeamId]) {
-                    teamScores[item.secondTeamId] = 0;
+                    teamScores[item.secondTeamId] = {wins: 0, losses: 0};
                 }
 
                 const minified: MinifiedMatch = {
@@ -110,26 +121,40 @@ async function loadEvent(eventId: number, eventType: string) {
                 return acc;
             }, {} as Record<number, MinifiedMatch[]>);
 
-            for (let i = 1; i < stageCount; i++) {
-                for (let j = 0; j < stageMatches[i-1].length; j++) {
-                    const match = stageMatches[i-1][j];
-
-                    if (match.score1 > match.score2) {
-                        teamScores[match.id1]++;
-                    }  else if (match.score2 > match.score1) {
-                        teamScores[match.id2]++;
-                    } else {
-                        console.error(`Invalid state! ${match.team1} vs ${match.team2} result is indeterminate.`);
-                    }
-                }
-                stageMatches[i].sort((a, b) => teamScores[b.id1] - teamScores[a.id1]) // sort by score in descending order
-            }
 
             const root = document.createElement("div");
             root.style.display = "flex";
+            root.style.justifyContent = "center";
             root.style.flexDirection = "row";
+            root.style.flexWrap = "wrap";
             eventsHolder.appendChild(root);
+
+            const addCell = (row: HTMLTableRowElement, text: string) => {
+                const cell = document.createElement("td");
+                cell.innerText = text;
+                row.appendChild(cell);
+                return cell;
+            };
+
             for (let i = 0; i < stageCount; i++) {
+                if (i > 0) {
+                    // Count current wins and losses
+                    for (let j = 0; j < stageMatches[i-1].length; j++) {
+                        const match = stageMatches[i-1][j];
+
+                        if (match.score1 > match.score2) {
+                            teamScores[match.id1].wins++;
+                            teamScores[match.id2].losses++;
+                        }  else if (match.score2 > match.score1) {
+                            teamScores[match.id2].wins++;
+                            teamScores[match.id1].losses++;
+                        } else {
+                            console.error(`Invalid state! ${match.team1} vs ${match.team2} result is indeterminate. This might cause issues with the bracket.`);
+                        }
+                    }
+                    stageMatches[i].sort((a, b) => teamScores[b.id1].wins - teamScores[a.id1].wins) // sort by score in descending order
+                }
+
                 const stageContainer = document.createElement("table");
                 stageContainer.style.margin = "1em";
 
@@ -137,20 +162,27 @@ async function loadEvent(eventId: number, eventType: string) {
                 stageCaption.innerText = `${i + 1}. kolo`;
                 stageContainer.appendChild(stageCaption);
 
-                const addCell = (row: HTMLTableRowElement, text: string) => {
-                    const cell = document.createElement("td");
-                    cell.innerText = text;
-                    row.appendChild(cell);
-                };
-
                 for (let j = 0; j < stageMatches[i].length; j++) {
                     const match = stageMatches[i][j];
                     const matchContainer = document.createElement("tr");
 
                     addCell(matchContainer, String(match.score1));
-                    addCell(matchContainer, match.team1);
+                    const team1Cell = addCell(matchContainer, match.team1);
+                    if (teamScores[match.id1].wins === threshold - 1 && match.score1 > match.score2) {
+                        team1Cell.style.backgroundColor = "#4F9D69";
+                    } else if (teamScores[match.id1].losses === threshold -1 && match.score1 < match.score2) {
+                        team1Cell.style.backgroundColor = "#C33C54";
+                    }
+
                     addCell(matchContainer, "VS");
-                    addCell(matchContainer, match.team2);
+
+                    const team2Cell = addCell(matchContainer, match.team2);
+                    if (teamScores[match.id2].wins === threshold - 1 && match.score2 > match.score1) {
+                        team2Cell.style.backgroundColor = "#4F9D69";
+                    } else if (teamScores[match.id2].losses === threshold -1 && match.score2 < match.score1) {
+                        team2Cell.style.backgroundColor = "#C33C54";
+                    }
+
                     addCell(matchContainer, String(match.score2));
 
                     stageContainer.appendChild(matchContainer);
