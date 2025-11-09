@@ -152,7 +152,9 @@ async function loadEvent(eventId: number, eventType: string) {
                             console.error(`Invalid state! ${match.team1} vs ${match.team2} result is indeterminate. This might cause issues with the bracket.`);
                         }
                     }
-                    stageMatches[i].sort((a, b) => teamScores[b.id1].wins - teamScores[a.id1].wins) // sort by score in descending order
+                    stageMatches[i].sort((a, b) =>
+                        (teamScores[b.id1].wins + teamScores[b.id2].wins) - (teamScores[a.id1].wins + teamScores[a.id2].wins)
+                    ) // sort by score in descending order
                 }
 
                 const stageContainer = document.createElement("table");
