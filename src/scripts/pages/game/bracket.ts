@@ -129,13 +129,6 @@ async function loadEvent(eventId: number, eventType: string) {
             root.style.flexWrap = "wrap";
             eventsHolder.appendChild(root);
 
-            const addCell = (row: HTMLTableRowElement, text: string) => {
-                const cell = document.createElement("td");
-                cell.innerText = text;
-                row.appendChild(cell);
-                return cell;
-            };
-
             for (let i = 0; i < stageCount; i++) {
                 if (i > 0) {
                     // Count current wins and losses
@@ -192,9 +185,107 @@ async function loadEvent(eventId: number, eventType: string) {
 
                 root.appendChild(stageContainer);
             }
+        } else if (eventType.startsWith("groups")) {
+            type MinifiedMatch = {
+                team1: string;
+                id1: number;
+                score1: number;
+                team2: string;
+                id2: number;
+                score2: number;
+                stageIndex: number;
+            }
+
+            type Group = {
+                name: string;
+                matches: MinifiedMatch[];
+            }
+
+            const groupIndexes: string[] = [];
+            const groups = matches.reduce((acc, item) => {
+                const groupName = item.stageName.split("-", 2)[0].trimEnd();
+                if (!acc[groupName]) {
+                    acc[groupName] = {name: groupName, matches: []};
+                    groupIndexes.push(groupName);
+                }
+
+                const minified = {
+                    team1: item.firstTeamName,
+                    id1: item.firstTeamId,
+                    score1: item.firstTeamResult,
+                    team2: item.secondTeamName,
+                    id2: item.secondTeamId,
+                    score2: item.secondTeamResult,
+                    stageIndex: item.stageIndex
+                }
+                acc[groupName].matches.push(minified);
+                return acc;
+            }, {} as Record<string, Group>);
+
+            const root = document.createElement("div");
+            root.style.display = "flex";
+            root.style.flexDirection = "column";
+            root.style.alignItems = "center";
+            eventsHolder.appendChild(root);
+
+            groupIndexes.sort();
+            for (const index of groupIndexes) {
+                const group = groups[index];
+                group.matches.sort((a, b) => a.stageIndex - b.stageIndex);
+
+                const groupLabel = document.createElement("h3");
+                groupLabel.innerText = `Skupina ${index}`;
+                root.appendChild(groupLabel);
+
+                const groupContainer = document.createElement("div");
+                groupContainer.style.display = "flex";
+                groupContainer.style.justifyContent = "center";
+                groupContainer.style.flexDirection = "row";
+                groupContainer.style.flexWrap = "wrap";
+                groupContainer.style.marginBottom = "3em";
+
+                let stageContainer: HTMLTableElement|undefined;
+
+                let previousStageIndex = -1;
+                for (let i = 0; i < group.matches.length; i++) {
+                    const match = group.matches[i];
+                    if (match.stageIndex > previousStageIndex || stageContainer === undefined) {
+                        previousStageIndex = match.stageIndex;
+                        stageContainer = document.createElement("table");
+                        stageContainer.style.margin = "1em";
+
+                        const stageCaption = document.createElement("caption");
+                        stageCaption.innerText = `${match.stageIndex + 1}. kolo`
+                        stageContainer.appendChild(stageCaption);
+                    }
+
+                    const matchContainer = document.createElement("tr");
+
+                    addCell(matchContainer, String(match.score1));
+                    addCell(matchContainer, match.team1);
+                    addCell(matchContainer, "VS");
+                    addCell(matchContainer, match.team2);
+                    addCell(matchContainer, String(match.score2));
+
+                    stageContainer.appendChild(matchContainer);
+
+                    if (stageContainer !== undefined) {
+                        groupContainer.appendChild(stageContainer);
+                    }
+                }
+
+                root.appendChild(groupContainer);
+            }
         }
     }
 }
+
+function addCell(row: HTMLTableRowElement, text: string) {
+    const cell = document.createElement("td");
+    cell.innerText = text;
+    row.appendChild(cell);
+    return cell;
+};
 
 function renderEventSelector(events: TournamentEvent[], activeEvent: TournamentEvent | undefined) {
     eventsSelector.innerHTML = "";
