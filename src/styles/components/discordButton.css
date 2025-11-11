@@ -1,0 +1,19 @@
+.discordButton{
+    padding: 1rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    display: block;
+    width: fit-content;
+    color: white;
+    text-decoration: none;
+    background-color: #FFAF0A;
+    border: 0rem;
+    cursor: pointer;
+    text-align: center;
+}
+img{
+    vertical-align:middle;
+    height: 1.5rem;
+    width: auto;
+}

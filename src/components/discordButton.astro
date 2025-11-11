@@ -1,0 +1,11 @@
+---
+const { elementId } = Astro.props;
+import "../styles/components/discordButton.css"
+import DiscordSvg from "../assets/discord-logo.svg";
+import { Image } from "astro:assets";
+
+---
+    <a id={elementId} class="discordButton" href="https://discord.com/invite/WXtGFxrAdR">
+        <Image src={DiscordSvg} alt="discord"></Image>
+        Připoj se na náš discord
+    </a>
