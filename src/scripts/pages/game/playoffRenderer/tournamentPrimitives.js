@@ -185,7 +185,7 @@ export class SvgStage extends CustomSvgElement {
                 let connectionA = undefined;
                 /** @type {undefined | CustomSvgElement} */
                 let connectionB = undefined;
-                if ((match.team2 == undefined) && ((prevI + 1) >= this.options.previousStage.placementY.length)) {
+                if (match.team2 === null || (match.team2 == undefined && ((prevI + 1) >= this.options.previousStage.placementY.length))) {
                     tmpY = this.options.previousStage.placementY[prevI];
                     connectionA = this.options.previousStage.children[prevI];
                     prevI += 1;

@@ -24,9 +24,10 @@ async function loadEvent(eventId: number, eventType: string) {
             type MinifiedMatch = {
                 team1: string | undefined;
                 score1: number | undefined;
-                team2: string | undefined;
+                team2: string | undefined | null;
                 score2: number | undefined;
             };
+            matches.sort((a, b) => (a.firstTeamId + a.secondTeamId) - (b.firstTeamId + b.secondTeamId));
             const grouped = matches.reduce((acc, item) => {
                 const key = item.stageIndex;
                 if (!acc[key]) {
@@ -35,7 +36,7 @@ async function loadEvent(eventId: number, eventType: string) {
                 const itemMinified: MinifiedMatch = {
                     team1: item.firstTeamName,
                     score1: item.firstTeamResult,
-                    team2: item.secondTeamName,
+                    team2: item.firstTeamId === item.secondTeamId ? null : item.secondTeamName,
                     score2: item.secondTeamResult
                 }
                 acc[key].push(itemMinified);
