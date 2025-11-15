@@ -1,17 +1,24 @@
 #contestants-events-selector div {
     width: fit-content;
     display: inline-block;
-    margin-left: 1rem;
+    margin: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
     cursor: pointer;
+    border-radius: 999px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    box-shadow: 0 0 0.5rem 0.1rem #FFFFFF;
 }
 
 #contestants-events-selector div.active {
-    text-decoration: underline;
-    text-decoration-thickness: 0.5rem;
-    text-decoration-color: #FF9E00;
-    cursor: not-allowed;
+    text-decoration: none;
+    background-image: linear-gradient(90deg, #FFD60A, #FF9E00);
+    color: black;
+    box-shadow: 0 0 0.5rem 0.1rem #FFAF0A;
+    cursor: default;
 }
 
 #contestants-events-holder {
-    margin-top: 4rem;
+    margin-top: 2rem;
 }

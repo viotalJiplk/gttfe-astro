@@ -41,14 +41,15 @@ export class SvgMatch extends CustomSvgElement {
         this.options.minWidthScore ??= 0;
 
         this.options.bBoxOptions ??= {};
-        this.options.bBoxOptions.stroke ??= "white";
-        this.options.bBoxOptions.strokeWidth ??= 1;
-        this.options.bBoxOptions.padding ??= 2;
+        this.options.bBoxOptions.stroke ??= "#888888";
+        this.options.bBoxOptions.strokeWidth ??= 2;
+        this.options.bBoxOptions.padding ??= 6;
         this.options.bBoxOptions.minWidth ??= 0;
         this.options.bBoxOptions.maxWidth ??= this.maxWidth;
+        this.options.bBoxOptions.fill ??= "white";
 
         this.options.textOptions ??= {};
-        this.options.textOptions.textColor ??= "white";
+        this.options.textOptions.textColor ??= "black";
         this.options.textOptions.fontSize ??= "20px";
         this.options.textOptions.textAnchor ??= "start";
         this.options.textOptions.dominantBaseline ??= "hanging";

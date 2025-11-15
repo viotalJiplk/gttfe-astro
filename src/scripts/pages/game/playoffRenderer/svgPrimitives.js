@@ -229,8 +229,8 @@ export class SvgConnector extends CustomSvgElement {
             stroke: undefined,
             strokeWidth: undefined
         };
-        this.options.stroke ??= "white";
-        this.options.strokeWidth ??= 1;
+        this.options.stroke ??= "#888888";
+        this.options.strokeWidth ??= 2;
 
         this.svg = document.createElementNS(this.xmlns, "path");
         this.svg.setAttribute("stroke", this.options.stroke);
