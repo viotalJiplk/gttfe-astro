@@ -22,3 +22,7 @@
 #contestants-events-holder {
     margin-top: 2rem;
 }
+
+#contestants-events-holder svg.playoff .empty-match rect {
+    fill: #88888844;
+}
