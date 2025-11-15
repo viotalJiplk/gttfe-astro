@@ -1,12 +1,21 @@
-.contestants-player{
+/* .contestants-player{
     display: flex;
-}
-.contestants-spacer{
-    flex-grow: 1;
-}
+} */
 .contestants-players{
-    width: 30rem;
+    /*width: 30rem;*/
 }
+table{
+    width: 100%;
+}
+
+table td:first-child {
+  text-align: left;
+}
+
+table td:last-child {
+  text-align: right;
+}
+
 .contestants-team-teamIndex-participating{
     color: #68ff00;
 }
@@ -17,7 +26,7 @@
 
 @media screen and (max-width: 600px) and (max-aspect-ratio: 1) {
     .contestants-players{
-        width: 15rem;
+        /* width: 15rem; */
     }
 }
 

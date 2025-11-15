@@ -41,21 +41,41 @@ for (let gameTest of games) {
     <HorizontalCenter
         ><h1 class="GttLayoutGames-main">Účastníci</h1></HorizontalCenter
     >
-    <div
+    <table>
+        <thead>
+        <tr>
+            <th>přezdívka</th>
+            <th>role</th>
+            <th>rank</th>
+            <th>maximální rank</th>
+        </tr>
+    </thead>
+    <tbody
         id="contestants-TeamsHolder"
         data-gameId={game.data.id}
         data-gameName={game.data.name}
     >
-    </div>
+    </tbody>
+    </table>
     <HorizontalCenter
         ><h1 class="GttLayoutGames-main">Náhradníci</h1></HorizontalCenter
     >
-    <div
+    <table>
+    <thead>
+        <tr>
+            <th>přezdívka</th>
+            <th>role</th>
+            <th>rank</th>
+            <th>maximální rank</th>
+        </tr>
+    </thead>
+    <tbody
         id="contestants-TeamsHolder-notparticipating"
         data-gameId={game.data.id}
         data-gameName={game.data.name}
     >
-    </div>
+    </tbody>
+    </table>
 </GttLayoutGames>
 
 <script src="../../../scripts/pages/game/contestants.ts"></script>

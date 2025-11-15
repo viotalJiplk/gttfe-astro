@@ -5,16 +5,22 @@ class Player extends ApiObject {
     static types = {
         "userId": String,
         "nick": String,
-        "generatedRoleId": Number
+        "generatedRoleId": Number,
+        "rank": Number,
+        "maxRank": Number
     };
     userId: string = "";
     nick: string = "";
     generatedRoleId: number = -1;
-    constructor(userId = "", nick = "", generatedRoleId = -1) {
+    rank: number = 0;
+    maxRank: number = 0;
+    constructor(userId = "", nick = "", generatedRoleId = -1, rank = 0, maxRank = 0) {
         super();
         this.userId = userId;
         this.nick = nick;
         this.generatedRoleId = generatedRoleId;
+        this.rank = rank;
+        this.maxRank = maxRank;
     }
 }
 
@@ -52,6 +58,8 @@ export class Participating extends ApiObject {
         "nick": String,
         "teamId": Number,
         "userId": [undefined, String],
+        "rank": Number,
+        "maxRank": Number
     }
     canPlaySince: string;
     generatedRoleId: number;
@@ -59,7 +67,9 @@ export class Participating extends ApiObject {
     nick: string;
     teamId: number;
     userId?: string;
-    constructor(canPlaySince: string, generatedRoleId: number, name: string, nick: string, teamId: number, userId: string | undefined) {
+    rank: number;
+    maxRank: number;
+    constructor(canPlaySince: string, generatedRoleId: number, name: string, nick: string, teamId: number, userId: string | undefined, rank: number, maxRank: number) {
         super();
         this.canPlaySince = canPlaySince;
         this.generatedRoleId = generatedRoleId;
@@ -67,6 +77,8 @@ export class Participating extends ApiObject {
         this.nick = nick;
         this.teamId = teamId;
         this.userId = userId;
+        this.rank = rank;
+        this.maxRank = maxRank;
     }
 }
 
@@ -222,8 +234,8 @@ export async function create(name: string, gameId: number, nick: string, rank: n
     return await errorTest(res);
 }
 
-export async function listParticipating(gameId: number, withUserIds: boolean = false) {
-    const res = await fetch(`/backend/team/list/participating/${String(gameId)}/${withUserIds}`);
+export async function listParticipatingPlayers(gameId: number) {
+    const res = await fetch(`/backend/team/list/participating/${String(gameId)}/players/`);
     const participatingsObj = await res.json();
     const participating: Participating[][] = [];
     const teams: Team[] = [];
@@ -245,7 +257,7 @@ export async function listParticipating(gameId: number, withUserIds: boolean = f
                 const team = new Team(teamParticipating[0].name, teamParticipating[0].teamId, gameId, undefined, undefined, teamParticipating[0].canPlaySince);
                 team.players = []
                 for (let participant of teamParticipating) {
-                    team.players.push(new Player(participant.userId || "", participant.nick, participant.generatedRoleId));
+                    team.players.push(new Player(participant.userId || "", participant.nick, participant.generatedRoleId, participant.rank, participant.maxRank));
                 }
                 teams.push(team);
             }
