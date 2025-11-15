@@ -31,6 +31,11 @@ export class SvgMatch extends CustomSvgElement {
         this.y = y;
         this.svg = document.createElementNS(this.xmlns, "g");
         this.svg.classList.add("match");
+
+        if (team1 === undefined && team2 === undefined) {
+            this.svg.classList.add("empty-match");
+        }
+
         this.options = options ?? {
             minWidthTeams: 0,
             minWidthScore: 0,
