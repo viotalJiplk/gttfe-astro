@@ -24,10 +24,20 @@ async function loadEvent(eventId: number, eventType: string) {
             type MinifiedMatch = {
                 team1: string | undefined;
                 score1: number | undefined;
+                id1: number | undefined;
                 team2: string | undefined | null;
                 score2: number | undefined;
+                id2: number | undefined;
             };
-            matches.sort((a, b) => (a.firstTeamId + a.secondTeamId) - (b.firstTeamId + b.secondTeamId));
+            const dummyMatch = {
+                            team1: undefined,
+                            score1: undefined,
+                            id1: undefined,
+                            team2: undefined,
+                            score2: undefined,
+                            id2: undefined
+                        };
+
             const grouped = matches.reduce((acc, item) => {
                 const key = item.stageIndex;
                 if (!acc[key]) {
@@ -36,8 +46,10 @@ async function loadEvent(eventId: number, eventType: string) {
                 const itemMinified: MinifiedMatch = {
                     team1: item.firstTeamName,
                     score1: item.firstTeamResult,
+                    id1: item.firstTeamId,
                     team2: item.firstTeamId === item.secondTeamId ? null : item.secondTeamName,
-                    score2: item.secondTeamResult
+                    score2: item.secondTeamResult,
+                    id2: item.secondTeamId
                 }
                 acc[key].push(itemMinified);
                 return acc;
@@ -48,32 +60,71 @@ async function loadEvent(eventId: number, eventType: string) {
             for (let i = 0; i < preparedMatches.length; i++) {
                 if ((i > 0) && (preparedMatches[i].length < (Math.ceil(preparedMatches[i - 1].length / 2)))) {
                     for (let j = preparedMatches[i].length; j < Math.ceil(preparedMatches[i - 1].length / 2); j++) {
-                        preparedMatches[i].push({
-                            team1: undefined,
-                            score1: undefined,
-                            team2: undefined,
-                            score2: undefined,
-                        });
+                        preparedMatches[i].push(dummyMatch);
                     }
                 }
                 if (((i + 1) === preparedMatches.length) && (preparedMatches[i].length > 1)) {
                     preparedMatches.push([]);
                     for (let j = 0; j < Math.ceil(preparedMatches[i].length / 2); j++) {
-                        preparedMatches[i + 1].push({
-                            team1: undefined,
-                            score1: undefined,
-                            team2: undefined,
-                            score2: undefined,
-                        });
+                        preparedMatches[i + 1].push(dummyMatch);
                     }
                 }
             }
             console.log(JSON.stringify(preparedMatches, null, 4));
+
+            const continuousMatches = new Array<MinifiedMatch[]>(preparedMatches.length);
+
+            if (preparedMatches.length > 0 && preparedMatches[preparedMatches.length - 1].length > 0) {
+                continuousMatches[continuousMatches.length - 1] = preparedMatches[preparedMatches.length - 1];
+            }
+
+            for (let stage = continuousMatches.length - 1; stage > 0; stage--) {
+                continuousMatches[stage - 1] = [];
+                for (const match of continuousMatches[stage]) {
+
+                    if (match.id1 === undefined || match.id2 === undefined){
+                        // Stage is not finished => copy lower stage from prepared matches and start sorting the next
+                        continuousMatches[stage - 1] = preparedMatches[stage - 1];
+                        break;
+                    }
+
+                    const findDependency = (teamId: number) => preparedMatches[stage - 1].findIndex(x => x.id1 === teamId || x.id2 === teamId);
+
+                    if (match.id1 === match.id2) {
+                        const dependencyIndex = findDependency(match.id1);
+                        if (dependencyIndex === -1) {
+                            console.error(`Missing match dependency for team ${match.team1}`)
+                            continuousMatches[stage - 1].push(dummyMatch);
+                            continue;
+                        }
+                        continuousMatches[stage - 1].push(preparedMatches[stage - 1][dependencyIndex]);
+                        continue;
+                    }
+
+                    const dependencyIndex1 = findDependency(match.id1);
+                    if (dependencyIndex1 === -1) {
+                        console.error(`Missing match dependency for team ${match.team1}`)
+                        continuousMatches[stage - 1].push(dummyMatch);
+                    } else {
+                        continuousMatches[stage - 1].push(preparedMatches[stage - 1][dependencyIndex1]);
+                    }
+
+                    const dependencyIndex2 = findDependency(match.id2);
+                    if (dependencyIndex2 === -1) {
+                        console.error(`Missing match dependency for team ${match.team2}`)
+                        continuousMatches[stage - 1].push(dummyMatch);
+                    } else {
+                        continuousMatches[stage - 1].push(preparedMatches[stage - 1][dependencyIndex2]);
+                    }
+                }
+            }
+            console.log(JSON.stringify(continuousMatches, null, 4));
+
             const root = new ResizableSvg([]);
             root.elem.classList.add("playoff");
             eventsHolder.appendChild(root.elem);
 
-            const event = new SvgEvent(root.elem, 0, 0, preparedMatches, undefined)
+            const event = new SvgEvent(root.elem, 0, 0, continuousMatches, undefined)
             root.appendChild(event);
         } else if (eventType.startsWith("swiss")) {
             const threshold = Number(eventType.slice("swiss,".length)?? "-1");
