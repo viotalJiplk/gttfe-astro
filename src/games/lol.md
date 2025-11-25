@@ -5,9 +5,6 @@ picture: ../assets/games/logo/lol.svg
 id: 2
 ---
 
-## Čas konání: Pavouk 15.11. 9:00 - 17:00
-## &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Finále 22.11. 15:00 - 18:00
-
 # Pravidla
 
 ## Týmy
