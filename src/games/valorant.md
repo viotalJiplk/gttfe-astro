@@ -5,9 +5,6 @@ picture: ../assets/games/logo/valorant.png
 id: 5
 ---
 
-## Čas konání: Pavouk 17.11. 9:00 - 15:00
-## &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Finále 22.11. 9:00 - 12:00
-
 # Pravidla
 
 ## Formát zápasů (mimo finále)
